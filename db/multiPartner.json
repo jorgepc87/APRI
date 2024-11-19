@@ -1,0 +1,138 @@
+[
+    {
+        "blocName": "BRICS Geological Platform",
+        "members": [
+            "Russia",
+            "South Africa",
+            "China",
+            "India",
+            "United Arab Emirates",
+            "Egypt",
+            "Brazil",
+            "Ethiopia",
+            "Iran"
+        ],
+        "date": "2024-07-22",
+        "link": "https://www.dailynewsegypt.com/2024/07/23/brics-nations-back-plan-for-joint-geological-platform/"
+    },
+    {
+        "blocName": "Minerals Security Partnership",
+        "members": {
+            "countries": [
+                "Australia",
+                "Canada",
+                "Finland",
+                "France",
+                "Germany",
+                "Japan",
+                "India",
+                "Italy",
+                "Norway",
+                "South Korea",
+                "Sweden",
+                "United Kingdom"
+            ],
+            "EU": [
+                "Austria",
+                "Belgium",
+                "Bulgaria",
+                "Croatia",
+                "Cyprus",
+                "Czech Republic",
+                "Denmark",
+                "Estonia",
+                "Finland",
+                "France",
+                "Germany",
+                "Greece",
+                "Hungary",
+                "Ireland",
+                "Italy",
+                "Latvia",
+                "Lithuania",
+                "Luxembourg",
+                "Malta",
+                "Netherlands",
+                "Poland",
+                "Portugal",
+                "Romania",
+                "Slovakia",
+                "Slovenia",
+                "Spain",
+                "Sweden"
+            ]
+        },
+        "date": "2022-07-dd",
+        "link": "https://www.state.gov/minerals-security-partnership/"
+    },
+    {
+        "blocName": "EU Raw Materials Club",
+        "members": {
+            "EU": [
+                "Austria",
+                "Belgium",
+                "Bulgaria",
+                "Croatia",
+                "Cyprus",
+                "Czech Republic",
+                "Denmark",
+                "Estonia",
+                "Finland",
+                "France",
+                "Germany",
+                "Greece",
+                "Hungary",
+                "Ireland",
+                "Italy",
+                "Latvia",
+                "Lithuania",
+                "Luxembourg",
+                "Malta",
+                "Netherlands",
+                "Poland",
+                "Portugal",
+                "Romania",
+                "Slovakia",
+                "Slovenia",
+                "Spain",
+                "Sweden",
+                "TBC"
+            ]
+        },
+        "date": "2024-04-11",
+        "link": "https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal/green-deal-industrial-plan/european-critical-raw-materials-act_en"
+    },
+    {
+        "blocName": "Energy Resource Governance Initiative",
+        "members": [
+            "USA",
+            "Canada",
+            "Australia",
+            "Peru",
+            "Botswana"
+        ],
+        "date": "2020-10-21",
+        "link": "https://2017-2021.state.gov/united-states-signs-memorandum-of-understanding-with-peru-and-botswana-on-critical-energy-minerals/"
+    },
+    {
+        "blocName": "IPEF Critical Minerals Dialogue",
+        "members": [
+            "Australia",
+            "Brunei Darussalam",
+            "Fiji",
+            "India",
+            "Indonesia",
+            "Japan",
+            "Malaysia",
+            "New Zealand",
+            "Phillippines",
+            "Singapore",
+            "Republic of Korea",
+            "Thailand",
+            "United States",
+            "Vietnam"
+        ],
+        "date": "2023-11-16",
+        "link": "https://www.mofa.go.jp/mofaj/files/100582855.pdf"
+    }
+]

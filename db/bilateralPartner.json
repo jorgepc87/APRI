@@ -1,0 +1,1280 @@
+[
+    {
+        "nonafrican": {
+            "name": "EU",
+            "countries": [
+                "Austria",
+                "Belgium",
+                "Bulgaria",
+                "Croatia",
+                "Cyprus",
+                "Czech Republic",
+                "Denmark",
+                "Estonia",
+                "Finland",
+                "France",
+                "Germany",
+                "Greece",
+                "Hungary",
+                "Ireland",
+                "Italy",
+                "Latvia",
+                "Lithuania",
+                "Luxembourg",
+                "Malta",
+                "Netherlands",
+                "Poland",
+                "Portugal",
+                "Romania",
+                "Slovakia",
+                "Slovenia",
+                "Spain",
+                "Sweden"
+            ]            
+        },
+        "partnership": [
+            {
+                "country": "Democratic Republic of the Congo",
+                "typeAgreement": "MoU on a partnership on sustainable value chains of critical and strategic raw materials",
+                "year": "2023-10-26",
+                "minerals": "",
+                "areasCoop": [
+                        "Value Chain Integration",
+                        "Promotion of Investment",
+                        "Economic Diversification / Value Addition",
+                        "Mining Infrastructure Development",
+                        "Promotion of Social & Environmental Sustainability",
+                        "Knowledge Sharing / Joint Research / Expert Exchanges",
+                        "Training & Capacity Building",
+                        "Promotion of Company Cooperation",
+                        "Technology Sharing"
+                ],
+                "linkAgreement": "https://single-market-economy.ec.europa.eu/publications/memorandum-understanding-eu-democratic-republic-congo-sustainable-raw-materials_en"
+            },
+            {
+                "country": "Namibia",
+                "typeAgreement": "MoU on a partnership on sustainable raw materials value chains and renewable hydrogen",
+                "year": "2022-11-08",
+                "minerals": "",
+                "areasCoop": [
+                    "Value Chain Integration",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Mining Infrastructure Development",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing"
+                ],
+                "linkAgreement": "https://single-market-economy.ec.europa.eu/document/download/56b5fdff-bc0e-4b3a-8e0f-6b9fc907617b_en",
+                "sources": ""
+            }, 
+            {
+                "country": "Rwanda",
+                "typeAgreement": "MoU on a strategic partnership on sustainable raw materials value chains",
+                "year": "2024-02-19",
+                "minerals": "",
+                "areasCoop": [
+                    "Value Chain Integration",
+                    "Promotion of Company Cooperation",
+                    "Mining Infrastructure Development",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Technology Sharing",
+                    "Training & Capacity Building",
+                    "Economic Diversification / Value Addition",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "https://ec.europa.eu/docsroom/documents/58035",
+                "sources": ""
+            },
+            {
+                "country": "Zambia",
+                "typeAgreement": "MoU on a partnership on sustainable raw materials value chains",
+                "minerals": "",
+                "areasCoop": [
+                    "Value Chain Integration",
+                    "Promotion of Company Cooperation",
+                    "Promotion of Investment",
+                    "Mining Infrastructure Development",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Technology Sharing",
+                    "Training & Capacity Building"
+                ],
+                "linkAgreement": "https://single-market-economy.ec.europa.eu/publications/memorandum-understanding-eu-zambia-sustainable-raw-materials_en?prefLang=de",
+                "sources": ""                
+            }
+        ]
+    },
+    {
+        "nonafrican": "Italy",
+        "partnership": [
+            {
+                "country": "Libya",
+                "typeAgreement": "Joint declaration on the promotion of economic and industrial collaboration initiatives in the energy, critical raw materials, and green technology sectors",
+                "year": "2024-05-21",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Company Cooperation",
+                    "Promotion of Investment",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.agenzianova.com/en/news/la-missione-di-urso-in-libia-focus-su-industria-materie-prime-e-rinnovabili/"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Portugal",
+        "partnership": [
+            {
+                "country": "Mozambique",
+                "typeAgreement": "MoU for institutional, scientific, and business cooperation in mineral resources ",
+                "year": "2014-03-27",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Company Cooperation",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "",
+                "sources": "https://allafrica.com/stories/201403281654.html"
+            }
+        ],
+        "center": [11.1607181, 12.2795728],
+        "zoom": 4
+    },
+    {
+        "nonafrican": "Saudi Arabia",
+        "partnership": [
+            {
+                "country": "Democratic Republic of the Congo",
+                "typeAgreement": "MoU on Cooperation in the Field of Mineral Wealth",
+                "year": "2024-01-10",
+                "minerals": "Nickel, Cobalt, Copper, Manganese, Lithium",
+                "areasCoop": ["Promotion of Investment"],
+                "linkAgreement": "",
+                "sources": "https://agsiw.org/saudi-arabias-and-the-uaes-quest-for-african-critical-minerals/"
+            },
+            {
+                "country": "Egypt",
+                "typeAgreement": "MoU on Cooperation in the Field of Mineral Wealth",
+                "year": "2024-01-10",
+                "minerals": "",
+                "areasCoop": ["Promotion of Investment"],
+                "linkAgreement": "",
+                "sources": "https://agsiw.org/saudi-arabia-pushes-ahead-to-become-a-global-mining-player/"
+            },
+            {
+                "country": "Morocco",
+                "typeAgreement": "MoU on Cooperation in the Field of Mineral Wealth",
+                "year": "2024-01-10",
+                "minerals": "",
+                "areasCoop": ["Promotion of Investment"],
+                "linkAgreement": "",
+                "sources": "https://www.mining-technology.com/news/saudi-arabia-mou-mining/?cf-view"
+            },
+            {
+                "country": "Nigeria",
+                "typeAgreement": "Joint Technical Committee",
+                "year": "2024-01-10",
+                "minerals": "",
+                "areasCoop": ["Promotion of Investment"],
+                "linkAgreement": "",
+                "sources": "https://fmino.gov.ng/nigeria-saudi-arabia-pledge-collaboration-on-mining-sector-development/"
+            },
+            {
+                "country": "Chad",
+                "typeAgreement": "MoU for technical cooperation in the field of mining and mineral resources",
+                "year": "2023-11-11",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
+            },
+            {
+                "country": "Senegal",
+                "typeAgreement": "MoU for technical cooperation in the field of mining and mineral resources",
+                "year": "2023-11-11",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
+            },
+            {
+                "country": "Zimbabwe",
+                "typeAgreement": "MoU for technical cooperation in the field of mining and mineral resources",
+                "year": "2023-11-11",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
+            },
+            {
+                "country": "Mauritania",
+                "typeAgreement": "MoU for cooperation in the field of mineral resources",
+                "year": "2023-11-11",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
+            }
+        ],
+        "center": [20.839707, 40.204066]
+    },
+    {
+        "nonafrican": "United Arab Emirates",
+        "partnership": [
+            {
+                "country": "Zambia",
+                "typeAgreement": "MoU to Strengthen Mineral Resource Exploration",
+                "year": "2023-07-21",
+                "minerals": "",
+                "areasCoop": ["Cooperation on Exploration & Geology"],
+                "linkAgreement": "",
+                "sources": "https://www.lusakatimes.com/2023/07/21/zambia-uae-seal-mining-exploration-dea/"
+            },
+            {
+                "country": "Kenya",
+                "typeAgreement": "Bilateral Investment Co-Operation Agreement on Mining and Technology",
+                "year": "2024-04-21",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Technology Sharing",
+                    "Cooperation on Exploration & Geology",
+                    "Economic Diversification / Value Addition"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.thenationalnews.com/business/economy/2024/04/24/uae-and-kenya-sign-investment-pact-to-bolster-mining-and-technology-sectors/"
+            }
+        ],
+        "center": [5.0336537, 34.4408996],
+        "zoom": 4.24
+    },
+    {
+        "nonafrican": "Iran",
+        "partnership": [
+            {
+                "country": "South Africa",
+                "typeAgreement": "MoU between the Ministry of Mineral and Energy Affairs of the Republic of South Africa and the Ministry of Mines and Metals of the Islamic Republic of Iran on Cooperation in the Fields of Mining and Minerals",
+                "year": "1995-09-19",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://pmg.org.za/files/201014Bilateral_agreements2020.rtf&ved=2ahUKEwii8_OMxe-HAxUdg_0HHfciCeEQFnoECBMQAQ&usg=AOvVaw3bSaTuum68dC8sLcfQ3ZvQ"
+            }
+        ]
+    },
+    {
+        "nonafrican": "India",
+        "partnership": [
+            {
+                "country": "Cote d'Ivoire",
+                "typeAgreement": "MoU - Field of Geology and Mineral Resources",
+                "year": "2024-02-05",
+                "minerals": "Cobalt, Copper, Lithium",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://mines.gov.in/webportal/newsdetail/an-mou-has-been-signed-between-india-and-the-republic-of-cote-dlvoire-for-collaboration-in-field-of-geology-and-mineral-resources-"
+            },
+            {
+                "country": "Mozambique",
+                "typeAgreement": "MoU on Cooperation in the Field of Mineral Resources ",
+                "year": "2010-09-30",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Training & Capacity Building",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e7873a68f51680767091.pdf",
+                "sources": ""
+            },
+            {
+                "country": "Tanzania",
+                "typeAgreement": "Agreement to Collaborate on Research on Strategic Minerals ",
+                "year": "2023-04-dd",
+                "minerals": "",
+                "areasCoop": [
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Exploration & Geology"
+                ],
+                "linkAgreement": "",
+                "sources": "https://dailynews.co.tz/tanzania-india-agree-to-develop-research-in-strategic-minerals/"
+            },
+            {
+                "country": "Zambia",
+                "typeAgreement": "MoU on Cooperation in the Field of Geology and Mineral Resouces",
+                "year": "2019-08-21",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation"
+                ],
+                "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/6437889f7e2f91681361055.pdf",
+                "sources": ""
+            },
+            {
+                "country": "Malawi",
+                "typeAgreement": "MoU on Cooperation in the Field of Mineral Resources and Development ",
+                "year": "2010-11-03",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Technology Sharing",
+                    "Training & Capacity Building"
+                ],
+                "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e78b0858f81680767152.pdf",
+                "sources": ""
+            },
+            {
+                "country": "Zimbabwe",
+                "typeAgreement": "MoU Concerning Cooperation in the Fields of Geology, Mining and Mineral Resources",
+                "year": "2018-11-03",
+                "minerals": "",
+                "areasCoop": [
+                    "Technology Sharing",
+                    "Promotion of Company Cooperation",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e74b0298b71680766128.pdf",
+                "sources": ""
+            },
+            {
+                "country": "Mali",
+                "typeAgreement": "MoU on Cooperation in Geology and Mineral Resources",
+                "year": "2012-01-11",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Technology Sharing",
+                    "Cooperation on Exploration & Geology",
+                    "Economic Diversification / Value Addition",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation"
+                ],
+                "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e7649cfa151680766537.pdf",
+                "sources": ""
+            },
+            {
+                "country": "South Africa",
+                "typeAgreement": "MoU for Cooperation in the mining sector",
+                "year": "1997-10-07",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://economictimes.indiatimes.com/industry/indl-goods/svs/metals-mining/mines-minister-narendra-singh-tomar-invites-global-firms-to-invest-in-india/articleshow/46213029.cms?from=mdr"
+            },
+            {
+                "country": "Morocco",
+                "typeAgreement": "MoU in the Field of Mining and Geology",
+                "year": "2018-04-11",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e7615ca2cd1680766485.pdf",
+                "sources": ""
+            }
+        ],
+        "center": [0.6800132, 28.0431746],
+        "zoom": 3.86
+    },
+    {
+        "nonafrican": "South Korea",
+        "partnership": [
+            {
+                "country": "Madagascar",
+                "typeAgreement": "MoU on Critical Minerals",
+                "year": "2024-06-05",
+                "minerals": "",
+                "areasCoop": ["Value Chain Integration"],
+                "linkAgreement": "",
+                "sources": "https://en.yna.co.kr/view/AEN20240605007151320"
+            },
+            {
+                "country": "Tanzania",
+                "typeAgreement": "MoU on Critical Minerals",
+                "year": "2024-06-05",
+                "minerals": "",
+                "areasCoop": ["Value Chain Integration"],
+                "linkAgreement": "",
+                "sources": "https://en.yna.co.kr/view/AEN20240605007151320"
+            },
+            {
+                "country": "Nigeria",
+                "typeAgreement": "MoU on Investments in the Solid Minerals Sector",
+                "year": "2006-mm-dd",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://punchng.com/south-korea-indicates-interest-in-nigerias-lithium/"
+            }
+        ],
+        "center": [6.7340692, 60.1059652],
+        "zoom": 3.91
+    },
+    {
+        "nonafrican": "Japan",
+        "partnership": [
+            {
+                "country": "Namibia",
+                "typeAgreement": "Agreement on the Exploration of Rare Earth Material",
+                "year": "2023-08-08",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Value Chain Integration"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.reuters.com/markets/commodities/japan-signs-deal-with-namibia-explore-rare-earth-minerals-2023-08-08/"
+            },
+            {
+                "country": "Democratic Republic of the Congo",
+                "agreements": [
+                    {
+                        "typeAgreement": "Agreement on Cooperation in rare earth mineral mining",
+                        "year": "2022-12-09",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Promotion of Investment",
+                            "Value Chain Integration",
+                            "Promotion of Company Cooperation"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "https://english.kyodonews.net/news/2022/12/fc7ee5cec6b2-japan-to-promote-investment-in-congo-for-stable-rare-mineral-supply.html"
+                    },
+                    {
+                        "typeAgreement": "Agreement on the Exploration and Extraction of Mineral Resources",
+                        "year": "2023-08-10",
+                        "minerals": "",
+                        "areasCoop": ["Cooperation on Exploration & Geology"],
+                        "linkAgreement": "",
+                        "sources": "https://northafricapost.com/70647-japan-inks-critical-mineral-deals-with-five-african-countries-to-mitigate-reliance-on-china.html"
+                    }
+                ]
+            },
+            {
+                "country": "Zambia",
+                "typeAgreement": "Joint Statement on the Cooperation in the Mining Sector",
+                "year": "2023-08-11",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://northafricapost.com/70647-japan-inks-critical-mineral-deals-with-five-african-countries-to-mitigate-reliance-on-china.html"
+            },
+            {
+                "country": "Madagascar",
+                "typeAgreement": "Agreement for Participation in Nickel and Cobalt Mining and Refining Enterprises",
+                "year": "2023-08-dd",
+                "minerals": "",
+                "areasCoop": ["Value Chain Integration"],
+                "linkAgreement": "",
+                "sources": "https://energycapitalpower.com/japan-mineral-deals-five-african-countries/"
+            },
+            {
+                "country": "South Africa",
+                "typeAgreement": "Agreement on Bilateral Cooperation in the areas of the mining value chain, skills development, research and technology",
+                "year": "2017-02-09",
+                "minerals": "",
+                "areasCoop": [
+                    "Training & Capacity Building",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Investment"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.howwemadeitinafrica.com/japans-engagement-with-africa-shows-a-long-term-commitment-to-the-continent/62055/"
+            }
+        ],
+        "center": [4.0604365, 74.014325],
+        "zoom": 3.68
+    },
+    {
+        "nonafrican": "China",
+        "partnership": [
+            {
+                "country": "South Africa",
+                "agreements": [
+                    {
+                        "typeAgreement": "Agreement on Co-operation in the Minerals and Energy Sector",
+                        "year": "2007-09-24",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA"
+                    },
+                    {
+                        "typeAgreement": "Letter of Intent on Cooperation in the Field of Geology and Minerals",
+                        "year": "2008-11-10",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA"
+                    },
+                    {
+                        "typeAgreement": "Comprehensive Strategic Partnership, including a bilateral agreement on mineral exploration and mineral resources",
+                        "year": "2010-08-01",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://saiia.org.za/wp-content/uploads/2014/08/Occasional-Paper-199.pdf"
+                    }
+                ]
+            },
+            {
+                "country": "Democratic Republic of the Congo",
+                "typeAgreement": "Cooperation Package of 'Resource for Projects' (mining industry & infrastructure) / 'Sicomines Agreement'",
+                "year": "2007",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "http://pg.china-embassy.gov.cn/eng/fyrth/202305/t20230522_11081498.htm ; https://news.cgtn.com/news/2023-05-24/DRC-president-s-visit-to-China-a-gold-mine-for-bilateral-relations-1k3W7Wr63gk/index.html"
+            },
+            {
+                "country": "Angola",
+                "agreements": [
+                    {
+                        "typeAgreement": "Cooperation Agreement on Technical Aid between the Angolan Ministries of Petroleum and Geology and Mining, and China's National Commission for Development and Reform",
+                        "year": "2006-03-07",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "http://www.afrol.com/articles/15848"
+                    },
+                    {
+                        "typeAgreement": "Agreement on Cooperation in the Minerals Sector",
+                        "year": "2006-03-07",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "http://www.afrol.com/articles/15848"
+                    },
+                    {
+                        "typeAgreement": "MoU on mining sector research",
+                        "year": "2016-09-05",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Cooperation on Exploration & Geology",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "https://forumchinaplp.org.mo/en/economic_trade/view/3396"
+                    }
+                ]
+            },
+            {
+                "country": "Algeria",
+                "typeAgreement": "Comprehensive Strategic Cooperation Plan (including an agrement on mining)",
+                "year": "February 2014 - and later renewed",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.aps.dz/en/algeria/48290-algeria-china-intensifying-political-cooperation-deepening-economic-partnership"
+            },
+            {
+                "country": "Morocco",
+                "typeAgreement": "Strategic Partnership (separate agreement on mining included)",
+                "year": "2016-05-01",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "http://french.xinhuanet.com/2016-05/11/c_135351719.htm"
+            },
+            {
+                "country": "Sudan",
+                "agreements": [
+                    {
+                        "typeAgreement": "MoU on Cooperation in the Mining Industry",
+                        "year": "2010-mm-dd",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Cooperation on Exploration & Geology"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "http://sd.china-embassy.gov.cn/eng/dshd/202010/t20201016_6689197.htm"
+                    },
+                    {
+                        "typeAgreement": "Cooperation Agreement on Mineral Resources",
+                        "year": "2012-mm-dd",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Training & Capacity Building",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Cooperation on Exploration & Geology"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "https://china.aiddata.org/projects/30432/"
+                    }
+                ]
+            },
+            {
+                "country": "Zambia",
+                "typeAgreement": "Mining Cooperation Pact",
+                "year": "2010-02-01",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.reuters.com/article/world/zambian-leader-china-sign-mining-cooperation-deal-idUSJOE61O0J5/"
+            },
+            {
+                "country": "Nigeria",
+                "agreements": [
+                    {
+                        "typeAgreement": "MoU on Mining Cooperation",
+                        "year": "2012-mm-dd",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://dailytrust.com/nigeria-and-china-sign-agreement-on-mining-cooperation/"
+                    },
+                    {
+                        "typeAgreement": "Joint Statement to Deepen Minerals Cooperation",
+                        "year": "2024-06-24",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://www.vanguardngr.com/2024/06/nigeria-china-bolster-bilateral-cooperation/"
+                    }
+                ]
+            },
+            {
+                "country": "Zimbabwe",
+                "typeAgreement": "Agreement on Technical Cooperation in the Mining Sector",
+                "year": "2004-11-01",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://saiia.org.za/wp-content/uploads/2014/10/Occasional-Paper-202.pdf"
+            },
+            {
+                "country": "Mozambique",
+                "typeAgreement": "Economic and technical cooperation agreement for agriculture, health, education and mining",
+                "year": "2004-mm-dd",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://ciencia.ucp.pt/ws/portalfiles/portal/88802885/28059790.pdf"
+            },
+            {
+                "country": "Rwanda",
+                "agreements": [
+                    {
+                        "typeAgreement": "Agreement on Mineral Exploration",
+                        "year": "2017-mm-dd",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://africanminingmarket.com/rwanda-to-use-chinese-experts-for-minerals-exploration/5229/"
+                    },
+                    {
+                        "typeAgreement": "Bilateral Agreement on Mining",
+                        "year": "2018-07-23",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://www.theeastafrican.co.ke/tea/news/east-africa/kagame-xi-sign-15-deals-strengthen-rwanda-china-ties-1398832"
+                    }
+                ]
+            }
+        ],
+        "center": [11.6200344, 58.3297427],
+        "zoom": 3.56
+    },
+    {
+        "nonafrican": "Indonesia",
+        "partnership": [
+            {
+                "country": "Kenya",
+                "typeAgreement": "MoU on Сooperation in the field of mining and geology",
+                "year": "2023-08-21",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation",
+                    "Training & Capacity Building",
+                    "Promotion of Social & Environmental Sustainability"
+                ],
+                "linkAgreement": "https://treaty-room.kemlu.go.id/daftar-perjanjian",
+                "sources": "https://www.theeastafrican.co.ke/tea/business/the-deals-kenya-signed-with-indonesia-4342920"
+            },
+            {
+                "country": "Tanzania",
+                "typeAgreement": "Agreement on Investment in Minerals",
+                "year": "2024-01-25",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Legislation & Policies",
+                    "Cooperation on Exploration & Geology",
+                    "Economic Diversification / Value Addition",
+                    "Cooperation on Extraction",
+                    "Technology Sharing",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Promotion of Investment",
+                    "Value Chain Integration"
+                ],
+                "linkAgreement": "https://treaty-room.kemlu.go.id/daftar-perjanjian",
+                "sources": "https://www.theeastafrican.co.ke/tea/news/east-africa/samia-inks-gas-health-and-agriculture-deals-in-indonesia-4505156"
+            },
+            {
+                "country": "Algeria",
+                "typeAgreement": "MoU on Energy and Mining",
+                "year": "2023-12-01",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
+                ],
+                "linkAgreement": "",
+                "sources": "https://kemlu.go.id/algiers/en/news/27530/visiting-algeria-for-the-first-time-the-indonesian-foreign-minister-strengthens-economic-cooperation-between-the-two-countries"
+            },
+            {
+                "country": "Morocco",
+                "typeAgreement": "MoU on Energy and Minerals Sector",
+                "year": "2018-mm-dd",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://indonesiawindow.com/en/indonesia-morocco-hold-joint-committee-meeting-on-energy/"
+            },
+            {
+                "country": "Libya",
+                "typeAgreement": "MoU on the Energy and Mineral Resources Cooperation",
+                "year": "2008-02-07",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Economic Diversification / Value Addition",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "https://treaty-room.kemlu.go.id/daftar-perjanjian",
+                "sources": "https://treaty-room.kemlu.go.id/daftar-perjanjian"
+            }
+        ],
+        "center": [0.7232849, 56.9653558],
+        "zoom": 3.79
+    },
+    {
+        "nonafrican": "Timor-Leste",
+        "partnership": [
+            {
+                "country": "Mozambique",
+                "typeAgreement": "Cooperation Agreement on hydrocarbons and mining",
+                "year": "2024-07-05",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://clubofmozambique.com/news/mozambique-and-timor-leste-sign-cooperation-agreements-261262/"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Russia",
+        "partnership": [
+            {
+                "country": "Zimbabwe",
+                "agreements": [
+                    {
+                        "typeAgreement": "MoU on geological exploration of mineral resources",
+                        "year": "2019-10-25",
+                        "minerals": "",
+                        "areasCoop": ["Cooperation on Exploration & Geology"],
+                        "linkAgreement": "",
+                        "sources": "https://saiia.org.za/wp-content/uploads/2020/11/Special-Report-kachur-002.pdf.   https://www.herald.co.zw/zim-russia-sign-2-mining-mous/"
+                    },
+                    {
+                        "typeAgreement": "MoU on Cooperation in the Field of Diamond Exploration and Mining",
+                        "year": "2020-10-29",
+                        "minerals": "",
+                        "areasCoop": ["Cooperation on Exploration & Geology"],
+                        "linkAgreement": "",
+                        "sources": "https://africanminingmarket.com/zimbabwe-and-russia-sign-exploration-mining-mous/8449/"
+                    },
+                    {
+                        "typeAgreement": "MoU on Cooperation on PGMs",
+                        "year": "2020-10-29",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://africanminingmarket.com/zimbabwe-and-russia-sign-exploration-mining-mous/8449/"
+                    },
+                    {
+                        "typeAgreement": "MoU on cooperation in environmental protection and sustainable use of resources",
+                        "year": "2019-10-25",
+                        "minerals": "",
+                        "areasCoop": ["Promotion of Social & Environmental Sustainability"],
+                        "linkAgreement": "",
+                        "sources": "https://saiia.org.za/wp-content/uploads/2020/11/Special-Report-kachur-002.pdf https://www.herald.co.zw/zim-russia-sign-2-mining-mous/"
+                    }
+                ]
+            },
+            {
+                "country": "Mozambique",
+                "typeAgreement": "MoU on technical cooperation in geology and minerals extraction",
+                "year": "2019-08-22",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://tass.com/economy/1074649 https://mozambiqueminingjournal.com/russia-mozambique-strengthen-bilateral-relations/. https://interfax.com/newsroom/top-stories/92017/"
+            },
+            {
+                "country": "South Africa",
+                "agreements": [
+                    {
+                        "typeAgreement": "MoU on Platinum Group Metals - demand and use of PGMs",
+                        "year": "2013-03-27",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Cooperation on Exploration & Geology",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Technology Sharing"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "https://www.miningreview.com/news/south-africa-and-russia-recommit-to-pgms-mou/"
+                    },
+                    {
+                        "typeAgreement": "Agreement on Cooperation in the Sphere of exploration, extraction, processing and enrichment of minerals",
+                        "year": "1999-04-28",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Promotion of Company Cooperation",
+                            "Technology Sharing",
+                            "Training & Capacity Building"
+                        ],
+                        "linkAgreement": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC064704/",
+                        "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC064704/"
+                    }
+                ]
+            },
+            {
+                "country": "Togo",
+                "typeAgreement": "Agreeement for Cooperation in Energy, Natural Resources and Agriculture",
+                "year": "2021-02-dd",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.bannedthought.net/Australia/CPA-ML/Pamphlets/CPA-ML-Russia'sNewAfricanAdventure-2022.pdf"
+            },
+            {
+                "country": "Angola",
+                "agreements": [
+                    {
+                        "typeAgreement": "Cooperation Protocol on Geology and Mining",
+                        "year": "2005-mm-dd",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://saiia.org.za/wp-content/uploads/2013/10/Occasional-Paper-154.pdf"
+                    },
+                    {
+                        "typeAgreement": "MoU on Technical Cooperation between the Angolan Ministry of Geology and Mines & the Russian Ministry of Natural Resources",
+                        "year": "2009-06-26",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Cooperation on Exploration & Geology",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "https://saiia.org.za/wp-content/uploads/2013/10/Occasional-Paper-154.pdf"
+                    },
+                    {
+                        "typeAgreement": "Cooperation Agreement on Diamond Mining",
+                        "year": "2019-04-04",
+                        "minerals": "",
+                        "areasCoop": "",
+                        "linkAgreement": "",
+                        "sources": "https://www.africanews.com/2019/04/06/russia-angola-sign-cooperation-deals-in-moscow//"
+                    }
+                ]
+            },
+            {
+                "country": "Namibia",
+                "typeAgreement": "Intergovernmental Agreement on Cooperation in Geology and Mineral Resources",
+                "year": "2016-mm-dd",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "http://en.kremlin.ru/events/president/news/61882"
+            }
+        ],
+        "center": [32.6635629, 75.0995067],
+        "zoom": 3
+    },
+    {
+        "nonafrican": "Canada",
+        "partnership": [
+            {
+                "country": "South Africa",
+                "typeAgreement": "MoU between the Government of the Republic of South Africa and the Government of Canada Concerning Cooperation in Mining and Minerals Development (investment, skills development, technical expertise, value addition, benefication)",
+                "year": "2015-03-03",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Training & Capacity Building",
+                    "Economic Diversification / Value Addition",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA https://www.sowetanlive.co.za/news/2015-03-04-sa-canada-sign-mining-agreement/"
+            }
+        ]
+    },
+    {
+        "nonafrican": "USA",
+        "partnership": [
+            {
+                "country": "Democratic Republic of the Congo",
+                "typeAgreement": "MoU on the Support for the Development of a Value Chain in the Electric Vehicles Battery Sector",
+                "year": "2022-12-13",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Value Chain Integration",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
+                ],
+                "linkAgreement": "https://www.state.gov/wp-content/uploads/2023/01/2023.01.13-E-4-Release-MOU-USA-DRC-ZAMBIA-Tripartite-Agreement-Tab-1-MOU-for-U.S.-Assistance-to-Support-DRC-Zambia-EV-Value-Chain-Cooperation-Instrument.pdf",
+                "sources": ""
+            },
+            {
+                "country": "Zambia",
+                "typeAgreement": "MoU on the Support for the Development of a Value Chain in the Electric Vehicles Battery Sector",
+                "year": "2022-12-13",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Value Chain Integration",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
+                ],
+                "linkAgreement": "https://www.state.gov/wp-content/uploads/2023/01/2023.01.13-E-4-Release-MOU-USA-DRC-ZAMBIA-Tripartite-Agreement-Tab-1-MOU-for-U.S.-Assistance-to-Support-DRC-Zambia-EV-Value-Chain-Cooperation-Instrument.pdf",
+                "sources": ""
+            }
+        ],
+        "center": [14.5798609, -29.2579057],
+        "zoom": 3.6
+    },
+    {
+        "nonafrican": "Chile",
+        "partnership": [
+            {
+                "country": "Algeria",
+                "agreements": [
+                    {
+                        "typeAgreement": "MoU on cooperation in the field of energy and mining",
+                        "year": "2005-05-16",
+                        "minerals": "",
+                        "areasCoop": ["Cooperation on Legislation & Policies"],
+                        "linkAgreement": "",
+                        "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC067571/"
+                    },
+                    {
+                        "typeAgreement": "Joint Mining and Energy Committee",
+                        "year": "2023-09-04",
+                        "minerals": "",
+                        "areasCoop": [
+                            "Promotion of Company Cooperation",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges"
+                        ],
+                        "linkAgreement": "",
+                        "sources": "https://www.minrel.gob.cl/noticias-anteriores/subsecretaria-gloria-de-la-fuente-encabezo-v-reunion-de-consultas"
+                    }
+                ]
+                
+            },
+            {
+                "country": "South Africa",
+                "typeAgreement": "MoU between the Department of Mineral Resources of the Republic of South Africa and the Ministry of Mining of the Republic of Chile on Co-operation in the Field of Mineral Resources",
+                "year": "2017-07-12",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Brazil",
+        "partnership": [
+            {
+                "country": "Angola",
+                "typeAgreement": "Protocol on Intent on Technical Cooperation on Geology and Mining",
+                "year": "1992-07-15",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://digitalcommons.du.edu/cgi/viewcontent.cgi?article=1076&context=djilp"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Cuba",
+        "partnership": [
+            {
+                "country": "Angola",
+                "typeAgreement": "Cooperation Agreement in the domain of Geology and Mining",
+                "year": "2009-02-05",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Legislation & Policies",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Training & Capacity Building"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC135336"
+            },
+            {
+                "country": "South Africa",
+                "typeAgreement": "Agreement on Cooperation in the Fields of Mining and Energy",
+                "year": "2003-07-04",
+                "inforce": "No",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Venezuela",
+        "partnership": [
+            {
+                "country": "South Africa",
+                "typeAgreement": "Letter of Intent between the Department of Mineral Resources of the Republic of South Africa and the Ministry of People's Power for Basic Industries and Mining of the Bolivarian Republic of Venezuela on Future Cooperation in the Field of Mining",
+                "year": "2009-11-11",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA"
+            }
+        ]
+    },
+    {
+        "nonafrican": "UK",
+        "partnership": [
+            {
+                "country": "South Africa",
+                "typeAgreement": "Joint Statement to partner on minerals for future clean energy technologies",
+                "year": "2022-11-21",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Promotion of Investment",
+                    "Economic Diversification / Value Addition",
+                    "Value Chain Integration",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Training & Capacity Building",
+                    "Promotion of Company Cooperation",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.gov.uk/government/publications/uk-south-africa-joint-statement-on-partnering-on-minerals-for-future-clean-energy-technologies"
+            },
+            {
+                "country": "Nigeria",
+                "typeAgreement": "Joint Technical Working Group on Mining Development",
+                "year": "2024-01-dd",
+                "minerals": "",
+                "areasCoop": ["Promotion of Investment"],
+                "linkAgreement": "",
+                "sources": "https://independent.ng/nigeria-uk-to-form-technical-committee-on-mining-development/"
+            },
+            {
+                "country": "Zambia",
+                "typeAgreement": "UK-Zambia Green Growth Compact",
+                "year": "2023-08-03",
+                "minerals": "",
+                "areasCoop": ["Promotion of Investment"],
+                "linkAgreement": "",
+                "sources": "https://www.reuters.com/world/britain-agrees-deals-clean-energy-critical-minerals-with-zambia-2023-08-02/"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Turkey",
+        "partnership": [
+            {
+                "country": "Morocco",
+                "typeAgreement": "Cooperation Agreement on Mining (exploration, joint projects, capacity building, technical cooperation)",
+                "year": "2024-06-27",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Company Cooperation",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building",
+                    "Technology Sharing"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.moroccoworldnews.com/2024/06/363512/morocco-turkey-sign-strategic-energy-and-mining-agreements"
+            },
+            {
+                "country": "Nigeria",
+                "typeAgreement": "Cooperation Agreement on Mining",
+                "year": "2021-10-20",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.aa.com.tr/en/energy/international-relations/turkey-nigeria-sign-energy-hydrocarbons-and-mining-mous/33844"
+            },
+            {
+                "country": "Somalia",
+                "typeAgreement": "MoU concerning cooperation in the field of energy and mining",
+                "year": "2016-06-02",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
+                ],
+                "linkAgreement": "",
+                "sources": "https://nordicmonitor.com/2020/02/turkey-set-up-mechanism-to-explore-oil-gas-and-mining-opportunities-in-somalia/"
+            },
+            {
+                "country": "Guinea",
+                "typeAgreement": "MoU on cooperation in the fields of hydrocarbons and mining",
+                "year": "2017-02-23",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation",
+                    "Training & Capacity Building"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC165318/"
+            },
+            {
+                "country": "Sudan",
+                "typeAgreement": "MoU on Cooperation in the fields of mining and minerals",
+                "year": "2018-01-12",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Technology Sharing",
+                    "Training & Capacity Building",
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Legislation & Policies"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC173335/"
+            },
+            {
+                "country": "Niger",
+                "typeAgreement": "MoU for Cooperation in the field of mining",
+                "year": "2017-08-02",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation",
+                    "Cooperation on Exploration & Geology"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC172291/"
+            },
+            {
+                "country": "Uganda",
+                "typeAgreement": "MoU on cooperation in the fields of hydrocarbons, mining and minerals",
+                "year": "2016-10-30",
+                "minerals": "",
+                "areasCoop": ["Knowledge Sharing / Joint Research / Expert Exchanges"],
+                "linkAgreement": "",
+                "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC165316/"
+            },
+            {
+                "country": "Ethiopia",
+                "typeAgreement": "Agreement on Cooperation in Mining and Hydrocarbons",
+                "year": "2016-12-28",
+                "minerals": "",
+                "areasCoop": [
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation",
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Legislation & Policies"
+                ],
+                "linkAgreement": "https://nordicmonitor.com/2020/02/turkey-approves-agreement-with-ethiopia-for-cooperation-in-petroleum-and-mining/#:~:text=The%20agreement%20states%20in%20Article,and%20gas%20infrastructure%3B%20and%20the",
+                "sources": "https://nordicmonitor.com/2020/02/turkey-approves-agreement-with-ethiopia-for-cooperation-in-petroleum-and-mining/"
+            }
+        ],
+        "center": [20.554766, 33.6492337],
+        "zoom": 4.34
+    },
+    {
+        "nonafrican": "Belarus",
+        "partnership": [
+            {
+                "country": "Sudan",
+                "typeAgreement": "Joint Agreement on Minerals Investment and Development",
+                "year": "2017-05-01",
+                "minerals": "",
+                "areasCoop": [
+                    "Promotion of Investment",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing"
+                ],
+                "linkAgreement": "",
+                "sources": "https://sudantribune.com/article60531/"
+            }
+        ]
+    },
+    {
+        "nonafrican": "Austria",
+        "partnership": [
+            {
+                "country": "Nigeria",
+                "typeAgreement": "Agreement on economic, industrial and technical cooperation (mining & exploration included)",
+                "year": "1982-02-09",
+                "minerals": "",
+                "areasCoop": [
+                    "Cooperation on Exploration & Geology",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
+                ],
+                "linkAgreement": "",
+                "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC136416/"
+            }
+        ]
+    }
+
+]

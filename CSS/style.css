@@ -1,0 +1,707 @@
+@font-face {
+  font-family: "RalewayC";
+  src: url("../img/font/Raleway.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RalewayN";
+  src: url("../img/font/RalewayN.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RalewayMedium";
+  src: url("../img/font/Raleway-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RalewayLightItalic";
+  src: url("../img/font/Raleway-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RalewayLight";
+  src: url("../img/font/Raleway-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RalewayBold";
+  src: url("../img/font/Raleway-Bold.ttf") format("truetype");
+}
+body {
+  font-family: "MiFuenteNormal", sans-serif;
+}
+button {
+  font-family: Uncut sans, sans-serif;
+  font-size: 12pt;
+}
+
+.btn-select {
+  justify-content: center;
+}
+
+.drop-and-map {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: auto;
+  height: auto;
+  justify-content: center;
+
+  /* .col-3.info-partner {
+        flex: 1;
+        border: black 0.5px solid;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+        /* overflow-y: auto; */
+}
+
+h1 {
+  font-size: 52pt;
+  font-family: "RalewayN", sans-serif;
+}
+
+.intro-text {
+  margin-bottom: 20px;
+  max-width: auto;
+}
+
+.intro-text {
+  .col-center {
+    width: 100%;
+  }
+}
+
+h2.accordion-header.partner-header {
+  .accordion-button2 {
+    font-size: 14pt;
+    font-weight: normal;
+    margin-top: 12px;
+    font-family: "RalewayMedium", sans-serif;
+    color: #252525;
+  }
+  .african-button {
+    font-size: 14pt;
+    font-weight: normal;
+    font-family: "RalewayMedium", sans-serif;
+
+    color: #252525;
+  }
+}
+
+.partner-select {
+  font-size: 22pt;
+  font-weight: bolder;
+  font-family: "RalewayN", sans-serif;
+}
+
+.fix-col {
+  max-height: 700px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Ocultar las flechas del scrollbar en navegadores WebKit */
+.custom-scroll::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar */
+  height: 8px; /* Altura del scrollbar (si es un scroll horizontal) */
+}
+
+.custom-scroll::-webkit-scrollbar-button {
+  display: none; /* Ocultar las flechas */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Color del thumb */
+  border-radius: 10px; /* Bordes redondeados para el thumb */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #ccc; /* Fondo transparente para la pista */
+}
+
+.accordion {
+  height: 100%;
+  padding: 0px;
+  width: 450px;
+  margin-bottom: 0px;
+}
+
+.african-button,
+.accordion-button2 {
+  display: flex;
+  box-shadow: none;
+  width: 100%;
+  background-color: #ffdc94; /* Color inicial */
+  padding: 18.5px;
+  border: none;
+  border-radius: 2.9px !important;
+  font-size: 10pt !important;
+  text-align: left;
+  outline: none;
+  height: 50px;
+  font-family: "RalewayMedium", sans-serif;
+
+}
+
+
+/* Estilo cuando un botón está en foco */
+
+
+
+
+
+.accordion-button2:focus,
+.accordion-button2.active {
+  background-color: #fec03c !important; 
+  font-family: "RalewayBold", sans-serif;
+  font-weight: bold;
+  box-shadow: none !important;
+}
+/* Estilo cuando un botón no tiene foco */
+.african-button:not(:focus),
+.accordion-button2:not(:focus) {
+  background-color: #ffdc94; /* Color al no estar en foco */
+}
+
+.african-button:not(:focus).active {
+  background-color: #ffdc94; /* Restablece el color si pierde foco */
+}
+
+.list-partners {
+  font-size: 16pt;
+  font-family: "RalewayN", sans-serif;
+}
+.list-partners {
+  .list-group-item {
+    font-size: 30pt;
+    font-family: "RalewayN", sans-serif;
+  }
+}
+
+.card.partnership {
+  display: flex;
+  border: 1px solid lightgray; /* Cambia el borde a gris claro */
+  border-radius: 7px;
+  padding: 0px 20px 10px 20px;
+  width: 140px;
+}
+
+.card.partnership.expanded {
+  width: 100%;
+  border: none; /* Cambia el borde a gris claro */
+  /*padding: 0px 0px 10px 0px;*/
+
+}
+
+.card-body.partner {
+  margin: 0;
+  padding: 2px;
+  border: none;
+  border-bottom: #252525 solid 0.5px;
+  margin-right: 10px;
+}
+
+.card-subtitle.agreement {
+  font-weight: 400;
+  font-size: 11pt;
+  font-family: "RalewayLight", sans-serif;
+  line-height: 1.5; /* Ajusta el valor para aumentar el interlineado */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0rem !important;
+}
+
+.drop-and-map {
+  display: flex;
+}
+
+.accordion-body .accordion-bilateral {
+  border: black solid 0.5px;
+  padding: 0.75rem 0.75rem;
+}
+
+.accordion-body .accordion-multilateral {
+  border: black solid 0.5px;
+  padding: 0.75rem 0.75rem;
+}
+
+.list-group-item {
+  border: none;
+  cursor: pointer;
+  margin: 2px 2px;
+}
+
+.col-3 .info-partner {
+  display: none;
+  border: black solid 1px;
+  border-radius: 7px;
+  /* max-width: 100%;
+    height: 100%;
+    border: black solid .5px;
+    border-radius: 7px;
+    width: 25%; 
+    transition: opacity 0.3s ease, width 0.3s ease; 
+    padding-left: 0;
+    text-align: start; */
+}
+
+.width-third-col .col-3 .info-partner {
+  height: 100%;
+  transition: opacity 0.3s ease, width 0.3s ease;
+  /* Smooth transition */
+
+  padding-left: 0;
+  text-align: start;
+}
+
+/* #accordionFlushExample {
+    width: 25%;
+} */
+.first-col.col-2 {
+  padding: 0;
+  margin: 0 0;
+  border-top: none;
+
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.second-col.col-8 {
+  border-left: none;
+  border-right: none;
+}
+
+.third-col {
+  display: block;
+  justify-content: flex-end;
+}
+.nuevo {
+  display: flex;
+  /* border: 3px solid lightgray; /* Cambia el borde a gris claro */
+  width: 100%;
+  height: 100%;
+}
+/* #map {
+    width: 60%; card.partnershi
+    height: auto;
+    transition: width 0.3s ease; 
+} */
+#map {
+  /*width: 50px; */
+  width: 50%;
+  margin-left: 8px;
+  height: auto;
+  padding: 0px;
+  position: relative;
+
+  /* flex-grow: 1;*/
+  /*transition: width 0.5s ease, height 0.5s ease;*/
+}
+
+.width-third-col #map {
+  width: 70%;
+}
+
+.hidden {
+  display: none;
+}
+
+.expanded {
+  width: 75%;
+  height: 100% !important;
+  /* Expanded width for the second column when the third is hidden */
+}
+
+.card-title.tooltip-title {
+  color: #fff;
+}
+.card-title.list-partners {
+  font-weight: bold;
+  font-family: "RalewayN", sans-serif;
+  font-size: 13pt;
+}
+.tooltip-text {
+  color: #fff;
+}
+.ms-2 {
+  margin-left: 10px !important;
+}
+.container-xl {
+  max-width: 100% !important;
+}
+.allview {
+  display: flex;
+  box-sizing: border-box;
+  border: 0.5px solid #d7d7d7; /* Cambia el borde a gris claro */
+  border-radius: 10px; /* Curva las esquinas */
+  padding: 20px;
+  justify-content: space-between;
+  margin: 0 60px 0 60px;
+  box-sizing: border-box; /* Asegura que los bordes no causen desbordamiento */
+  height: 800px;
+
+}
+.selectores {
+  width: 250PX;
+}
+
+.accordion-item {
+  border: none;
+  margin-top: 3px;
+}
+
+
+
+.list-group-item.bloc-select {
+  color: #757575; /* Color original de texto */
+  text-decoration: none; /* Sin subrayado por defecto */
+  transition: color 0.3s, text-decoration-color 0.3s;
+  padding-left: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+  font-size: 10pt;
+}
+
+.list-group-item.bloc-select:hover {
+  color: #fcc12c; /* Cambia el color del texto a rojo */
+  text-decoration: underline; /* Agrega subrayado */
+  text-decoration-color: #fcc12c; /* Subrayado en rojo */
+  text-underline-offset: 4px; /* Ajusta la distancia del subrayado */
+}
+.list-group-item.country-select {
+  color: #757575; /* Color original de texto */
+  text-decoration: none; /* Sin subrayado por defecto */
+  transition: color 0.3s, text-decoration-color 0.3s;
+  padding-left: 0px;
+  padding-top: 0px;
+  margin: 0px;
+  font-size: 10pt;
+}
+.list-group-item.country-select:hover {
+  color: #fcc12c; /* Cambia el color del texto a rojo */
+  text-decoration: underline; /* Agrega subrayado */
+  text-decoration-color: r#fcc12ced; /* Subrayado en rojo */
+  text-underline-offset: 10px; /* Ajusta la distancia del subrayado */
+}
+.line {
+  width: 100%; /* Hace que la línea ocupe el ancho completo de las opciones */
+  height: 3px; /* Altura de la línea */
+  background-color: #fcc12c; /* Color rojo */
+  margin-bottom: 14px; /* Espacio opcional encima de la línea */
+
+}
+.line-black {
+  width: 100%; /* Hace que la línea ocupe el ancho completo de las opciones */
+  height: 1px; /* Altura de la línea */
+  background-color: #000000; /* Color rojo */
+}
+
+.print-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  background-color: #ffdc94; /* Color de fondo amarillo */
+  color: #000; /* Color de texto */
+  font-weight: normal;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  gap: 12px; /* Espacio entre el texto y el ícono */
+  transition: background-color 0.3s;
+  width: 95px;
+  height: 28px;
+  font-family: "RalewayMedium", sans-serif;
+}
+
+.print-button:hover {
+  background-color: #fec03c; /* Color de fondo al pasar el mouse */
+}
+
+.print-icon {
+  height: 18px; /* Altura del ícono */
+}
+
+.container {
+  display: flex;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  box-sizing: border-box; /* Asegura que los bordes no causen desbordamiento */
+}
+
+.left {
+  width: 300px; /* Ancho fijo de 1000px para el primer div */
+}
+
+.center {
+  flex-grow: 1; /* Ocupa todo el espacio restante */
+  text-align: center; /* Alinea el contenido del div a la derecha */
+}
+
+.right {
+  width: fit-content; /* Ancho fijo de 1000px para el primer div */
+  margin-left: 14px;
+  justify-content: flex-end; /* Alinea el contenido dentro del div a la derecha */
+}
+.right.bilateral {
+  width: 450px; /* Ancho fijo de 1000px para el primer div */
+
+  margin-left: 12px; /* Empuja el div a la derecha */
+  justify-content: flex-end; /* Alinea el contenido dentro del div a la derecha */
+}
+
+.tag {
+  position: relative;
+  display: inline-block;
+  background-color: #e0f7fa;
+  padding: 1px 10px;
+  margin: 3px;
+  border-radius: 5px;
+  color: #00796b;
+  font-size: 0.7em;
+  cursor: pointer;
+  font-family: "RalewayN", sans-serif;
+}
+
+.tag .tooltip {
+  font-family: "RalewayLight", sans-serif;
+
+  visibility: hidden;
+
+  line-height: 1; /* Reducir interlineado */
+  text-align: left; /* Alineación del texto a la izquierda */
+  padding: 4px 6px; /* Espaciado interno en el tooltip */
+  font-size: 8pt;
+  width: 150px; /* Ajusta el ancho del tooltip */
+  background-color: #333;
+  color: #fff;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 125%; /* Ajusta la posición del tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tag:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.controls {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: rgba(255, 255, 255, 0.8); /* Opcional, para visibilidad */
+  border-radius: 5px;
+  align-items: flex-end;
+  background-color: transparent;
+}
+
+/* Contenedor de los botones de zoom */
+.btnZoom {
+  top: 10px; /* Ajusta la posición según tus necesidades */
+  right: 10px; /* Ajusta la posición según tus necesidades */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos comunes para los botones */
+.btnZoom button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0px; /* Elimina el padding para que el botón no tenga espacio extra */
+  border: none; /* Borde negro */
+  margin:0px;
+
+}
+
+/* Estilos para los iconos SVG dentro de los botones */
+.btnZoom button img {
+  width: 30px; /* Ajusta el tamaño del icono */
+  height: 30px;
+
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff; /* Fondo gris para el contenedor del toggle */
+  padding: 3px;
+  border-radius: 20px;
+  width: 45px;
+  cursor: pointer;
+}
+
+.toggle-button {
+  width: 16px;
+  height: 16px;
+  background-color: #f2f2f2; /* Verde cuando está inactivo */
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.toggle-container.active .toggle-button {
+  background-color: #4b4b4b; /* Amarillo cuando está activo */
+  transform: translateX(18px); /* Mueve el botón a la derecha */
+}
+
+.label {
+  font-size: 14px;
+  color: #000;
+  margin: 0px;
+  margin-right: 12px;
+  font-family: "RalewayN", sans-serif;
+  margin-left: 12px;
+
+
+}
+.control-toggle {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 3px 5px 3px 5px;
+  border-radius: 7px;
+  border: 1pt solid #fff; /* Borde negro */
+  margin-top: 6px;
+
+}
+
+.header {
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 3rem 4rem 3rem 4rem;
+  border-radius: 5px;
+  font-family: "RalewayN", sans-serif;
+}
+
+.title {
+  font-size: 35pt;
+  margin-bottom: 0px;
+  color: #000;
+  /*font-weight: bold;*/
+  font-family: "RalewayBold", sans-serif;
+  font-weight: bold;
+
+}
+
+.subtitle {
+  font-size: 24pt;
+  color: #000;
+  margin-bottom: 20px;
+  border-bottom: 2pt solid #fcc12c; /* Línea anaranjada */
+  padding-bottom: 15px; /* Espacio entre el texto y la línea */
+  display: inline-block;
+  font-family: "RalewayMedium", sans-serif;
+  font-weight: normal;
+}
+
+.description {
+  color: #000;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-weight: normal;
+  padding-right: 140px;
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  font-family: "RalewayMedium", sans-serif;
+}
+
+.downloadButton img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.imgDownload {
+  margin-left: 10px;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 3px;
+  font-size: 10pt;
+}
+
+.tooltip {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+.tooltip h3 {
+  font-size: 14px;
+  margin: 0;
+}
+.tooltip ul {
+  list-style: none;
+  padding: 0;
+}
+.tooltip ul li {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+
+/* Alinea el triángulo al borde derecho */
+.triangle-icon {
+  margin-left: auto; /* Empuja el triángulo hacia el extremo derecho */
+  width: 16px; /* Ajusta el tamaño del triángulo */
+  height: 16px;
+  transition: transform 0.3s ease; /* Suaviza la animación */
+}
+/* Rotación dependiendo del estado del botón */
+.accordion-button2[aria-expanded="true"] .triangle-icon {
+  transform: rotate(-180deg);
+}
+
+.accordion-button2[aria-expanded="false"] .triangle-icon {
+  transform: rotate(0deg);
+}
+
+
+
+
+
+.list-group-item:focus,
+.list-group-item.activeDetail {
+  color: #fcc12c; /* Cambia el color del texto a rojo */
+  text-decoration: underline; /* Agrega subrayado */
+  text-decoration-color: #fcc12c; /* Subrayado en rojo */
+  text-underline-offset: 4px; /* Ajusta la distancia del subrayado */
+}
+/* Estilos para los íconos SVG */
+img.zoom-active {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg); /* Cambia el color */
+}
+
+img.zoom-in-active {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg); /* Color para zoom-in */
+}
+
+img.zoom-out-active {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg); /* Color para zoom-out */
+}
+
+#printable  {
+
+}

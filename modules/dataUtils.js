@@ -30,7 +30,7 @@ export async function loadAndMergeData(
       } else {
         nonAfricanPartner = partner.nonafrican;
       }
-      console.log("Non african partner", nonAfricanPartner);
+      //console.log("Non african partner", nonAfricanPartner);
       partner.partnership.forEach((p) => {
         if (partnershipMap.has(nonAfricanPartner)) {
           partnershipMap.get(nonAfricanPartner).push(p.country);
@@ -39,7 +39,7 @@ export async function loadAndMergeData(
         }
       });
     });
-    console.log("partnership map", partnershipMap);
+    //console.log("partnership map", partnershipMap);
     jsonData.forEach((partner) => {
       if (partner.center) {
         centerMap.set(partner.nonafrican, partner.center);
@@ -50,7 +50,7 @@ export async function loadAndMergeData(
         zoomMap.set(partner.nonafrican, partner.zoom);
       }
     });
-    console.log("JSON data", jsonData);
+    //console.log("JSON data", jsonData);
     nojsonData.forEach((entry) => {
       partnersNoMap.set(entry.africanCountry, entry.partnersNo);
     });
@@ -67,7 +67,7 @@ export async function loadAndMergeData(
     });
     return { geojsonData, jsonData, nojsonData, partnershipMap };
   } catch (error) {
-    console.error("Error loading or merging data:", error);
+    //console.error("Error loading or merging data:", error);
     return null;
   }
 }
@@ -81,10 +81,10 @@ export async function mergeMulti(geojsonUrl, multiJsonFilePath) {
     const multiJsonData = await multiJsonResponse.json();
 
     const blocToMembersMap = new Map();
-    console.log("Multijson data", multiJsonData);
+    //console.log("Multijson data", multiJsonData);
     multiJsonData.forEach((partner) => {
       const blocName = partner.blocName;
-      console.log("bloc name", blocName);
+      //console.log("bloc name", blocName);
       if (!blocToMembersMap.has(blocName)) {
         blocToMembersMap.set(blocName, []);
       }
@@ -98,7 +98,7 @@ export async function mergeMulti(geojsonUrl, multiJsonFilePath) {
         }
       } else {
         partner.members.forEach((member) => {
-          console.log("Member", member);
+          //console.log("Member", member);
           if (!blocToMembersMap.get(blocName).includes(member)) {
             blocToMembersMap.get(blocName).push(member);
           }
@@ -116,7 +116,7 @@ export async function mergeMulti(geojsonUrl, multiJsonFilePath) {
     });
     return { geojsonMultiData, multiJsonData };
   } catch (error) {
-    console.error("Error loading or merging data:", error);
+    //console.error("Error loading or merging data:", error);
     return null;
   }
 }
@@ -136,13 +136,13 @@ export async function createBlocGeoJSON(
     let targetMembers = [];
     multiJsonData.forEach((bloc) => {
       if (bloc.blocName === targetBlocName) {
-        console.log("Type of bloc members", typeof bloc.members);
+        //console.log("Type of bloc members", typeof bloc.members);
         if (Array.isArray(bloc.members)) {
           targetMembers = bloc.members;
         } else {
-          console.log("bloc members", bloc.members);
+          //console.log("bloc members", bloc.members);
           for (let key in bloc.members) {
-            console.log("key", key);
+            //console.log("key", key);
             if (bloc.members[key]) {
               bloc.members[key].forEach((item) => {
                 targetMembers.push(item);
@@ -155,7 +155,7 @@ export async function createBlocGeoJSON(
     const filteredFeatures = geojsonData.features.filter((feature) => {
       return targetMembers.includes(feature.properties.name);
     });
-    console.log("Target members", targetMembers);
+    //console.log("Target members", targetMembers);
     // Create a new GeoJSON object with the filtered features
     const filteredGeoJSON = {
       type: "FeatureCollection",
@@ -163,7 +163,7 @@ export async function createBlocGeoJSON(
     };
     return filteredGeoJSON;
   } catch (error) {
-    console.error("Error creating bloc GeoJSON:", error);
+    //console.error("Error creating bloc GeoJSON:", error);
     return null;
   }
 }
@@ -183,7 +183,7 @@ export function filterCountriesByPartner(mergedBiData, selectedCountry) {
   const selectedCountryFeature = mergedBiData.features.find(
     (feature) => feature.properties.name === selectedCountry
   );
-  console.log("Selected country", selectedCountryFeature);
+  //console.log("Selected country", selectedCountryFeature);
   const partners = selectedCountryFeature.properties.partners || [];
   const filteredGeoJSON = {
     type: "FeatureCollection",
@@ -193,7 +193,7 @@ export function filterCountriesByPartner(mergedBiData, selectedCountry) {
         partners.includes(feature.properties.name)
     ),
   };
-  console.log("Filtered GeoJSON is now:", filteredGeoJSON);
+  //console.log("Filtered GeoJSON is now:", filteredGeoJSON);
   return filteredGeoJSON;
 }
 
@@ -202,7 +202,7 @@ export async function filterEUandPartners(geojsonData, jsonData) {
   const euContries = eu.nonafrican.countries;
   const euPartners = eu.partnership.map((partner) => partner.country);
   const euPartnership = euContries.concat(euPartners);
-  console.log("eu partnership", euPartnership);
+  //console.log("eu partnership", euPartnership);
   const filteredFeatures = geojsonData.features.filter((feature) => {
     return euPartnership.includes(feature.properties.name);
   });
@@ -210,6 +210,6 @@ export async function filterEUandPartners(geojsonData, jsonData) {
     type: "FeatureCollection",
     features: filteredFeatures,
   };
-  console.log("Filter EU partners", filteredGeoJSON);
+  //console.log("Filter EU partners", filteredGeoJSON);
   return filteredGeoJSON;
 }

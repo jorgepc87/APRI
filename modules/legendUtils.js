@@ -28,9 +28,9 @@ export function addLegend(svg, colorScale) {
 
   colorScale.range().forEach((d, i) => {
     if (i > 0) {
-      console.log("D in color loop", d);
-      console.log("I in color loop", i);
-      console.log("D in color scale", colorScale.range());
+      //console.log("D in color loop", d);
+      //console.log("I in color loop", i);
+      //console.log("D in color scale", colorScale.range());
       const legendItem = legend
         .append("div")
         .attr("class", "legend-item")

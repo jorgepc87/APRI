@@ -198,7 +198,7 @@ export function drawMap(geojson, filteredCountryGeoJSON) {
 export function destroyMap() {
   // Selecciona todo dentro del SVG y lo elimina
   svg.selectAll("*").remove();
-  console.log("Map destroyed, all paths and elements removed.");
+  //console.log("Map destroyed, all paths and elements removed.");
 }
 let currentZoom = "";
 let isCountryLabelsVisible = false; // Las etiquetas están no visibles por defecto
@@ -206,8 +206,8 @@ let isCountryLabelsVisible = false; // Las etiquetas están no visibles por defe
 export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   svg.selectAll("path").remove();
 
-  console.log("GeoJSON features:", geojsonData.features);
-  console.log("Number data", numberData);
+  //console.log("GeoJSON features:", geojsonData.features);
+ // console.log("Number data", numberData);
   const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
 
   const colorScale = d3

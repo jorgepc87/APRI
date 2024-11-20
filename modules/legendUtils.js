@@ -16,14 +16,17 @@ export function addLegend(svg, colorScale) {
     .attr("class", "line-black")
     .style("text-align", "left")
     .style("margin-top", "0px")
-
     .style("margin-bottom", "10px");
 
   const legend = legendContainer
     .append("div")
     .attr("class", "legend-vertical")
     .style("display", "flex")
-    .style("flex-direction", "column")
+    .style("flex-direction", window.innerWidth <= 768 ?  "rows" :  "column")
+	.style("justify-content", window.innerWidth <= 768 ? "center" : "flex-start") // Condicional para distribución
+	.style("text-align", window.innerWidth <= 768 ? "center" : "left") // Condicional para distribución
+	.style("align-items", window.innerWidth <= 768 ? "center" : "left") 
+
     .style("align-items", "left");
 
   colorScale.range().forEach((d, i) => {
@@ -34,19 +37,22 @@ export function addLegend(svg, colorScale) {
       const legendItem = legend
         .append("div")
         .attr("class", "legend-item")
-        .style("display", "flex")
+        .style("display", window.innerWidth <= 768 ? "block" : "flex")
+		.style("margin", "0 auto")
+
         .style("align-items", "center")
         .style("margin", "5px 0");
 
       legendItem
         .append("div")
-        .style("width", "20px")
-        .style("height", "20px")
+        .style("width",  window.innerWidth <= 768 ? "40px":"20px")
+        .style("height",  window.innerWidth <= 768 ? "40px":"20px")
         .style("background-color", colorScale.range()[i])
         .style("margin-right", "10px");
       //legendItem.shift();
 
-      legendItem.append("span")
+      legendItem
+        .append("span")
         .text(numberToWord(i))
         .style("font-size", "14px")
         .style("font-family", "RalewayN");

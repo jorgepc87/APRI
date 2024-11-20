@@ -138,19 +138,11 @@ h2.accordion-header.partner-header {
   outline: none;
   height: 50px;
   font-family: "RalewayMedium", sans-serif;
-
 }
-
-
-/* Estilo cuando un botón está en foco */
-
-
-
-
 
 .accordion-button2:focus,
 .accordion-button2.active {
-  background-color: #fec03c !important; 
+  background-color: #fec03c !important;
   font-family: "RalewayBold", sans-serif;
   font-weight: bold;
   box-shadow: none !important;
@@ -188,7 +180,6 @@ h2.accordion-header.partner-header {
   width: 100%;
   border: none; /* Cambia el borde a gris claro */
   /*padding: 0px 0px 10px 0px;*/
-
 }
 
 .card-body.partner {
@@ -337,10 +328,9 @@ h2.accordion-header.partner-header {
   margin: 0 60px 0 60px;
   box-sizing: border-box; /* Asegura que los bordes no causen desbordamiento */
   height: 600px;
-
 }
 .selectores {
-  width: 250PX;
+  width: 250px;
 }
 
 .accordion-item {
@@ -348,7 +338,13 @@ h2.accordion-header.partner-header {
   margin-top: 3px;
 }
 
-
+.print-div {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-bottom: 1rem;
+}
 
 .list-group-item.bloc-select {
   color: #757575; /* Color original de texto */
@@ -386,7 +382,6 @@ h2.accordion-header.partner-header {
   height: 3px; /* Altura de la línea */
   background-color: #fcc12c; /* Color rojo */
   margin-bottom: 14px; /* Espacio opcional encima de la línea */
-
 }
 .line-black {
   width: 100%; /* Hace que la línea ocupe el ancho completo de las opciones */
@@ -500,8 +495,11 @@ h2.accordion-header.partner-header {
   border-radius: 5px;
   align-items: flex-end;
   background-color: transparent;
+  pointer-events: none;
 }
-
+.controls * {
+	pointer-events: auto; /* Habilita eventos del mouse en todos los elementos hijos */
+  }
 /* Contenedor de los botones de zoom */
 .btnZoom {
   top: 10px; /* Ajusta la posición según tus necesidades */
@@ -520,15 +518,13 @@ h2.accordion-header.partner-header {
   background-color: transparent;
   padding: 0px; /* Elimina el padding para que el botón no tenga espacio extra */
   border: none; /* Borde negro */
-  margin:0px;
-
+  margin: 0px;
 }
 
 /* Estilos para los iconos SVG dentro de los botones */
 .btnZoom button img {
   width: 30px; /* Ajusta el tamaño del icono */
   height: 30px;
-
 }
 
 .toggle-container {
@@ -562,8 +558,6 @@ h2.accordion-header.partner-header {
   margin-right: 12px;
   font-family: "RalewayN", sans-serif;
   margin-left: 12px;
-
-
 }
 .control-toggle {
   display: flex;
@@ -573,7 +567,6 @@ h2.accordion-header.partner-header {
   border-radius: 7px;
   border: 1pt solid #fff; /* Borde negro */
   margin-top: 6px;
-
 }
 
 .header {
@@ -591,7 +584,6 @@ h2.accordion-header.partner-header {
   /*font-weight: bold;*/
   font-family: "RalewayBold", sans-serif;
   font-weight: bold;
-
 }
 
 .subtitle {
@@ -660,8 +652,6 @@ h2.accordion-header.partner-header {
   line-height: 1.4;
 }
 
-
-
 /* Alinea el triángulo al borde derecho */
 .triangle-icon {
   margin-left: auto; /* Empuja el triángulo hacia el extremo derecho */
@@ -677,10 +667,6 @@ h2.accordion-header.partner-header {
 .accordion-button2[aria-expanded="false"] .triangle-icon {
   transform: rotate(0deg);
 }
-
-
-
-
 
 .list-group-item:focus,
 .list-group-item.activeDetail {
@@ -701,7 +687,169 @@ img.zoom-in-active {
 img.zoom-out-active {
   filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg); /* Color para zoom-out */
 }
+#toggleDescription {
+  visibility: hidden;
+}
+/*para movil */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .header {
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+  }
+  .description {
+    padding-right: 0px;
+	margin-bottom: 20px;
+  }
+  .title {
+    font-size: 24pt;
+  }
+  .subtitle {
+    font-size: 17pt;
+  }
 
-#printable  {
+  #toggleDescription {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    color: #007bff; /* Color del texto */
+    cursor: pointer;
+    font-size: 10pt;
+    text-decoration: none; /* Elimina el subrayado */
+    font-family: "RalewayN", sans-serif;
+    margin: 0;
+    padding-left: 5px;
+    visibility: visible;
+  }
 
+  .downloadButton {
+    font-size: 10pt;
+  }
+
+  .imgPdf {
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 8px !important;
+  }
+  .imgDownload {
+    width: 15px !important;
+    height: 15px !important;
+    margin-left: 10px !important;
+  }
+  .print-div {
+    display: none;
+  }
+  .allview {
+    border: 0px;
+    border-radius: 0px; /* Curva las esquinas */
+    padding: 0px;
+    justify-content: space-between;
+    margin: 0 0px 0 0px;
+    box-sizing: border-box; /* Asegura que los bordes no causen desbordamiento */
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+  .selectores {
+    width: 100%;
+  }
+  .accordion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 10px 12px;
+    width: 100%;
+  }
+
+  .accordion-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .accordion-button2 {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .accordion-button2 img {
+    margin-left: 10px;
+  }
+
+  .first-col,
+  .second-col,
+  .right {
+    display: flex;
+    flex-direction: column; /* Aseguramos que los elementos internos se dispongan verticalmente */
+    justify-content: flex-start; /* Alineamos al inicio de la columna */
+  }
+
+  .second-col {
+    justify-content: center; /* Centrar contenido si es necesario */
+    align-items: center; /* Alinea horizontalmente */
+  }
+
+  .third-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Centrado de los elementos dentro de la tercera columna */
+  }
+  #map {
+    width: 100vw;
+    margin-left: 0px;
+    height: 400px;
+  }
+  .african-button,
+  .accordion-button2 {
+    font-size: 10pt !important;
+    text-align: left;
+    outline: none;
+    height: 35px !important;
+    font-family: "RalewayMedium", sans-serif;
+  }
+  h2.accordion-header.partner-header {
+    .accordion-button2 {
+      margin-top: 0px;
+    }
+  }
+  .card.partnership {
+    width: 100vw; /* Asegura que abarque todo el ancho del viewport */
+    padding: 0px 0px 0px 0px;
+    padding: 20px;
+    border: 0px solid lightgray; /* Cambia el borde a gris claro */
+  }
+  .right {
+    margin-left: 0px;
+    /*margin: 10px;*/
+  }
+  .right.bilateral {
+    margin-left: 0px;
+    width: 100vw;
+    padding: 0 0px 0 0px;
+    /*margin: 10px;*/
+  }
+  .controls {
+    bottom: 0px; /* Mover a la parte inferior */
+    right: 6px; /* Mantener en el borde derecho */
+    top: auto;
+    flex-direction: column; /* Asegurarse de que se apilen verticalmente */
+    margin-bottom: 6px;
+  }
+
+  /* Si quieres cambiar el orden de los elementos, puedes usar order */
+  .btnZoom {
+    order: 1; /* Asegura que BtnZoom esté por encima */
+  }
+
+  .control-toggle {
+    order: 2; /* Poner control-toggle debajo de BtnZoom */
+  }
+  .control-toggle {
+    margin-top: 0px;
+  }
 }

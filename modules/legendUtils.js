@@ -17,7 +17,7 @@ export function addLegend(svg, colorScale) {
     .style("text-align", "left")
     .style("margin-top", "0px")
 
-    .style("margin-bottom", "20px");
+    .style("margin-bottom", "10px");
 
   const legend = legendContainer
     .append("div")

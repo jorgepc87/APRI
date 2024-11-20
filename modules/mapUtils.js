@@ -14,8 +14,8 @@ function zoomed(event) {
   g.attr("stroke-width", 1 / transform.k);
 }
 //aumentar un parametro para identificar el pais y con ello hacer el zoom mas personalizado para cada uno - JORGE PAREDES
-export function drawMap(geojson, filteredCountryGeoJSON) {
-  console.log(filteredCountryGeoJSON)
+export function drawMap(geojson, filteredCountryGeoJSON, partner) {
+  console.log(filteredCountryGeoJSON);
   // Establecer el viewBox inicial
   svg.attr("viewBox", `-100 0 1000 600`);
 
@@ -31,79 +31,12 @@ export function drawMap(geojson, filteredCountryGeoJSON) {
     .data(geojson.features)
     .enter()
     .append("path")
-    .attr("d", path)  // Aquí asumo que tienes una variable 'path' definida previamente
+    .attr("d", path) // Aquí asumo que tienes una variable 'path' definida previamente
     .attr("fill", "#d3d3d3")
     .attr("stroke", "white")
     .attr("stroke-width", 0.5)
-    .on("click", clicked)
-    .on("mouseover", function (event, d) {
-
-      const isInFilteredList = filteredCountryGeoJSON.features.some(
-        (feature) => feature.properties.name === d.properties.name
-      );
-
-      if (isInFilteredList) {
-        // Solo mostrar el ícono si está en la lista filtrada
-        g.append("image")
-          .attr("class", "hover-icon")
-          .attr("xlink:href", "img/icons/noun.svg")
-          .attr("width", 20)
-          .attr("height", 20)
-          .attr("x", path.centroid(d)[0] - 10)
-          .attr("y", path.centroid(d)[1] - 20)
-          .style("pointer-events", "none") // Ignorar eventos del mouse
-          .style("opacity", 0)
-          .transition()
-          .duration(300)
-          .style("opacity", 1);
-      }
-      // Ocultar el nombre de la ciudad
-      /*   g.selectAll(".city-label")
-           .filter((label) => label.properties.name === d.properties.name)
-           .transition()
-           .duration(300)
-           .style("opacity", 0)
-           .style("pointer-events", "none") // Ignora eventos del mouse*/
-    })
-    .on("mouseout", function (event, d) {
-      const countryName = d.properties.name;
-
-      d3.select(this).transition().duration(300).style("opacity", 1);
-
-      // Restaurar la visibilidad de los nombres de las ciudades
-      if (isCountryLabelsVisible) {
-
-        g.selectAll(".city-label")
-          .filter((label) => label.properties.name === d.properties.name)
-          .transition()
-          .duration(300)
-          .style("opacity", 1);
-        // Ocultar el ícono
-        g.selectAll(".hover-icon")
-          .transition()
-          .duration(300)
-          .style("opacity", 0)
-          .remove();
-      } else {
-        g.selectAll(".city-label")
-          .filter((label) => label.properties.name === d.properties.name)
-          .transition()
-          .duration(300)
-          .style("opacity", 0);
-
-        g.selectAll(".hover-icon")
-          .transition()
-          .duration(300)
-          .style("opacity", 0)
-          .remove();
-      }
-    })
-    .on("mousemove", function (event, d) {
-      // Mostrar el nombre de la ciudad en la consola
-      /* const countryName = d.properties.name;
-       console.log("City name on mousemove:", countryName);*/
-    });
-  console.log(filteredCountryGeoJSON.features)
+    .on("click", clicked);
+  console.log(partner);
   const labels = g
     .selectAll("text")
     .data(filteredCountryGeoJSON.features)
@@ -113,12 +46,27 @@ export function drawMap(geojson, filteredCountryGeoJSON) {
     .attr("x", (d) => path.centroid(d)[0])
     .attr("y", (d) => path.centroid(d)[1])
     .attr("text-anchor", "middle")
-    .attr("font-size", "5pt")
-
-    .attr("font-family", "RalewayMedium")
+    .attr("font-size", function (d) {
+      if (partner === "EU") {
+        return "1pt";
+      } else if (partner === "EU") {
+        return "1pt";
+      } else if (partner === "BRICS Geological Platform") {
+        return "1.5pt";
+      } else if (partner === "Minerals Security Partnership") {
+        return "1.5pt";
+      } else if (partner === "EU Raw Materials Club") {
+        return "1.5pt";
+      } else if (partner === "Energy Resource Governance Initiative") {
+        return "1.5pt";
+      } else if (partner === "IPEF Critical Minerals Dialogue") {
+        return "1.5pt";
+      } else {
+        return "5pt";
+      }
+    })
     .attr("fill", "black")
     .style("pointer-events", "none") // Ignora eventos del mouse
-
 
     .each(function (d) {
       const countryName = d.properties.name;
@@ -130,12 +78,10 @@ export function drawMap(geojson, filteredCountryGeoJSON) {
         textElement
           .append("tspan")
           .attr("x", path.centroid(d)[0])
-          .attr("y", (path.centroid(d)[1] + i * 8)) // Ajusta la separación entre líneas
+          .attr("y", path.centroid(d)[1] + i * 2) // Ajusta la separación entre líneas
           .text(line);
-
       });
     });
-
 
   // Función para envolver el texto en varias líneas
   function wrapText(text, maxLength) {
@@ -158,7 +104,7 @@ export function drawMap(geojson, filteredCountryGeoJSON) {
   }
   // Crear el comportamiento de zoom
   // aca se debe hacer los if para cada pais JORGE PAREDES
-  const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+  const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", zoomed);
 
   // Llamar al comportamiento de zoom sobre el SVG
   svg.call(zoom);
@@ -207,7 +153,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   svg.selectAll("path").remove();
 
   //console.log("GeoJSON features:", geojsonData.features);
- // console.log("Number data", numberData);
+  // console.log("Number data", numberData);
   const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
 
   const colorScale = d3
@@ -222,7 +168,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       "#FCC12C",
       "#EA9B0F",
       "#D68F01",
-      "#9E6604"
+      "#9E6604",
     ]);
   const colorScaleShalow = d3
     .scaleQuantize()
@@ -234,7 +180,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       "#FDDA84",
       "#F3C471",
       "#E2B369",
-      "#BC8C46"
+      "#BC8C46",
     ]);
   const partnerCounts = {};
   numberData.forEach((countryData) => {
@@ -242,8 +188,8 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   });
 
   g = svg.append("g");
-  console.log(g)
-  console.log("cesarrrr")
+  console.log(g);
+  console.log("cesarrrr");
 
   // Crear tooltip
   const tooltip = d3
@@ -275,7 +221,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
     .on("click", clicked)
     .on("mouseover", function (event, d) {
-
       const countryName = d.properties.name;
       const countryData = numberData.find(
         (country) => country.africanCountry === countryName
@@ -292,9 +237,16 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
             <div style="display: flex; justify-content: space-between; width: 170px;">
               <h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
             </div>
-            <p style="margin: 5px 0; margin-top: 8px; font-family: 'RalewayLightItalic', sans-serif; font-size: 11pt">${partnerCount} partner${partnerCount !== 1 ? "s" : ""}</p>
+            <p style="margin: 5px 0; margin-top: 8px; font-family: 'RalewayLightItalic', sans-serif; font-size: 11pt">${partnerCount} partner${
+          partnerCount !== 1 ? "s" : ""
+        }</p>
             <ul style="padding: 0; margin: 0; margin-top: 8px; font-size: 11pt; font-family: 'RalewayN', sans-serif;">
-              ${partnersList.map((partner) => `<p style="padding: 0; margin: 0;">${partner}</p>`).join("")}
+              ${partnersList
+                .map(
+                  (partner) =>
+                    `<p style="padding: 0; margin: 0;">${partner}</p>`
+                )
+                .join("")}
             </ul>
           </div>
         `);
@@ -313,11 +265,13 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           .transition()
           .duration(300)
           .style("opacity", 0)
-          .style("pointer-events", "none") // Ignora eventos del mouse
+          .style("pointer-events", "none"); // Ignora eventos del mouse
         // Calcular el área del país
         const area = d3.geoArea(d);
-        const areaInSquareKm = area * 510072000 / (4 * Math.PI); // Convierte el área en fracción de la esfera a km²
-        console.log(`Country: ${countryName}, Area: ${areaInSquareKm.toFixed(2)} km²`);
+        const areaInSquareKm = (area * 510072000) / (4 * Math.PI); // Convierte el área en fracción de la esfera a km²
+        console.log(
+          `Country: ${countryName}, Area: ${areaInSquareKm.toFixed(2)} km²`
+        );
         if (areaInSquareKm.toFixed(2) < 250000) {
           // Mostrar el ícono en el centro de la ciudad
           g.append("image")
@@ -332,8 +286,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
             .transition()
             .duration(300)
             .style("opacity", 1);
-        }
-        else {
+        } else {
           // Mostrar el ícono en el centro de la ciudad
           g.append("image")
             .attr("class", "hover-icon")
@@ -348,7 +301,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
             .duration(300)
             .style("opacity", 1);
         }
-
       } else {
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
@@ -377,8 +329,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           .transition()
           .duration(300)
           .style("opacity", 0);
-
-
       }
     })
     .on("mouseout", function (event, d) {
@@ -394,7 +344,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
       // Restaurar la visibilidad de los nombres de las ciudades
       if (isCountryLabelsVisible) {
-
         g.selectAll(".city-label")
           .filter((label) => label.properties.name === d.properties.name)
           .transition()
@@ -422,7 +371,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       }
     })
     .on("mousemove", function (event, d) {
-
       // Mostrar el nombre de la ciudad en la consola
       const countryName = d.properties.name;
       console.log("City name on mousemove:", countryName);
@@ -436,9 +384,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           .style("left", event.pageX + 10 + "px") // Desplazar un poco a la derecha
           .style("top", event.pageY + 10 + "px");
       }
-
-
-
     });
   const labels = g
     .selectAll("text")
@@ -471,38 +416,33 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 40)
-              .attr("y", (path.centroid(d)[1] + i * 8) + 5) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
               .text(line);
-          }
-          else if (name == "GUINEA") {
+          } else if (name == "GUINEA") {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 40)
-              .attr("y", (path.centroid(d)[1] + i * 8) + 8) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 8) // Ajusta la separación entre líneas
               .text(line);
-          }
-          else if (name == "IVORY COAST") {
+          } else if (name == "IVORY COAST") {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 20)
-              .attr("y", (path.centroid(d)[1] + i * 8) + 35) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 35) // Ajusta la separación entre líneas
               .text(line);
-          }
-          else if (name == "SOMALIA") {
+          } else if (name == "SOMALIA") {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", (path.centroid(d)[1] + i * 8) + 25) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
               .text(line);
-          }
-          else {
+          } else {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0])
-              .attr("y", (path.centroid(d)[1] + i * 8)) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
               .text(line);
           }
-
         });
       }
     });
@@ -573,7 +513,7 @@ function updateProjection(scale, center, translation) {
 //se modifico esta seccion para identificar por cada pais y realizar la proyeccion de cada item y personalizarlo - JORGE PAREDES
 export function handleSelection(type, item) {
   console.log(type);
-  console.log(item)
+  console.log(item);
   console.log("cesar");
   console.log("input FOR HANDLE SELECTOR", width);
   if (item == "EU") {
@@ -654,7 +594,6 @@ export function deleteCountryLabels() {
   d3.selectAll("image").transition().duration(500).style("opacity", 0); // Hacer invisibles los íconos
 }
 
-
 export function zoomToCountry(countryName) {
   const feature = mergedBiData.features.find(
     (d) => d.properties.name === countryName
@@ -671,15 +610,11 @@ export function zoomToCountry(countryName) {
 }
 // Función para hacer zoom in
 export function zoomIn() {
-  svg.transition()
-    .duration(500)
-    .call(zoom.scaleBy, 1.5); // Incrementa el nivel de zoom
+  svg.transition().duration(500).call(zoom.scaleBy, 1.5); // Incrementa el nivel de zoom
 }
 
 // Función para hacer zoom out
 export function zoomOut() {
-  svg.transition()
-    .duration(500)
-    .call(zoom.scaleBy, 0.75); // Reduce el nivel de zoom
+  svg.transition().duration(500).call(zoom.scaleBy, 0.75); // Reduce el nivel de zoom
 }
 export { path };

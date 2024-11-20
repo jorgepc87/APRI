@@ -27,10 +27,7 @@ import {
   highlightEu,
   clearCardContent,
 } from "./modules/selectionUtils.js";
-import {
-  addLegend,
-  hideLegend,
-} from "./modules/legendUtils.js";
+import { addLegend, hideLegend } from "./modules/legendUtils.js";
 import {
   svg,
   customColors,
@@ -65,17 +62,15 @@ const tooltip = d3
 
 // Función para restablecer el mapa a su estado inicial
 function resetToInitialView() {
-
   destroyMap();
   filteredGeoJSON = filterAfrica(mergedBiData, numberData); // Filtra África
   drawMapWithPartnerColors(svg, path, filteredGeoJSON, numberData); // Dibuja el mapa inicial
-  clearCardContent()
+  clearCardContent();
   addLegend(svg, colorScale); // Añade la leyenda
   removeThirdColumn(); // Oculta la tercera columna
 }
 function refresh() {
   window.location.href = window.location.href;
-
 }
 // Load and merge data
 Promise.all([
@@ -120,18 +115,20 @@ Promise.all([
         .scaleQuantize()
         .domain([0, d3.max(numberData, (d) => d.partnersNo)])
         .range([
-          "#F2F2F2",//0
-          "#FEE2A4",//1
-          "#FCCA7B",//2
-          "#FCC12C",//3
-          "#EA9B0F",//4
-          "#D68F01",//5
-          "#9E6604"//6
+          "#F2F2F2", //0
+          "#FEE2A4", //1
+          "#FCCA7B", //2
+          "#FCC12C", //3
+          "#EA9B0F", //4
+          "#D68F01", //5
+          "#9E6604", //6
         ]);
 
       resetToInitialView(); // Inicializa el mapa
 
-      document.querySelector(".main-select").addEventListener("click", resetToInitialView);
+      document
+        .querySelector(".main-select")
+        .addEventListener("click", resetToInitialView);
 
       document.querySelectorAll(".country-select").forEach((item) => {
         item.addEventListener("click", function () {
@@ -143,11 +140,16 @@ Promise.all([
           if (item.textContent.includes("EU")) {
             filterEUandPartners(mergedBiData, biData).then(
               (filteredCountryGeoJSON) => {
-                highlightEu(svg, filteredCountryGeoJSON, item.textContent);
                 deleteCountryLabels(filteredCountryGeoJSON);
                 destroyMap();
-                drawMap(mergedBiData, filteredCountryGeoJSON);
-                highlightPartnership(svg, filteredCountryGeoJSON, item.textContent);
+                drawMap(mergedBiData, filteredCountryGeoJSON, "EU");
+                highlightEu(svg, filteredCountryGeoJSON);
+
+                /* highlightPartnership(
+                  svg,
+                  filteredCountryGeoJSON,
+                  item.textContent
+                );*/
 
                 const toggleButton = document.getElementById("toggleLabels");
                 toggleButton.classList.remove("active");
@@ -165,7 +167,7 @@ Promise.all([
 
             deleteCountryLabels(filteredCountryGeoJSON);
             destroyMap();
-            drawMap(mergedBiData, filteredCountryGeoJSON);
+            drawMap(mergedBiData, filteredCountryGeoJSON, item.textContent);
             highlightPartnership(svg, filteredCountryGeoJSON, item.textContent);
             const toggleButton = document.getElementById("toggleLabels");
             toggleButton.classList.remove("active");
@@ -174,7 +176,6 @@ Promise.all([
             populatePartnerships(biData, selectedCountry);
             hideLegend();
           }
-
         });
       });
 
@@ -188,8 +189,8 @@ Promise.all([
             .then((filteredGeoJSON) => {
               deleteCountryLabels(filteredGeoJSON);
               destroyMap();
-              drawMap(mergedBiData, filteredGeoJSON);
-              highlightBloc(svg, filteredGeoJSON, selectedColor);
+              drawMap(mergedBiData, filteredGeoJSON, selectedBloc);
+              highlightBloc(svg, filteredGeoJSON, selectedColor, selectedBloc);
               const toggleButton = document.getElementById("toggleLabels");
               toggleButton.classList.remove("active");
               populateMultilateral(
@@ -209,8 +210,6 @@ Promise.all([
   .catch((error) => console.error("Error processing data:", error));
 
 // --- NUEVO CÓDIGO PARA ZOOM Y MOSTRAR NOMBRES DE PAÍSES --- //
-
-
 
 document.getElementById("zoomIn").addEventListener("click", () => {
   zoomIn();
@@ -232,84 +231,87 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   } else {
-    console.error("El botón con el ID 'toggleLabels' no se encontró en el DOM.");
+    console.error(
+      "El botón con el ID 'toggleLabels' no se encontró en el DOM."
+    );
   }
 });
 
-const buttons = document.querySelectorAll('.accordion-button2');
+const buttons = document.querySelectorAll(".accordion-button2");
 
-buttons.forEach(button => {
-  button.addEventListener('click', function () {
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
     // Removemos la clase 'active' de todos los botones
-    buttons.forEach(btn => btn.classList.remove('active'));
+    buttons.forEach((btn) => btn.classList.remove("active"));
 
     // Añadimos la clase 'active' al botón que se hizo clic
-    this.classList.add('active');
+    this.classList.add("active");
   });
 });
 
-document.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', function (event) {
+document.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", function (event) {
     event.preventDefault(); // Previene el comportamiento por defecto (desplazamiento hacia arriba)
     // Si quieres realizar alguna acción adicional, como mostrar un contenido relacionado, puedes hacerlo aquí
   });
 });
 
 // Al hacer clic en "Bilateral partnerships", simulamos el clic en el primer botón de la lista "EU"
-document.querySelector('.accordion-button2[data-bs-target="#flush-collapseOne"]').addEventListener('click', function () {
-  const firstCountryButton = document.querySelector('.country-select');  // Selecciona el primer botón en la lista de "Bilateral partnerships"
-  if (firstCountryButton) {
-    firstCountryButton.classList.add('activeDetail');
-    firstCountryButton.click();  // Simula un clic en ese botón
-  }
-});
+document
+  .querySelector('.accordion-button2[data-bs-target="#flush-collapseOne"]')
+  .addEventListener("click", function () {
+    const firstCountryButton = document.querySelector(".country-select"); // Selecciona el primer botón en la lista de "Bilateral partnerships"
+    if (firstCountryButton) {
+      firstCountryButton.classList.add("activeDetail");
+      firstCountryButton.click(); // Simula un clic en ese botón
+    }
+  });
 
 // Al hacer clic en "Multilateral partnerships", simulamos el clic en el primer botón de la lista "BRICS Geological Platform"
-document.querySelector('.accordion-button2[data-bs-target="#flush-collapseTwo"]').addEventListener('click', function () {
-  const firstBlocButton = document.querySelector('.bloc-select');  // Selecciona el primer botón en la lista de "Multilateral partnerships"
-  if (firstBlocButton) {
-    firstBlocButton.classList.add('activeDetail');
-    firstBlocButton.click();  // Simula un clic en ese botón
-  }
-});
+document
+  .querySelector('.accordion-button2[data-bs-target="#flush-collapseTwo"]')
+  .addEventListener("click", function () {
+    const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
+    if (firstBlocButton) {
+      firstBlocButton.classList.add("activeDetail");
+      firstBlocButton.click(); // Simula un clic en ese botón
+    }
+  });
 
-const buttons2 = document.querySelectorAll('.list-group-item');
+const buttons2 = document.querySelectorAll(".list-group-item");
 
-buttons2.forEach(button => {
-  button.addEventListener('click', function () {
-    buttons2.forEach(btn => btn.classList.remove('activeDetail'));
-    this.classList.add('activeDetail');
-
+buttons2.forEach((button) => {
+  button.addEventListener("click", function () {
+    buttons2.forEach((btn) => btn.classList.remove("activeDetail"));
+    this.classList.add("activeDetail");
   });
 });
-document.getElementById('zoomIn').addEventListener('mouseover', function () {
-  const zoomInIcon = this.querySelector('img');
+document.getElementById("zoomIn").addEventListener("mouseover", function () {
+  const zoomInIcon = this.querySelector("img");
 
   // Cambiar el ícono de zoom-in al de activado (nuevo SVG)
-  zoomInIcon.src = './img/icons/zoom-on.svg';
+  zoomInIcon.src = "./img/icons/zoom-on.svg";
 });
 
-document.getElementById('zoomOut').addEventListener('mouseover', function () {
-  const zoomOutIcon = this.querySelector('img');
+document.getElementById("zoomOut").addEventListener("mouseover", function () {
+  const zoomOutIcon = this.querySelector("img");
   // Cambiar el ícono de zoom-out al de activado (nuevo SVG)
-  zoomOutIcon.src = './img/icons/zoom-out-on.svg';
+  zoomOutIcon.src = "./img/icons/zoom-out-on.svg";
 });
 
-document.getElementById('zoomOut').addEventListener('mouseout', function () {
-  const zoomOutIcon = this.querySelector('img');
-  zoomOutIcon.src = './img/icons/zoom-out-off.svg';
-
+document.getElementById("zoomOut").addEventListener("mouseout", function () {
+  const zoomOutIcon = this.querySelector("img");
+  zoomOutIcon.src = "./img/icons/zoom-out-off.svg";
 });
-document.getElementById('zoomIn').addEventListener('mouseout', function () {
-  const zoomInIcon = this.querySelector('img');
+document.getElementById("zoomIn").addEventListener("mouseout", function () {
+  const zoomInIcon = this.querySelector("img");
 
   // Cambiar el ícono de zoom-in al de activado (nuevo SVG)
-  zoomInIcon.src = './img/icons/zoom-off.svg';
-
+  zoomInIcon.src = "./img/icons/zoom-off.svg";
 });
 
-document.getElementById('printPage').addEventListener('click', function () {
-  printDiv('#printable');
+document.getElementById("printPage").addEventListener("click", function () {
+  printDiv("#printable");
 });
 function printDiv(divId) {
   console.log("Generando impresión...");
@@ -321,40 +323,64 @@ function printDiv(divId) {
     return;
   }
 
-  html2canvas(divElement).then(function (canvas) {
-    // Crear una imagen a partir del canvas
-    var imgData = canvas.toDataURL('image/png');
+  // Usar html2canvas para generar el canvas
+  html2canvas(divElement)
+    .then(function (canvas) {
+      // Crear una imagen a partir del canvas
+      var imgData = canvas.toDataURL("image/png");
 
-    // Crear un nuevo documento de impresión
-    var windowContent = `
-          <!DOCTYPE html>
-          <html>
-          <head>
-              <title> </title>
-          </head>
-          <body style="margin: 0; text-align: center;">
-              <img src="${imgData}" style="max-width: 100%; height: auto;" />
-          </body>
-          </html>
-      `;
+      // Crear un iframe oculto para imprimir
+      var iframe = document.createElement("iframe");
+      iframe.style.position = "absolute";
+      iframe.style.top = "-10000px"; // Ocultar fuera de la pantalla
+      document.body.appendChild(iframe);
 
-    // Abrir la ventana de impresión
-    var printWindow = window.open('', '', 'width=800,height=600');
-    if (!printWindow) {
-      console.error("No se pudo abrir la ventana de impresión. Puede estar bloqueada por el navegador.");
-      return;
-    }
+      var iframeWindow = iframe.contentWindow || iframe.contentDocument;
+      var iframeDoc = iframeWindow.document || iframe.contentDocument;
 
-    printWindow.document.open();
-    printWindow.document.write(windowContent);
-    printWindow.document.close();
+      // Pasar la imagen generada al iframe
+      iframeDoc.open();
+      iframeDoc.write(`
+		<!DOCTYPE html>
+		<html>
+		<head>
+		  <title></title> <!-- Título vacío para que no aparezca en la impresión -->
+		  <style>
+			@page {
+			  margin: 0; /* Elimina los márgenes de la página */
+			  size: landscape; /* Forzar orientación landscape */
 
-    // Esperar a que se cargue la imagen antes de imprimir
-    printWindow.onload = function () {
-      printWindow.print();
-      printWindow.close();
-    };
-  }).catch(function (error) {
-    console.error("Error al generar el canvas:", error);
-  });
+			}
+			body {
+			  margin: 0; 
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  height: 100vh;
+			  overflow: hidden;
+			
+			}
+			img {
+			  max-width: 100%;
+			  max-height: 100%;
+			}
+		  </style>
+		</head>
+		<body>
+		  <img src="${imgData}" alt="Contenido a imprimir" />
+		</body>
+		</html>
+	  `);
+      iframeDoc.close();
+
+      // Esperar a que el contenido cargue antes de imprimir
+      iframe.onload = function () {
+        iframeWindow.focus();
+        iframeWindow.print();
+        document.body.removeChild(iframe); // Eliminar el iframe después de imprimir
+      };
+    })
+    .catch(function (error) {
+      console.error("Error al generar el canvas:", error);
+    });
 }

@@ -19,10 +19,5 @@ export function setupControls(svg, geojsonData, addCountryLabels) {
 
     svg.call(zoom);
 
-    document.getElementById("zoom-in").addEventListener("click", function() {
-console.log("fdddddddddddd")    });
 
-    document.getElementById("zoom-out").addEventListener("click", function() {console.log("fdddddddddddd")
-        svg.transition().duration(500).call(zoom.scaleBy, 0.8);
-    });
 }

@@ -2,9 +2,9 @@ import { svg } from "./globals.js";
 import { path } from "./mapUtils.js";
 
 export function handleSelection(type, item) {
-  console.log(type);
-  console.log(item);
-  console.log("cccc");
+  //console.log(type);
+  //console.log(item);
+  //console.log("cccc");
   if (type === "bilateral" || type === "multilateral") {
     updateProjection(210, [0, 0], [width / 2.2, height / 2]);
   } else {
@@ -18,26 +18,41 @@ export function toggleButton(button) {
 }
 
 export function highlightPartnership(svg, filteredGeoJSON, itemSelected) {
-  console.log("item selected in export function", itemSelected);
-  //console.log('Highlighting partnership', partnerMap[selectedCountry]);
+  ////console.log('Highlighting partnership', partnerMap[selectedCountry]);
   const partnerCountries = new Set(
     filteredGeoJSON.features.map((f) => f.properties.name)
   );
-  console.log("Partner countries test", partnerCountries);
-  console.log("Parner countries", partnerCountries);
+  console.log("item selected in export function", partnerCountries);
+
+  //console.log("Partner countries test", partnerCountries);
+  //console.log("Parner countries", partnerCountries);
   svg
     .selectAll("path")
-    .attr("fill", (d) =>
+
+    .attr("fill", (d) => {
+      console.log("item ", d.properties.name + "el otro es" + itemSelected);
+
+      if (d.properties.name.toString() == itemSelected.toString()) {
+        return "#fec030"; // Color para los países en blocCountries
+      } else if (partnerCountries.has(d.properties.name)) {
+        console.log("COINMCIDENNNN");
+        return "#FFDC94"; // Color alternativo
+      } else {
+        return "#f2f2f2"; // Color por defecto
+      }
+    })
+
+    /* .attr("fill", (d) =>
       partnerCountries.has(d.properties.name) ? "#fec03c" : "#f2f2f2"
-    )
+    )*/
     .transition()
     .duration(500);
-  console.log("filtered geo json after highlight", filteredGeoJSON.features);
+  //console.log("filtered geo json after highlight", filteredGeoJSON.features);
   //adjustViewbox(itemSelected);
 }
 
 function adjustViewbox(itemSelected) {
-  console.log("item selected in function", itemSelected);
+  //console.log("item selected in function", itemSelected);
   if (itemSelected === "Saudi Arabia") {
     svg.attr("viewBox", "100 0 600 600");
   } else if (itemSelected === "United Arab Emirates") {
@@ -60,18 +75,39 @@ function adjustViewbox(itemSelected) {
     svg.attr("viewBox", "150 -25 500 600");
   }
 }
-
 export function highlightEu(svg, filteredGeoJSON) {
   const euCountries = new Set(
     filteredGeoJSON.features.map((f) => f.properties.name)
   );
+  // Lista de países a excluir
+  const excludedCountries = new Set([
+    "Zambia",
+    "Rwanda",
+    "Namibia",
+    "Democratic Republic of the Congo",
+  ]);
+  // Crear un nuevo arreglo excluyendo los países
+  const updatedCountries = Array.from(euCountries).filter(
+    (country) => !excludedCountries.has(country)
+  );
+
+  console.log(updatedCountries);
+
+  const updatedCountriesSet = new Set(updatedCountries);
+
+  
   svg
     .selectAll("path")
     .attr("fill", (d) =>
-      euCountries.has(d.properties.name) ? "#fec03c" : "#f2f2f2"
+      excludedCountries.has(d.properties.name)
+        ? "#FFDC94 " // Amarillo para excludedCountries
+        : updatedCountriesSet.has(d.properties.name)
+        ? "#fec03c" // Verde para updatedCountries
+        : "#f2f2f2" // Gris claro para el resto
     );
+
   svg.attr("viewBox", "-100 0 1000 600");
-  //svg.attr("viewBox", "100 50 600 350");
+  // svg.attr("viewBox", "100 50 600 350");
 }
 
 export function updateLabel(svg, path, filteredGeoJSON) {
@@ -80,12 +116,10 @@ export function updateLabel(svg, path, filteredGeoJSON) {
     !filteredGeoJSON.features ||
     filteredGeoJSON.features.length === 0
   ) {
-    console.log("No features found in the filtered GeoJSON.");
+    //console.log("No features found in the filtered GeoJSON.");
     return;
   }
-  console.log(
-    `Number of features to label: ${filteredGeoJSON.features.length}`
-  );
+  //console.log(`Number of features to label: ${filteredGeoJSON.features.length}` );
   svg.selectAll("text").remove();
   svg
     .selectAll("text")
@@ -94,7 +128,7 @@ export function updateLabel(svg, path, filteredGeoJSON) {
     .append("text")
     .attr("transform", (d) => {
       const centroid = path.centroid(d);
-      /*console.log(
+      /*//console.log(
 				`Labeling country: ${d.properties.name}, Centroid: ${centroid}`
 			);*/
       return `translate(${centroid})`;
@@ -144,7 +178,7 @@ export function populatePartnerships(biData, selectedCountry) {
   infoPartnerContainer.appendChild(scrollContainer);
 
   partnerSelected.partnership.forEach((partner) => {
-    //console.log('Partnership in container', partner)
+    ////console.log('Partnership in container', partner)
     const partnershipCard = document.createElement("div");
     partnershipCard.classList.add(
       "card-body",
@@ -157,10 +191,10 @@ export function populatePartnerships(biData, selectedCountry) {
     partnerTitle.innerHTML = `${partner.country}`;
     partnershipCard.appendChild(partnerTitle);
     if (partner.agreements) {
-      console.log("Multiple agreements", partner.agreements);
+      //console.log("Multiple agreements", partner.agreements);
 
       //for para cada acuerdo
-      console.log("Multiple agreements", partner.agreements);
+      //console.log("Multiple agreements", partner.agreements);
       partner.agreements.forEach((agreement) => {
         const partnerAgreement = document.createElement("h5");
         partnerAgreement.classList.add("card-subtitle", "mb-1", "agreement");
@@ -215,9 +249,9 @@ export function populatePartnerships(biData, selectedCountry) {
         // Agregar el párrafo Access al partnershipCard
         partnershipCard.appendChild(access);
 
-        console.log("nuevoooooooooooo");
+        //console.log("nuevoooooooooooo");
 
-        console.log(agreement.areasCoop);
+        //console.log(agreement.areasCoop);
         if (agreement.areasCoop != "") {
           // Crear el subtítulo de "Areas of Cooperation"
           const areasTitle = document.createElement("h1");
@@ -339,7 +373,7 @@ export function populatePartnerships(biData, selectedCountry) {
       // Agregar el párrafo Access al partnershipCard
       partnershipCard.appendChild(access);
 
-      console.log(partner.areasCoop);
+      //console.log(partner.areasCoop);
       if (partner.areasCoop != "") {
         // Crear el subtítulo de "Areas of Cooperation"
         const areasTitle = document.createElement("h1");
@@ -406,8 +440,8 @@ export function populatePartnerships(biData, selectedCountry) {
 }
 
 export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
-  console.log("Multi JSON data to populate", multiData);
-  selectedBloc=selectedBloc.replace(/\s+/g, " ");
+  //console.log("Multi JSON data to populate", multiData);
+  selectedBloc = selectedBloc.replace(/\s+/g, " ");
   let blocCountries = multiData.features;
   const infoMultiContainer = document.querySelector(".card");
   infoMultiContainer.innerHTML = "";
@@ -435,8 +469,9 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
     "mt-3"
   );
   multiPartner.innerHTML = `${selectedBloc}`;
+  infoMultiContainer.appendChild(multiPartner);
 
-  scrollContainer.appendChild(multiPartner); // Agregar el título al contenedor con scroll
+  //  scrollContainer.appendChild(); // Agregar el título al contenedor con scroll
 
   // Agregar el texto Lorem Ipsum debajo del título
   const loremText = document.createElement("p");
@@ -462,9 +497,9 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   icon.style.height = "20px";
   iconLinkContainer.appendChild(icon); // Añadir el ícono al contenedor
 
-  console.log("Multi JSON data to populate", selectedBloc.trim());
+  //console.log("Multi JSON data to populate", selectedBloc.trim());
   let prueba = selectedBloc.replace(/\s+/g, " ");
-  console.log("test ", prueba);
+  //console.log("test ", prueba);
 
   // Crear el enlace de "Source"
   const blocSource = document.createElement("a");
@@ -513,7 +548,7 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
     countryItem.style.marginBottom = "0pt"; // Tamaño de fuente
     countryItem.style.fontSize = "11pt"; // Tamaño de fuente
 
-    countryItem.innerHTML = `• ${country.properties.name} (joined 2021)`; // Agregar un punto delante del nombre del país
+    countryItem.innerHTML = `• ${country.properties.name}`; // Agregar un punto delante del nombre del país
 
     // Alternar columnas
     if (index % 2 === 0) {
@@ -539,22 +574,39 @@ export function clearCardContent() {
   if (infoMultiContainer) {
     infoMultiContainer.innerHTML = ""; // Elimina todo el contenido
   } else {
-    console.warn("Elemento con clase 'card' no encontrado.");
+    ////console.warn("Elemento con clase 'card' no encontrado.");
   }
 }
-export function highlightBloc(svg, filteredGeoJSON, selectedColor) {
+export function highlightBloc(
+  svg,
+  filteredGeoJSON,
+  selectedColor,
+  selectedBloc
+) {
   //	svg.selectAll("text").remove();
   console.log("selected color", selectedColor);
-  console.log("Filtered geojson", filteredGeoJSON);
+  //console.log("Filtered geojson", filteredGeoJSON);
   const blocCountries = new Set(
     filteredGeoJSON.features.map((f) => f.properties.name)
   );
-  console.log("bloc countries are", blocCountries);
-  svg
+  //console.log("bloc countries are", blocCountries);
+
+  svg.selectAll("path").attr("fill", (d) => {
+    if (blocCountries.has(d.properties.name)) {
+      return selectedColor; // Color para los países en blocCountries
+    } else if (blocCountries.has(selectedBloc)) {
+      // Otra condición adicional
+      return "#000"; // Color alternativo
+    } else {
+      return "#f2f2f2"; // Color por defecto
+    }
+  });
+
+  /* svg
     .selectAll("path")
     .attr("fill", (d) =>
       blocCountries.has(d.properties.name) ? selectedColor : "#f2f2f2"
-    );
+    );*/
 }
 
 // export function highlightEuClubBloc(svg, filteredGeoJSON) {

@@ -175,6 +175,7 @@ export function populatePartnerships(biData, selectedCountry) {
   scrollContainer.style.maxHeight = "100%"; // Establecer el alto máximo para hacer scroll
   scrollContainer.style.overflowY = "auto"; // Activar el scroll vertical
   scrollContainer.style.marginTop = "10px"; // Espacio entre el título y el contenido
+
   infoPartnerContainer.appendChild(scrollContainer);
 
   partnerSelected.partnership.forEach((partner) => {
@@ -454,6 +455,7 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   scrollContainer.style.maxHeight = "100%"; // Altura máxima para el contenedor
   scrollContainer.style.overflowY = "auto"; // Habilitar scroll vertical
   scrollContainer.style.marginTop = "10px"; // Espacio entre el título y el contenido
+  scrollContainer.style.paddingRight = "18px"; // Espacio entre el título y el contenido
 
   // Crear y agregar el título principal
   const multiPartner = document.createElement("h2");

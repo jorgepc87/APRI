@@ -242,10 +242,10 @@ const buttons = document.querySelectorAll(".accordion-button2");
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     // Removemos la clase 'active' de todos los botones
-    buttons.forEach((btn) => btn.classList.remove("active"));
+   // buttons.forEach((btn) => btn.classList.remove("active"));
 
     // Añadimos la clase 'active' al botón que se hizo clic
-    this.classList.add("active");
+   // this.classList.add("active");
   });
 });
 
@@ -344,7 +344,7 @@ function printDiv(divId) {
 		<!DOCTYPE html>
 		<html>
 		<head>
-		  <title></title> <!-- Título vacío para que no aparezca en la impresión -->
+		  <title>Mind the Map: Charting Africa’s Critical Mineral Partnerships</title> <!-- Título vacío para que no aparezca en la impresión -->
 		  <style>
 			@page {
 			  margin: 0; /* Elimina los márgenes de la página */
@@ -450,3 +450,35 @@ function changeButtonText() {
     }
   });
 }
+
+let picker = document.querySelector('.picker');
+let items = document.querySelectorAll('.picker-item');
+
+let currentIndex = 0;
+let itemHeight = items[0].offsetHeight;
+
+function movePicker(direction) {
+    if (direction === 'down' && currentIndex < items.length - 1) {
+        currentIndex++;
+    } else if (direction === 'up' && currentIndex > 0) {
+        currentIndex--;
+    }
+    picker.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
+}
+
+// Detect swipe gestures
+let startY;
+let endY;
+
+picker.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].pageY;
+});
+
+picker.addEventListener('touchend', (e) => {
+    endY = e.changedTouches[0].pageY;
+    if (startY - endY > 30) {
+        movePicker('down');
+    } else if (endY - startY > 30) {
+        movePicker('up');
+    }
+});

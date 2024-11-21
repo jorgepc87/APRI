@@ -121,7 +121,7 @@
 		]
 	},
 	{
-		"africanCountry": "Guinea bisseau",
+		"africanCountry": "Guinea Bissau",
 		"partnersNo": 1,
 		"partners": [
 			"China"
@@ -350,13 +350,6 @@
 			"India",
 			"China",
 			"Russia"
-		]
-	},
-	{
-		"africanCountry": "Guinea Bisseau",
-		"partnersNo": 1,
-		"partners": [
-			"China"
 		]
 	}
 ]

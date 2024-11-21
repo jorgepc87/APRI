@@ -78,7 +78,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
         textElement
           .append("tspan")
           .attr("x", path.centroid(d)[0])
-          .attr("y", path.centroid(d)[1] + i * 2) // Ajusta la separación entre líneas
+          .attr("y", path.centroid(d)[1] + i * 6) // Ajusta la separación entre líneas
           .text(line);
       });
     });
@@ -153,7 +153,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   svg.selectAll("path").remove();
 
   //console.log("GeoJSON features:", geojsonData.features);
-  // console.log("Number data", numberData);
+  console.log("Number data", numberData);
   const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
 
   const colorScale = d3
@@ -186,10 +186,8 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   numberData.forEach((countryData) => {
     partnerCounts[countryData.africanCountry] = countryData.partnersNo;
   });
-
+  console.log(partnerCounts);
   g = svg.append("g");
-  console.log(g);
-  console.log("cesarrrr");
 
   // Crear tooltip
   const tooltip = d3
@@ -213,6 +211,8 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
     .attr("fill", (d) => {
       const countryName = d.properties.name;
       const partnerCount = partnerCounts[countryName] || 0; // Si no hay socios, partnerCount será 0
+	  //console.log(d.properties.name + "__" + partnerCount);
+
       return colorScale(partnerCount); // Color inicial
     })
     .attr("stroke", "white")
@@ -221,6 +221,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
     .on("click", clicked)
     .on("mouseover", function (event, d) {
+    //  console.log(d.properties.name);
       const countryName = d.properties.name;
       const countryData = numberData.find(
         (country) => country.africanCountry === countryName
@@ -230,7 +231,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       if (partnerCount > 0) {
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
-
+		console.log(partnersList)
         // Generar el contenido del tooltip
         tooltip.html(`
           <div style="display: flex; flex-direction: column; width: 170px;">

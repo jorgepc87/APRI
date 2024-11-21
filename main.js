@@ -242,10 +242,9 @@ const buttons = document.querySelectorAll(".accordion-button2");
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     // Removemos la clase 'active' de todos los botones
-   // buttons.forEach((btn) => btn.classList.remove("active"));
-
+    // buttons.forEach((btn) => btn.classList.remove("active"));
     // Añadimos la clase 'active' al botón que se hizo clic
-   // this.classList.add("active");
+    // this.classList.add("active");
   });
 });
 
@@ -280,12 +279,16 @@ document
 
 const buttons2 = document.querySelectorAll(".list-group-item");
 
-buttons2.forEach((button) => {
-  button.addEventListener("click", function () {
-    buttons2.forEach((btn) => btn.classList.remove("activeDetail"));
-    this.classList.add("activeDetail");
+buttons.forEach(button => {
+	button.addEventListener('click', function() {
+	  // Removemos la clase 'active' de todos los botones
+	  buttons.forEach(btn => btn.classList.remove('active'));
+	  
+	  // Añadimos la clase 'active' al botón que se hizo clic
+	  this.classList.add('active');
+	});
   });
-});
+  
 document.getElementById("zoomIn").addEventListener("mouseover", function () {
   const zoomInIcon = this.querySelector("img");
 
@@ -385,100 +388,69 @@ function printDiv(divId) {
     });
 }
 if (window.innerWidth <= 768) {
-	// Contamos las palabras del texto
-	const descriptionText = document.getElementById("descriptionText");
-	const words = descriptionText.innerText.split(" ");
-  
-	// Encontramos la primera parte del texto y lo separamos
-	const firstPart = words.slice(0, 33).join(" ") + "..."; // Agregamos '...' al final de las primeras 33 palabras
-	const secondPart = words.slice(33).join(" ");
-  
-	// Creamos el botón
-	const button = document.createElement("button");
-	button.id = "toggleDescription";
-	button.textContent = " Read more";
-  
-	// Insertamos el texto inicial con el botón
-	descriptionText.innerHTML = firstPart;
-	descriptionText.appendChild(button);
-  
-	// Función para alternar entre mostrar más o menos texto
-	function toggleText() {
-	  if (button.textContent === " Read more") {
-		// Mostrar todo el texto sin los tres puntos y cambiar el texto del botón a "Show less"
-		descriptionText.innerHTML = firstPart.slice(0, -3) + " " + secondPart; // Eliminar los '...' de firstPart
-		descriptionText.appendChild(button);
-		button.textContent = " Show less";
-	  } else {
-		// Mostrar solo la primera parte con '...' y cambiar el texto del botón a "Read more"
-		descriptionText.innerHTML = firstPart;
-		descriptionText.appendChild(button);
-		button.textContent = " Read more";
-	  }
-	}
-  
-	// Añadimos el evento de alternar el texto y el texto del botón al hacer clic
-	button.addEventListener("click", toggleText);
+  // Contamos las palabras del texto
+  const descriptionText = document.getElementById("descriptionText");
+  const words = descriptionText.innerText.split(" ");
+
+  // Encontramos la primera parte del texto y lo separamos
+  const firstPart = words.slice(0, 33).join(" ") + "..."; // Agregamos '...' al final de las primeras 33 palabras
+  const secondPart = words.slice(33).join(" ");
+
+  // Creamos el botón
+  const button = document.createElement("button");
+  button.id = "toggleDescription";
+  button.textContent = " Read more";
+
+  // Insertamos el texto inicial con el botón
+  descriptionText.innerHTML = firstPart;
+  descriptionText.appendChild(button);
+
+  // Función para alternar entre mostrar más o menos texto
+  function toggleText() {
+    if (button.textContent === " Read more") {
+      // Mostrar todo el texto sin los tres puntos y cambiar el texto del botón a "Show less"
+      descriptionText.innerHTML = firstPart.slice(0, -3) + " " + secondPart; // Eliminar los '...' de firstPart
+      descriptionText.appendChild(button);
+      button.textContent = " Show less";
+    } else {
+      // Mostrar solo la primera parte con '...' y cambiar el texto del botón a "Read more"
+      descriptionText.innerHTML = firstPart;
+      descriptionText.appendChild(button);
+      button.textContent = " Read more";
+    }
   }
 
+  // Añadimos el evento de alternar el texto y el texto del botón al hacer clic
+  button.addEventListener("click", toggleText);
+}
 
-window.addEventListener('resize', changeButtonText);
-window.addEventListener('load', changeButtonText);
+window.addEventListener("resize", changeButtonText);
+window.addEventListener("load", changeButtonText);
 
 function changeButtonText() {
-  const buttons = document.querySelectorAll('.accordion-button2');
-  buttons.forEach(button => {
+  const buttons = document.querySelectorAll(".accordion-button2");
+  buttons.forEach((button) => {
     // Buscar solo el texto del botón, ignorando las imágenes
-    const buttonTextNode = Array.from(button.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+    const buttonTextNode = Array.from(button.childNodes).find(
+      (node) => node.nodeType === Node.TEXT_NODE
+    );
 
     if (window.innerWidth <= 768) {
-      if (button.id === 'africaButton') {
-        buttonTextNode.nodeValue = 'Overview'; // Cambiar solo el texto
-      } else if (button.id === 'clickable') {
-        buttonTextNode.nodeValue = 'Bilateral';
-      } else if (button.id === 'multilateral') {
-        buttonTextNode.nodeValue = 'Multilateral';
+      if (button.id === "africaButton") {
+        buttonTextNode.nodeValue = "Overview"; // Cambiar solo el texto
+      } else if (button.id === "clickable") {
+        buttonTextNode.nodeValue = "Bilateral";
+      } else if (button.id === "multilateral") {
+        buttonTextNode.nodeValue = "Multilateral";
       }
     } else {
-      if (button.id === 'africaButton') {
-        buttonTextNode.nodeValue = 'African countries overview';
-      } else if (button.id === 'clickable') {
-        buttonTextNode.nodeValue = 'Bilateral partnerships';
-      } else if (button.id === 'multilateral') {
-        buttonTextNode.nodeValue = 'Multilateral partnerships';
+      if (button.id === "africaButton") {
+        buttonTextNode.nodeValue = "African countries overview";
+      } else if (button.id === "clickable") {
+        buttonTextNode.nodeValue = "Bilateral partnerships";
+      } else if (button.id === "multilateral") {
+        buttonTextNode.nodeValue = "Multilateral partnerships";
       }
     }
   });
 }
-
-let picker = document.querySelector('.picker');
-let items = document.querySelectorAll('.picker-item');
-
-let currentIndex = 0;
-let itemHeight = items[0].offsetHeight;
-
-function movePicker(direction) {
-    if (direction === 'down' && currentIndex < items.length - 1) {
-        currentIndex++;
-    } else if (direction === 'up' && currentIndex > 0) {
-        currentIndex--;
-    }
-    picker.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
-}
-
-// Detect swipe gestures
-let startY;
-let endY;
-
-picker.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].pageY;
-});
-
-picker.addEventListener('touchend', (e) => {
-    endY = e.changedTouches[0].pageY;
-    if (startY - endY > 30) {
-        movePicker('down');
-    } else if (endY - startY > 30) {
-        movePicker('up');
-    }
-});

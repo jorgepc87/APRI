@@ -103,6 +103,9 @@ function cancelPicker(event) {
   if (event.target !== picker) return;
   picker.style.display = "none";
 }
+function cancel() {
+  picker.style.display = "none";
+}
 
 function confirmPicker() {
   picker.style.display = "none";

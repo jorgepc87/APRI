@@ -153,7 +153,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   svg.selectAll("path").remove();
 
   //console.log("GeoJSON features:", geojsonData.features);
-  console.log("Number data", numberData);
+  //console.log("Number data", numberData);
   const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
 
   const colorScale = d3

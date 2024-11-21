@@ -45,11 +45,11 @@ button {
   justify-content: center;
 
   /* .col-3.info-partner {
-        flex: 1;
-        border: black 0.5px solid;
-        border-top-right-radius: 7px;
-        border-bottom-right-radius: 7px;
-        /* overflow-y: auto; */
+		  flex: 1;
+		  border: black 0.5px solid;
+		  border-top-right-radius: 7px;
+		  border-bottom-right-radius: 7px;
+		  /* overflow-y: auto; */
 }
 
 h1 {
@@ -75,13 +75,14 @@ h2.accordion-header.partner-header {
     margin-top: 12px;
     font-family: "RalewayMedium", sans-serif;
     color: #252525;
+    justify-content: space-between; /* Esto separa los elementos a los extremos */
   }
   .african-button {
     font-size: 14pt;
     font-weight: normal;
     font-family: "RalewayMedium", sans-serif;
-
     color: #252525;
+    justify-content: space-between; /* Esto separa los elementos a los extremos */
   }
 }
 
@@ -225,13 +226,13 @@ h2.accordion-header.partner-header {
   border: black solid 1px;
   border-radius: 7px;
   /* max-width: 100%;
-    height: 100%;
-    border: black solid .5px;
-    border-radius: 7px;
-    width: 25%; 
-    transition: opacity 0.3s ease, width 0.3s ease; 
-    padding-left: 0;
-    text-align: start; */
+	  height: 100%;
+	  border: black solid .5px;
+	  border-radius: 7px;
+	  width: 25%; 
+	  transition: opacity 0.3s ease, width 0.3s ease; 
+	  padding-left: 0;
+	  text-align: start; */
 }
 
 .width-third-col .col-3 .info-partner {
@@ -244,8 +245,8 @@ h2.accordion-header.partner-header {
 }
 
 /* #accordionFlushExample {
-    width: 25%;
-} */
+	  width: 25%;
+  } */
 .first-col.col-2 {
   padding: 0;
   margin: 0 0;
@@ -271,10 +272,10 @@ h2.accordion-header.partner-header {
   height: 100%;
 }
 /* #map {
-    width: 60%; card.partnershi
-    height: auto;
-    transition: width 0.3s ease; 
-} */
+	  width: 60%; card.partnershi
+	  height: auto;
+	  transition: width 0.3s ease; 
+  } */
 #map {
   /*width: 50px; */
   width: 50%;
@@ -355,7 +356,9 @@ h2.accordion-header.partner-header {
   padding-top: 0px;
   font-size: 10pt;
 }
-
+.africantriangle {
+  display: none;
+}
 .list-group-item.bloc-select:hover {
   color: #fcc12c; /* Cambia el color del texto a rojo */
   text-decoration: underline; /* Agrega subrayado */
@@ -498,8 +501,8 @@ h2.accordion-header.partner-header {
   pointer-events: none;
 }
 .controls * {
-	pointer-events: auto; /* Habilita eventos del mouse en todos los elementos hijos */
-  }
+  pointer-events: auto; /* Habilita eventos del mouse en todos los elementos hijos */
+}
 /* Contenedor de los botones de zoom */
 .btnZoom {
   top: 10px; /* Ajusta la posición según tus necesidades */
@@ -527,6 +530,9 @@ h2.accordion-header.partner-header {
   height: 30px;
 }
 
+.nameMobile {
+  display: none;
+}
 .toggle-container {
   display: flex;
   align-items: center;
@@ -700,7 +706,7 @@ img.zoom-out-active {
   }
   .description {
     padding-right: 0px;
-	margin-bottom: 20px;
+    margin-bottom: 20px;
   }
   .title {
     font-size: 24pt;
@@ -852,6 +858,178 @@ img.zoom-out-active {
   .control-toggle {
     margin-top: 0px;
   }
-  
-}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
+  .picker {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+    background-color: rgba(37, 38, 45, 0.4);
+    display: none;
+  }
+
+  .picker-panel {
+    position: absolute;
+    z-index: 600;
+    bottom: 0;
+    width: 100%;
+    height: 273px;
+    background: white;
+  }
+
+  .picker-choose {
+    position: relative;
+    height: 60px;
+    color: #999;
+  }
+
+  .picker-title {
+    margin: 0;
+    line-height: 60px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .confirm,
+  .cancel {
+    position: absolute;
+    top: 6px;
+    padding: 16px;
+    font-size: 14px;
+	color: #fec03c; /* Color de fondo al pasar el mouse */
+	font-family: "RalewayBold", sans-serif;
+  }
+
+  .confirm {
+    right: 0;
+
+  }
+
+  .cancel {
+    left: 0;
+  }
+
+  .picker-content {
+    position: relative;
+    top: 20px;
+  }
+
+  .mask-top,
+  .mask-bottom {
+    width: 100%;
+    height: 68px;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .mask-top {
+    top: 0;
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.8)
+    );
+  }
+
+  .mask-bottom {
+    bottom: 1px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.8)
+    );
+  }
+  .wheel-wrapper {
+    display: flex;
+    padding: 0 16px;
+  }
+
+  .wheel {
+    flex: 1;
+    height: 173px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .wheel-scroll {
+    margin-top: 0px;
+    line-height: 36px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .wheel-item {
+    height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #CBCBCB;
+    cursor: pointer;
+	font-family: "RalewayMedium", sans-serif;
+
+  }
+
+  .wheel-disabled-item {
+    opacity: 0.2;
+  }
+
+  .selected-item {
+    color: #737373;
+    text-decoration: underline;
+  }
+  .accordion-collapse {
+    display: none;
+  }
+
+  .triangle-icon {
+    margin-left: auto; /* Empuja el triángulo hacia el extremo derecho */
+    width: 16px; /* Ajusta el tamaño del triángulo */
+    height: 16px;
+    transition: transform 0.3s ease; /* Suaviza la animación */
+    transform: rotate(-90deg);
+  }
+  /* Rotación dependiendo del estado del botón */
+  .accordion-button2[aria-expanded="true"] .triangle-icon {
+    transform: rotate(-90deg);
+  }
+
+  .accordion-button2[aria-expanded="false"] .triangle-icon {
+    transform: rotate(-90deg);
+  }
+  .titleButton {
+    font-size: 14pt;
+    margin-bottom: 0px;
+    color: #000;
+    /*font-weight: bold;*/
+    font-family: "RalewayBold", sans-serif;
+    font-weight: bold;
+  }
+  .nameMobile {
+    display: flex;
+    justify-content: space-between; /* Esto separa los elementos a los extremos */
+    padding: 15px;
+    align-items: center; /* Centra los elementos verticalmente */
+  }
+  .buttonChange {
+    color: #007bff;
+    align-items: center; /* Centra los elementos verticalmente */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .africantriangle {
+    display: flex;
+  }
+}

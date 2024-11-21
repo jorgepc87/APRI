@@ -175,23 +175,23 @@ export function filterAfrica(geojsonData, partnersNoData) {
   const africanCountries = partnersNoData.map(
     (countryData) => countryData.africanCountry
   );
-  console.log(africanCountries); // lista de todos los paises a marcar, si sale Guinea Bisseau
+  //console.log(africanCountries); // lista de todos los paises a marcar, si sale Guinea Bisseau
 
   const filteredFeatures = geojsonData.features.filter((feature) => {
     const countryName = feature.properties.name;
     //   console.log(countryName);
 
     if (countryName == "Algeria") {
-      console.log("esta");
-      console.log(countryName);
-      console.log(africanCountries.includes(countryName));
+     // console.log("esta");
+      //console.log(countryName);
+      //console.log(africanCountries.includes(countryName));
     } else {
       //console.log( "no esta" + countryName)
     }
 
     return africanCountries.includes(countryName);
   });
-  console.log(filteredFeatures);
+ // console.log(filteredFeatures);
 
   return { ...geojsonData, features: filteredFeatures };
 }

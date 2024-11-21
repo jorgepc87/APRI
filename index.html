@@ -56,6 +56,7 @@
             duis dolore te
           </p>
         </div>
+
         <div class="downloadButton">
           <img class="imgPdf" src="img/icons/pdf.svg" alt="PDF Icon" />
           <strong>Download report </strong>
@@ -66,10 +67,7 @@
           />
         </div>
       </div>
-      <div
-        class="print-div"
-      
-      >
+      <div class="print-div">
         <div
           style="
             display: flex;
@@ -100,8 +98,31 @@
             </button>
           </div>
         </div>
+        <span class="_picker-open" id="selectedText">open</span>
       </div>
 
+      <div class="container">
+        <div class="picker" id="picker" style="display: none">
+          <div class="picker-panel">
+            <div class="picker-choose">
+              <span class="cancel" onclick="cancelPicker(event)">Cancel</span>
+              <span class="confirm" onclick="confirmPicker()">Choose</span>
+              <h1 class="picker-title"></h1>
+            </div>
+            <div class="picker-content">
+              <div class="mask-top"></div>
+              <div class="mask-bottom"></div>
+              <div class="wheel-wrapper">
+                <div class="wheel" id="wheelWrapper">
+                  <ul class="wheel-scroll" id="wheelList"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="picker-footer"></div>
+          </div>
+        </div>
+      </div>
+      <script src="./modules/picker.js"></script>
       <div id="printable" class="allview">
         <div class="first-col d-flex justify-content-end selectores col-4">
           <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -121,6 +142,11 @@
                   id="clickable"
                 >
                   African countries overview
+                  <img
+                    class="triangle-icon africantriangle"
+                    src="./img/icons/arrowD.svg"
+                    alt="Toggle arrow"
+                  />
                 </button>
               </h2>
               <div
@@ -263,7 +289,7 @@
                   data-bs-target="#flush-collapseTwo"
                   aria-expanded="false"
                   aria-controls="flush-collapseTwo"
-				  id="multilateral"
+                  id="multilateral"
                 >
                   Multilateral partnerships
                   <img
@@ -318,7 +344,16 @@
               </div>
             </div>
           </div>
+          <div class="nameMobile">
+            <div>
+              <h2 class="titleButton" id="blockName">
+                African countries overview
+              </h2>
+            </div>
+            <div class="buttonChange">Change selection</div>
+          </div>
         </div>
+
         <div
           id="map"
           class="second-col justify-content-center align-center center"
@@ -348,7 +383,6 @@
           </div>
         </div>
       </div>
-	  
     </div>
     <script type="module" src="main.js"></script>
   </body>

@@ -242,12 +242,12 @@ const buttons = document.querySelectorAll(".accordion-button2");
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     // Removemos la clase 'active' de todos los botones
-    // buttons.forEach((btn) => btn.classList.remove("active"));
+    buttons.forEach((btn) => btn.classList.remove("active"));
+
     // Añadimos la clase 'active' al botón que se hizo clic
-    // this.classList.add("active");
+    this.classList.add("active");
   });
 });
-
 document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", function (event) {
     event.preventDefault(); // Previene el comportamiento por defecto (desplazamiento hacia arriba)
@@ -259,10 +259,18 @@ document.querySelectorAll("a").forEach((link) => {
 document
   .querySelector('.accordion-button2[data-bs-target="#flush-collapseOne"]')
   .addEventListener("click", function () {
-    const firstCountryButton = document.querySelector(".country-select"); // Selecciona el primer botón en la lista de "Bilateral partnerships"
-    if (firstCountryButton) {
-      firstCountryButton.classList.add("activeDetail");
-      firstCountryButton.click(); // Simula un clic en ese botón
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      // El usuario está en un dispositivo móvil
+      showPickerBilateral();
+      const selectedText = document.getElementById("blockName");
+      selectedText.innerText = "Bilateral Parnerships";
+    } else {
+      // El usuario está en una web (escritorio o tablet)
+      const firstCountryButton = document.querySelector(".country-select"); // Selecciona el primer botón en la lista de "Bilateral partnerships"
+      if (firstCountryButton) {
+        firstCountryButton.classList.add("activeDetail");
+        firstCountryButton.click(); // Simula un clic en ese botón
+      }
     }
   });
 
@@ -270,25 +278,30 @@ document
 document
   .querySelector('.accordion-button2[data-bs-target="#flush-collapseTwo"]')
   .addEventListener("click", function () {
-    const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
-    if (firstBlocButton) {
-      firstBlocButton.classList.add("activeDetail");
-      firstBlocButton.click(); // Simula un clic en ese botón
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      // El usuario está en un dispositivo móvil
+      showPickerMultilateral();
+      const selectedText = document.getElementById("blockName");
+      selectedText.innerText = "Multilateral Parnerships";
+    } else {
+      const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
+      if (firstBlocButton) {
+        firstBlocButton.classList.add("activeDetail");
+        firstBlocButton.click(); // Simula un clic en ese botón
+      }
     }
   });
 
 const buttons2 = document.querySelectorAll(".list-group-item");
 
-buttons.forEach(button => {
-	button.addEventListener('click', function() {
-	  // Removemos la clase 'active' de todos los botones
-	  buttons.forEach(btn => btn.classList.remove('active'));
-	  
-	  // Añadimos la clase 'active' al botón que se hizo clic
-	  this.classList.add('active');
-	});
+buttons2.forEach((button) => {
+  button.addEventListener("click", function () {
+    buttons2.forEach((btn) => btn.classList.remove("activeDetail"));
+
+    this.classList.add("activeDetail");
   });
-  
+});
+
 document.getElementById("zoomIn").addEventListener("mouseover", function () {
   const zoomInIcon = this.querySelector("img");
 

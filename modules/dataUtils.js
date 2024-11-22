@@ -230,3 +230,6 @@ export async function filterEUandPartners(geojsonData, jsonData) {
   //console.log("Filter EU partners", filteredGeoJSON);
   return filteredGeoJSON;
 }
+
+
+

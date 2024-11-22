@@ -211,7 +211,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
     .attr("fill", (d) => {
       const countryName = d.properties.name;
       const partnerCount = partnerCounts[countryName] || 0; // Si no hay socios, partnerCount será 0
-	  //console.log(d.properties.name + "__" + partnerCount);
+      //console.log(d.properties.name + "__" + partnerCount);
 
       return colorScale(partnerCount); // Color inicial
     })
@@ -221,7 +221,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
     .on("click", clicked)
     .on("mouseover", function (event, d) {
-    //  console.log(d.properties.name);
+      //  console.log(d.properties.name);
       const countryName = d.properties.name;
       const countryData = numberData.find(
         (country) => country.africanCountry === countryName
@@ -231,7 +231,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       if (partnerCount > 0) {
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
-		console.log(partnersList)
+        console.log(partnersList);
         // Generar el contenido del tooltip
         tooltip.html(`
           <div style="display: flex; flex-direction: column; width: 170px;">
@@ -479,6 +479,8 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   }
 
   function clicked(event, d) {
+	tooltip.style("display", "block");
+
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     event.stopPropagation();
     svg
@@ -490,9 +492,9 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           .translate(width / 2, height / 2)
           .scale(
             Math.min(
-              8,
+              200,
               0.9 / Math.max((x1 - x0) / width / 2, (y1 - y0) / height)
-            ) * 0.7
+            ) * 1
           )
           .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
         d3.pointer(event, svg.node())
@@ -595,7 +597,67 @@ export function deleteCountryLabels() {
   d3.selectAll("image").transition().duration(500).style("opacity", 0); // Hacer invisibles los íconos
 }
 
-export function zoomToCountry(countryName) {
+export function zoomToCountry(svg, path, geojsonData, countryName) {
+  console.log(geojsonData);
+  // Buscar el país en los datos geoJSON
+  const countryFeature = geojsonData.features.find(
+    (feature) => feature.properties.name === countryName
+  );
+
+  if (countryFeature) {
+    // Obtener los límites del país
+    const [[x0, y0], [x1, y1]] = path.bounds(countryFeature);
+
+    // Realizar la transición para hacer zoom
+    svg
+      .transition()
+      .duration(1200)
+      .call(
+        d3.zoom().transform,
+        d3.zoomIdentity
+          .translate(svg.attr("width") / 2, svg.attr("height") / 2)
+          .scale(
+            Math.min(
+              8,
+              0.9 /
+                Math.max(
+                  (x1 - x0) / svg.attr("width"),
+                  (y1 - y0) / svg.attr("height")
+                )
+            ) * 0.7
+          )
+          .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
+      );
+  } else {
+    console.error(`Country "${countryName}" not found in geojson data.`);
+  }
+}
+
+export function simulateCountryClick(svg, geojsonData, countryName) {
+  console.log("hola");
+  // Buscar el país correspondiente en los datos GeoJSON
+  const countryFeature = geojsonData.features.find(
+    (feature) => feature.properties.name === countryName
+  );
+
+  if (countryFeature) {
+    // Seleccionar el elemento <path> correspondiente al país
+    const countryPath = svg
+      .selectAll("path")
+      .filter((d) => d === countryFeature);
+
+    if (!countryPath.empty()) {
+      // Simular el evento `click` en el elemento
+      countryPath.dispatch("click");
+    } else {
+      console.error(`No SVG path found for country: ${countryName}`);
+    }
+  } else {
+    console.error(`Country "${countryName}" not found in GeoJSON data.`);
+  }
+}
+
+/*export function zoomToCountry(countryName) {
   const feature = mergedBiData.features.find(
     (d) => d.properties.name === countryName
   );
@@ -608,7 +670,7 @@ export function zoomToCountry(countryName) {
     .scale(zoomLevel)
     .translate(-x, -y);
   svg.transition().duration(750).call(d3.zoom().transform, transformMap);
-}
+}*/
 // Función para hacer zoom in
 export function zoomIn() {
   svg.transition().duration(500).call(zoom.scaleBy, 1.5); // Incrementa el nivel de zoom

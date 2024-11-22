@@ -16,6 +16,8 @@ import {
   deleteCountryLabels,
   zoomIn,
   zoomOut,
+  zoomToCountry,
+  simulateCountryClick,
 } from "./modules/mapUtils.js";
 import {
   toggleButton,
@@ -61,6 +63,7 @@ const tooltip = d3
   .style("opacity", 0);
 
 // Función para restablecer el mapa a su estado inicial
+
 function resetToInitialView() {
   destroyMap();
   filteredGeoJSON = filterAfrica(mergedBiData, numberData); // Filtra África
@@ -68,10 +71,33 @@ function resetToInitialView() {
   clearCardContent();
   addLegend(svg, colorScale); // Añade la leyenda
   removeThirdColumn(); // Oculta la tercera columna
+  // zoomToCountry(svg, path, filteredGeoJSON, "Chad");
+  console.log("resetttttttttttttttttttttttttttt");
 }
+
 function refresh() {
-  window.location.href = window.location.href;
+
+  if (/Mobi|Android/i.test(navigator.userAgent)) {
+    // El usuario está en un dispositivo móvil
+    console.log("Estás en un dispositivo móvil");
+    // simulateCountryClick(svg, filteredGeoJSON, "Chad");
+    showPickerAfrica(simulateCountryClick, svg, filteredGeoJSON);
+	button.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  } else {
+    window.location.href = window.location.href;
+  }
 }
+//document.getElementById("africaButton").addEventListener("click", refresh);
+
+const buttonScroll = document.getElementById("africaButton");
+
+// Asigna el evento click
+buttonScroll.addEventListener("click", () => {
+	refresh()
+	buttonScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
 // Load and merge data
 Promise.all([
   loadAndMergeData(geojsonUrl, jsonFilePath, noPartnerFilePath),
@@ -124,11 +150,7 @@ Promise.all([
           "#9E6604", //6
         ]);
 
-      resetToInitialView(); // Inicializa el mapa
-
-      document
-        .querySelector(".main-select")
-        .addEventListener("click", resetToInitialView);
+      resetToInitialView();
 
       document.querySelectorAll(".country-select").forEach((item) => {
         item.addEventListener("click", function () {
@@ -215,7 +237,6 @@ document.getElementById("zoomIn").addEventListener("click", () => {
   zoomIn();
 });
 document.getElementById("zoomOut").addEventListener("click", () => zoomOut());
-document.getElementById("africaButton").addEventListener("click", refresh);
 
 // Mostrar/ocultar nombres de países
 document.addEventListener("DOMContentLoaded", function () {
@@ -231,9 +252,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   } else {
-    console.error(
-      "El botón con el ID 'toggleLabels' no se encontró en el DOM."
-    );
   }
 });
 
@@ -273,6 +291,7 @@ document
       }
     }
   });
+// zoomToCountry("CHAD")
 
 // Al hacer clic en "Multilateral partnerships", simulamos el clic en el primer botón de la lista "BRICS Geological Platform"
 document
@@ -467,3 +486,25 @@ function changeButtonText() {
     }
   });
 }
+
+// Obtén el elemento span
+const mySpan = document.getElementById("africanCountry");
+
+// Configura el MutationObserver
+const observer = new MutationObserver((mutationsList) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === "childList") {
+      resetToInitialView();
+
+      simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
+
+      //console.log("El texto del span cambió a:", mySpan);
+      // Aquí puedes agregar cualquier acción adicional
+    }
+  }
+});
+
+// Observa cambios en los hijos del span (como el texto)
+observer.observe(mySpan, { childList: true });
+
+// Función para cambiar el texto del span

@@ -1,3 +1,5 @@
+
+
 const Bilateral = [
   { text: "EU", value: 1, disabled: false },
   { text: "Saudi Arabia", value: 2, disabled: false },
@@ -82,8 +84,9 @@ let wheelList = document.getElementById("wheelList");
 
 const picker = document.getElementById("picker");
 const selectedText = document.getElementById("selectedText");
+const selectedAfrican = document.getElementById("africanCountry");
 
-function showPickerAFRICA() {
+function showPickerAfrica() {
   picker.style.display = "block";
   pickerData = AfricanOverview;
   createWheel();
@@ -110,6 +113,8 @@ function cancel() {
 function confirmPicker() {
   picker.style.display = "none";
   selectedText.innerText = pickerData[selectedIndex].text;
+  selectedAfrican.innerText = pickerData[selectedIndex].text;
+
   console.log(selectedText.innerText);
 
   const button = Array.from(document.querySelectorAll(".bloc-select")).find(

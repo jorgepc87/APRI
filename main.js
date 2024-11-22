@@ -93,7 +93,7 @@ const buttonScroll = document.getElementById("africaButton");
 buttonScroll.addEventListener("click", () => {
   console.log("test");
   refresh();
-  buttonScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+  buttonScroll.scrollIntoView({ behavior: "smooth", block: "start" });
   const selectedBlock = document.getElementById("blockNameNowTemp");
   selectedBlock.innerText = "African countries overview";
   console.log(selectedBlock);

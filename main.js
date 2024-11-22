@@ -72,18 +72,15 @@ function resetToInitialView() {
   addLegend(svg, colorScale); // Añade la leyenda
   removeThirdColumn(); // Oculta la tercera columna
   // zoomToCountry(svg, path, filteredGeoJSON, "Chad");
-  console.log("resetttttttttttttttttttttttttttt");
 }
 
 function refresh() {
-
   if (/Mobi|Android/i.test(navigator.userAgent)) {
     // El usuario está en un dispositivo móvil
     console.log("Estás en un dispositivo móvil");
     // simulateCountryClick(svg, filteredGeoJSON, "Chad");
     showPickerAfrica(simulateCountryClick, svg, filteredGeoJSON);
-	button.scrollIntoView({ behavior: "smooth", block: "center" });
-
+    //button.scrollIntoView({ behavior: "smooth", block: "center" });
   } else {
     window.location.href = window.location.href;
   }
@@ -94,8 +91,12 @@ const buttonScroll = document.getElementById("africaButton");
 
 // Asigna el evento click
 buttonScroll.addEventListener("click", () => {
-	refresh()
-	buttonScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+  console.log("test");
+  refresh();
+  buttonScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+  const selectedBlock = document.getElementById("blockNameNowTemp");
+  selectedBlock.innerText = "African countries overview";
+  console.log(selectedBlock);
 });
 
 // Load and merge data
@@ -280,7 +281,7 @@ document
     if (/Mobi|Android/i.test(navigator.userAgent)) {
       // El usuario está en un dispositivo móvil
       showPickerBilateral();
-      const selectedText = document.getElementById("blockName");
+      const selectedText = document.getElementById("blockNameNowTemp");
       selectedText.innerText = "Bilateral Parnerships";
     } else {
       // El usuario está en una web (escritorio o tablet)
@@ -300,8 +301,8 @@ document
     if (/Mobi|Android/i.test(navigator.userAgent)) {
       // El usuario está en un dispositivo móvil
       showPickerMultilateral();
-      const selectedText = document.getElementById("blockName");
-      selectedText.innerText = "Multilateral Parnerships";
+      const selectedText = document.getElementById("blockNameNowTemp");
+      blockNameNowTemp.innerText = "Multilateral Parnerships";
     } else {
       const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
       if (firstBlocButton) {
@@ -493,9 +494,17 @@ const mySpan = document.getElementById("africanCountry");
 // Configura el MutationObserver
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
+    console.log("cambio estado");
     if (mutation.type === "childList") {
-      resetToInitialView();
+      // resetToInitialView();
+      const selectedBlock = document.getElementById("blockName");
+      console.log(selectedBlock.textContent);
+      //  resetToInitialView();
 
+      if (selectedBlock.textContent.trim() == "African countries Overview") {
+        resetToInitialView();
+      } else {
+      }
       simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
 
       //console.log("El texto del span cambió a:", mySpan);
@@ -508,3 +517,49 @@ const observer = new MutationObserver((mutationsList) => {
 observer.observe(mySpan, { childList: true });
 
 // Función para cambiar el texto del span
+
+// Obtén el elemento span
+const mySpan2 = document.getElementById("blockNameTemp");
+
+// Configura el MutationObserver
+const observer2 = new MutationObserver((mutationsList) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === "childList") {
+      const selectedBlock = document.getElementById("blockName");
+      console.log(mySpan2);
+      selectedBlock.innerText = mySpan2.textContent.trim();
+
+      //  resetToInitialView();
+
+      if (selectedBlock.textContent.trim() == "African countries overview") {
+        resetToInitialView();
+      } else {
+      }
+      simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
+
+      //console.log("El texto del span cambió a:", mySpan);
+      // Aquí puedes agregar cualquier acción adicional
+    }
+  }
+});
+
+// Observa cambios en los hijos del span (como el texto)
+observer2.observe(mySpan2, { childList: true });
+
+// Función para cambiar el texto del span
+
+document.querySelector(".buttonChange").addEventListener("click", () => {
+  const randomValue = Math.random(); // Genera un valor aleatorio entre 0 y 1
+  const selectedBlock = document.getElementById("blockName").textContent.trim();
+
+  if (selectedBlock === "African countries overview") {
+    const africanButton = document.getElementById("africaButton");
+    africanButton.click();
+  } else if (selectedBlock === "Multilateral Parnerships") {
+    const multilateral = document.getElementById("multilateral");
+    multilateral.click();
+  } else {
+    const africanButton = document.getElementById("africaButton");
+    africanButton.click();
+  }
+});

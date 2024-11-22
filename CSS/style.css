@@ -51,7 +51,9 @@ button {
 		  border-bottom-right-radius: 7px;
 		  /* overflow-y: auto; */
 }
-
+.hidenthings {
+  display: none;
+}
 h1 {
   font-size: 52pt;
   font-family: "RalewayN", sans-serif;
@@ -152,8 +154,6 @@ h2.accordion-header.partner-header {
 .african-button:not(:focus),
 .accordion-button2:not(:focus) {
   background-color: #ffdc94; /* Color al no estar en foco */
-
-
 }
 
 .african-button:not(:focus).active {
@@ -531,7 +531,9 @@ h2.accordion-header.partner-header {
   width: 30px; /* Ajusta el tamaño del icono */
   height: 30px;
 }
-
+.instruccions {
+  display: none;
+}
 .nameMobile {
   display: none;
 }
@@ -795,6 +797,11 @@ img.zoom-out-active {
     flex-direction: column; /* Aseguramos que los elementos internos se dispongan verticalmente */
     justify-content: flex-start; /* Alineamos al inicio de la columna */
   }
+  .second-col {
+    border-bottom: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+
+  }
 
   .second-col {
     justify-content: center; /* Centrar contenido si es necesario */
@@ -802,10 +809,12 @@ img.zoom-out-active {
   }
 
   .third-col {
-    display: flex;
+    width: 100vw;
+    display: block;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center; /* Centrado de los elementos dentro de la tercera columna */
+    padding: 0px 15px 15px 15px;
   }
   #map {
     width: 100vw;
@@ -819,22 +828,27 @@ img.zoom-out-active {
     outline: none;
     height: 35px !important;
     font-family: "RalewayMedium", sans-serif;
-	border-radius: 7px !important;
+    border-radius: 7px !important;
   }
   h2.accordion-header.partner-header {
     .accordion-button2 {
       margin-top: 0px;
-
     }
   }
   .card.partnership {
-    width: 100vw; /* Asegura que abarque todo el ancho del viewport */
+    width: 100%; /* Asegura que abarque todo el ancho del viewport */
     padding: 0px 0px 0px 0px;
-    padding: 20px;
-    border: 0px solid lightgray; /* Cambia el borde a gris claro */
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 5px !important;
+    border: 1px solid lightgray; /* Cambia el borde a gris claro */
   }
   .right {
+    width: 100vw;
     margin-left: 0px;
+    margin: 0px;
+    padding: 0px;
+
     /*margin: 10px;*/
   }
   .right.bilateral {
@@ -912,13 +926,12 @@ img.zoom-out-active {
     top: 6px;
     padding: 16px;
     font-size: 14px;
-	color: #fec03c; /* Color de fondo al pasar el mouse */
-	font-family: "RalewayBold", sans-serif;
+    color: #fec03c; /* Color de fondo al pasar el mouse */
+    font-family: "RalewayBold", sans-serif;
   }
 
   .confirm {
     right: 0;
-
   }
 
   .cancel {
@@ -978,10 +991,9 @@ img.zoom-out-active {
     height: 36px;
     overflow: hidden;
     white-space: nowrap;
-    color: #CBCBCB;
+    color: #cbcbcb;
     cursor: pointer;
-	font-family: "RalewayMedium", sans-serif;
-
+    font-family: "RalewayMedium", sans-serif;
   }
 
   .wheel-disabled-item {
@@ -1035,5 +1047,15 @@ img.zoom-out-active {
   }
   .africantriangle {
     display: flex;
+  }
+  .instruccions {
+    display: block;
+    align-items: center;
+    font-family: "RalewayC", sans-serif;
+    margin-top: 0px;
+    width: 100%;
+    padding: 0px 15px 0px 15px;
+    font-size: 8.5pt;
+    text-align: justify;
   }
 }

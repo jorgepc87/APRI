@@ -7,25 +7,26 @@ export function addLegend(svg, colorScale) {
     .style("text-align", "left")
     .style("margin", "10px 0")
     .style("font-weight", "bold")
-    .style("font-size", "12pt")
+    .style("font-size",  window.innerWidth <= 768 ?  "10pt" : "12pt")
+	.style("margin-bottom",  window.innerWidth <= 768 ? "5px" :"")
+
+	.style("border-bottom",  window.innerWidth <= 768 ? "1px solid black" :"")
+	.style("width",  window.innerWidth <= 768 ? "155px" :"")
+
 
     .text("Number of Partnerships");
 
-  legendContainer
-    .append("div")
-    .attr("class", "line-black")
-    .style("text-align", "left")
-    .style("margin-top", "0px")
-    .style("margin-bottom", "10px");
+
 
   const legend = legendContainer
     .append("div")
     .attr("class", "legend-vertical")
     .style("display", "flex")
     .style("flex-direction", window.innerWidth <= 768 ?  "rows" :  "column")
-	.style("justify-content", window.innerWidth <= 768 ? "center" : "flex-start") // Condicional para distribución
+	.style("justify-content", window.innerWidth <= 768 ? "space-between" : "flex-start") // Condicional para distribución
 	.style("text-align", window.innerWidth <= 768 ? "center" : "left") // Condicional para distribución
 	.style("align-items", window.innerWidth <= 768 ? "center" : "left") 
+	.style("gap", window.innerWidth <= 768 ? "10px" : "px") 
 
     .style("align-items", "left");
 
@@ -48,13 +49,13 @@ export function addLegend(svg, colorScale) {
         .style("width",  window.innerWidth <= 768 ? "40px":"20px")
         .style("height",  window.innerWidth <= 768 ? "40px":"20px")
         .style("background-color", colorScale.range()[i])
-        .style("margin-right", "10px");
+		.style("margin-right", window.innerWidth <= 768 ? "0px" : "10px") 
       //legendItem.shift();
 
       legendItem
         .append("span")
         .text(numberToWord(i))
-        .style("font-size", "14px")
+        .style("font-size", window.innerWidth <= 768 ? "11px" : "14px")
         .style("font-family", "RalewayN");
     }
   });

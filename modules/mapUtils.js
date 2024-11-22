@@ -36,7 +36,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
     .attr("stroke", "white")
     .attr("stroke-width", 0.5)
     .on("click", clicked);
-  console.log(partner);
+  //console.log(partner);
   const labels = g
     .selectAll("text")
     .data(filteredCountryGeoJSON.features)
@@ -515,10 +515,10 @@ function updateProjection(scale, center, translation) {
 
 //se modifico esta seccion para identificar por cada pais y realizar la proyeccion de cada item y personalizarlo - JORGE PAREDES
 export function handleSelection(type, item) {
-  console.log(type);
-  console.log(item);
-  console.log("cesar");
-  console.log("input FOR HANDLE SELECTOR", width);
+ // console.log(type);
+  //console.log(item);
+ // console.log("cesar");
+//  console.log("input FOR HANDLE SELECTOR", width);
   if (item == "EU") {
     updateProjection(300, [20, 0], [width / 1.5, height / 10]);
   } else if (item == "Saudi Arabia") {
@@ -634,7 +634,6 @@ export function zoomToCountry(svg, path, geojsonData, countryName) {
 }
 
 export function simulateCountryClick(svg, geojsonData, countryName) {
-  console.log("hola");
   // Buscar el país correspondiente en los datos GeoJSON
   const countryFeature = geojsonData.features.find(
     (feature) => feature.properties.name === countryName

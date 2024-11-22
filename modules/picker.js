@@ -1,5 +1,3 @@
-
-
 const Bilateral = [
   { text: "EU", value: 1, disabled: false },
   { text: "Saudi Arabia", value: 2, disabled: false },
@@ -85,6 +83,8 @@ let wheelList = document.getElementById("wheelList");
 const picker = document.getElementById("picker");
 const selectedText = document.getElementById("selectedText");
 const selectedAfrican = document.getElementById("africanCountry");
+const blockNameTemp = document.getElementById("blockNameTemp");
+const blockNameNowTemp = document.getElementById("blockNameNowTemp");
 
 function showPickerAfrica() {
   picker.style.display = "block";
@@ -114,12 +114,17 @@ function confirmPicker() {
   picker.style.display = "none";
   selectedText.innerText = pickerData[selectedIndex].text;
   selectedAfrican.innerText = pickerData[selectedIndex].text;
+	
+
+  console.log(blockNameNowTemp);
+  blockNameTemp.innerText = blockNameNowTemp.textContent.trim()
+
 
   console.log(selectedText.innerText);
-
+  //---------------------------Multilateral
   const button = Array.from(document.querySelectorAll(".bloc-select")).find(
     (button) => {
-      console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
+      // console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
       return button.textContent.trim() === selectedText.innerText;
     }
   );
@@ -129,10 +134,10 @@ function confirmPicker() {
   } else {
     console.log("Botón no encontrado");
   }
-
+  //---------------------------Bilateral
   const button2 = Array.from(document.querySelectorAll(".country-select")).find(
     (button) => {
-      console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
+      //  console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
       return button.textContent.trim() === selectedText.innerText;
     }
   );

@@ -30,7 +30,7 @@ export function highlightPartnership(svg, filteredGeoJSON, itemSelected) {
     .selectAll("path")
 
     .attr("fill", (d) => {
-      console.log("item ", d.properties.name + "el otro es" + itemSelected);
+     // console.log("item ", d.properties.name + "el otro es" + itemSelected);
 
       if (d.properties.name.toString() == itemSelected.toString()) {
         return "#fec030"; // Color para los países en blocCountries

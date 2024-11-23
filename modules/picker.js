@@ -20,61 +20,35 @@ const Multilateral = [
   { text: "IPEF Critical Minerals Dialogue", value: 5, disabled: false },
 ];
 const AfricanOverview = [
-  { text: "Algeria", value: 1, disabled: false },
-  { text: "Angola", value: 2, disabled: false },
-  { text: "Benin", value: 3, disabled: false },
-  { text: "Botswana", value: 4, disabled: false },
-  { text: "Burkina Faso", value: 5, disabled: false },
-  { text: "Burundi", value: 6, disabled: false },
-  { text: "Cape verde", value: 7, disabled: false },
-  { text: "Cameroon", value: 8, disabled: false },
-  { text: "Central African Republic", value: 9, disabled: false },
-  { text: "Chad", value: 10, disabled: false },
-  { text: "Comoros", value: 11, disabled: false },
-  { text: "Democratic Republic of the Congo", value: 12, disabled: false },
-  { text: "Republic of the Congo", value: 13, disabled: false },
-  { text: "Ivory Coast", value: 14, disabled: false },
-  { text: "Djibouti", value: 15, disabled: false },
-  { text: "Egypt", value: 16, disabled: false },
-  { text: "Equatorial Guinea", value: 17, disabled: false },
-  { text: "Eritrea", value: 18, disabled: false },
-  { text: "Ethiopia", value: 19, disabled: false },
-  { text: "Gabon", value: 20, disabled: false },
-  { text: "Gambia", value: 21, disabled: false },
-  { text: "Ghana", value: 22, disabled: false },
-  { text: "Guinea", value: 23, disabled: false },
-  { text: "Guinea Bissau", value: 24, disabled: false },
-  { text: "Kenya", value: 25, disabled: false },
-  { text: "Lesotho", value: 26, disabled: false },
-  { text: "Liberia", value: 27, disabled: false },
-  { text: "Libya", value: 28, disabled: false },
-  { text: "Madagascar", value: 29, disabled: false },
-  { text: "Malawi", value: 30, disabled: false },
-  { text: "Mali", value: 31, disabled: false },
-  { text: "Mauritania", value: 32, disabled: false },
-  { text: "Mauritius", value: 33, disabled: false },
-  { text: "Morocco", value: 34, disabled: false },
-  { text: "Mozambique", value: 35, disabled: false },
-  { text: "Namibia", value: 36, disabled: false },
-  { text: "Niger", value: 37, disabled: false },
-  { text: "Nigeria", value: 38, disabled: false },
-  { text: "Rwanda", value: 39, disabled: false },
-  { text: "Western Sahara", value: 40, disabled: false },
-  { text: "São tomé", value: 41, disabled: false },
-  { text: "Senegal", value: 42, disabled: false },
-  { text: "Seychelles", value: 43, disabled: false },
-  { text: "Sierra Leone", value: 44, disabled: false },
-  { text: "Somalia", value: 45, disabled: false },
-  { text: "South Africa", value: 46, disabled: false },
-  { text: "South Sudan", value: 47, disabled: false },
-  { text: "Sudan", value: 48, disabled: false },
-  { text: "Swaziland", value: 49, disabled: false },
-  { text: "United Republic of Tanzania", value: 50, disabled: false },
-  { text: "Togo", value: 51, disabled: false },
-  { text: "Tunisia", value: 52, disabled: false },
-  { text: "Uganda", value: 53, disabled: false },
-  { text: "Zambia", value: 54, disabled: false },
-  { text: "Zimbabwe", value: 55, disabled: false },
+	{ text: "None - overview", value: 1, disabled: false },
+
+	{ text: "Algeria", value: 1, disabled: false },
+	{ text: "Angola", value: 2, disabled: false },
+	{ text: "Chad", value: 3, disabled: false },
+	{ text: "Democratic Republic of the Congo", value: 4, disabled: false },
+	{ text: "Ivory Coast", value: 5, disabled: false },
+	{ text: "Ethiopia", value: 6, disabled: false },
+	{ text: "Guinea", value: 7, disabled: false },
+	{ text: "Guinea Bissau", value: 8, disabled: false },
+	{ text: "Kenya", value: 9, disabled: false },
+	{ text: "Libya", value: 10, disabled: false },
+	{ text: "Madagascar", value: 11, disabled: false },
+	{ text: "Malawi", value: 12, disabled: false },
+	{ text: "Mali", value: 13, disabled: false },
+	{ text: "Morocco", value: 14, disabled: false },
+	{ text: "Mozambique", value: 15, disabled: false },
+	{ text: "Namibia", value: 16, disabled: false },
+	{ text: "Niger", value: 17, disabled: false },
+	{ text: "Nigeria", value: 18, disabled: false },
+	{ text: "Rwanda", value: 19, disabled: false },
+	{ text: "Senegal", value: 20, disabled: false },
+	{ text: "Somalia", value: 21, disabled: false },
+	{ text: "South Africa", value: 22, disabled: false },
+	{ text: "Sudan", value: 23, disabled: false },
+	{ text: "United Republic of Tanzania", value: 24, disabled: false },
+	{ text: "Uganda", value: 25, disabled: false },
+	{ text: "Zambia", value: 26, disabled: false },
+	{ text: "Zimbabwe", value: 27, disabled: false }
 ];
 let selectedIndex = 2;
 let pickerData;
@@ -114,11 +88,17 @@ function confirmPicker() {
   picker.style.display = "none";
   selectedText.innerText = pickerData[selectedIndex].text;
   selectedAfrican.innerText = pickerData[selectedIndex].text;
-	
+
+  const showScrollable = document.getElementById("showScrollable");
+  showScrollable.classList.add("hidden");
+
+  const showtooltip = document.getElementById("tooltip2");
+  console.log(showtooltip);
+
+ // showtooltip.style.display="none"
 
   console.log(blockNameNowTemp);
-  blockNameTemp.innerText = blockNameNowTemp.textContent.trim()
-
+  blockNameTemp.innerText = blockNameNowTemp.textContent.trim();
 
   console.log(selectedText.innerText);
   //---------------------------Multilateral

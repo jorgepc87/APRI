@@ -232,27 +232,37 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
         console.log(partnersList);
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
         // Generar el contenido del tooltip
+
         tooltip.html(`
-          <div style="display: flex; flex-direction: column; width: 170px;">
-            <div style="display: flex; justify-content: space-between; width: 170px;">
-              <h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
-            </div>
-            <p style="margin: 5px 0; margin-top: 8px; font-family: 'RalewayLightItalic', sans-serif; font-size: 11pt">${partnerCount} partner${
+			<div style="display: flex; flex-direction: column; width: 170px; position: relative;">
+			  <!-- Botón de cierre -->
+			  ${
+          isMobile
+            ? `<button 
+				style="pointer-events:auto ; position: absolute; top: 5px; right: 5px; background: none; border: none; font-size: 12px; cursor: pointer;" 
+				onclick="(function(event) { console.log("HOlaaaaaaa") ; event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); }>
+				✖
+				</button> `
+            : ""
+        }
+			  <div style="display: flex; justify-content: space-between; width: 170px;">
+				<h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
+			  </div>
+			  <p style="margin: 5px 0; margin-top: 8px; font-family: 'RalewayLightItalic', sans-serif; font-size: 11pt">${partnerCount} partner${
           partnerCount !== 1 ? "s" : ""
         }</p>
-            <ul style="padding: 0; margin: 0; margin-top: 8px; font-size: 11pt; font-family: 'RalewayN', sans-serif;">
-              ${partnersList
-                .map(
-                  (partner) =>
-                    `<p style="padding: 0; margin: 0;">${partner}</p>`
-                )
-                .join("")}
-            </ul>
-          </div>
-        `);
-
+			  <ul style="padding: 0; margin: 0; margin-top: 8px; font-size: 11pt; font-family: 'RalewayN', sans-serif;">
+				${partnersList
+          .map((partner) => `<p style="padding: 0; margin: 0;">${partner}</p>`)
+          .join("")}
+			  </ul>
+			</div>
+		  `);
         tooltip.style("display", "block");
+        tooltip.style("pointer-events", "none");
 
         d3.select(this).transition().duration(300).style("opacity", 1);
 
@@ -305,18 +315,46 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       } else {
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-        // Generar el contenido del tooltip
         tooltip.html(`
-        <div style="display: flex; flex-direction: column; width: 170px;">
-          <div style="display: flex; justify-content: space-between; width: 170px;">
-            <h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
-          </div>
-         
-        </div>
-      `);
+			<div style="display: flex; flex-direction: column; width: 170px; position: relative;">
+			  <div style="display: flex; justify-content: space-between; align-items: center; width: 170px;">
+				<h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt;">${countryName}</h3>
+				${
+          isMobile
+            ? `<button 
+						style="
+						pointer-events:auto ;
+						  position: absolute; 
+						  top: 0px; 
+						  right: 5px; 
+						  background: none; 
+						  border: none; 
+						  font-size: 12px; 
+						  cursor: pointer; 
+						  font-weight: bold;
+						  color: #333;
+						" 
+						onclick="(function(event) { console.log("HOlaaaaaaa") ; event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); })(event)">
+						✖
+					  </button>`
+            : ""
+        }
+			  </div>
+			</div>
+		  `);
 
+        // Agregar evento al botón de cerrar si es móvil
+        if (isMobile) {
+          d3.select(".close-btn").on("click", function (event) {
+            event.stopPropagation(); // Detener propagación del evento
+            console.log("¡Hola! Se hizo clic en el botón cerrar.");
+            d3.select(".tooltip2").style("display", "none"); // Cerrar el tooltip
+          });
+        }
         tooltip.style("display", "block");
+        tooltip.style("pointer-events", "none");
 
         d3.select(this).transition().duration(300).style("opacity", 1);
 
@@ -374,16 +412,33 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
     .on("mousemove", function (event, d) {
       // Mostrar el nombre de la ciudad en la consola
       const countryName = d.properties.name;
-      console.log("City name on mousemove:", countryName);
-      if (countryName == "South Africa" || countryName == "Zambia") {
-        tooltip
-          .style("left", event.pageX + 10 + "px") // Desplazar un poco a la derecha
-          .style("top", event.pageY - 200 + "px"); // Desplazar un poco hacia abajo
+
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        console.log("City name on mousemove:", countryName);
+
+        // Calcular las posiciones para centrar el tooltip
+        const tooltipWidth = tooltip.node().offsetWidth;
+        const tooltipHeight = tooltip.node().offsetHeight;
+
+        const centerX = window.innerWidth / 2 - tooltipWidth / 2;
+        const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 250; // Agregar 200px más abajo
+
+        console.log(centerY);
+
+        // Posicionar el tooltip al centro de la pantalla (ajustado)
+        tooltip.style("left", centerX + "px").style("top", centerY + "px");
       } else {
-        // Posicionar el tooltip mientras se mueve el mouse
-        tooltip
-          .style("left", event.pageX + 10 + "px") // Desplazar un poco a la derecha
-          .style("top", event.pageY + 10 + "px");
+        console.log("City name on mousemove:", countryName);
+        if (countryName == "South Africa" || countryName == "Zambia") {
+          tooltip
+            .style("left", event.pageX + 10 + "px") // Desplazar un poco a la derecha
+            .style("top", event.pageY - 200 + "px"); // Desplazar un poco hacia abajo
+        } else {
+          // Posicionar el tooltip mientras se mueve el mouse
+          tooltip
+            .style("left", event.pageX + 10 + "px") // Desplazar un poco a la derecha
+            .style("top", event.pageY + 10 + "px");
+        }
       }
     });
   const labels = g
@@ -479,7 +534,15 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   }
 
   function clicked(event, d) {
-	tooltip.style("display", "block");
+    const countryName = d.properties.name;
+    const partnerCount = partnerCounts[countryName] || 0; // Número de acuerdos del país
+
+    if (partnerCount === 0) {
+      // No hacer nada si el país no tiene acuerdos
+      console.log(`${countryName} no tiene acuerdos, no se hará zoom.`);
+      return;
+    }
+    tooltip.style("display", "block");
 
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     event.stopPropagation();
@@ -515,10 +578,10 @@ function updateProjection(scale, center, translation) {
 
 //se modifico esta seccion para identificar por cada pais y realizar la proyeccion de cada item y personalizarlo - JORGE PAREDES
 export function handleSelection(type, item) {
- // console.log(type);
+  // console.log(type);
   //console.log(item);
- // console.log("cesar");
-//  console.log("input FOR HANDLE SELECTOR", width);
+  // console.log("cesar");
+  //  console.log("input FOR HANDLE SELECTOR", width);
   if (item == "EU") {
     updateProjection(300, [20, 0], [width / 1.5, height / 10]);
   } else if (item == "Saudi Arabia") {

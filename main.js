@@ -256,6 +256,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Función para inicializar eventos
+function initializeOverlayClick() {
+  // Obtén la referencia al div por su ID
+  const showScrollable = document.getElementById("showScrollable");
+
+  // Verifica que el div exista antes de agregar el evento
+  if (showScrollable) {
+    showScrollable.addEventListener("click", function () {
+      // Acción al hacer clic en el div
+      this.classList.add("hidden");
+      console.log("Overlay clickeado y ocultado");
+    });
+  } else {
+    console.error("El elemento con ID 'showScrollable' no se encontró.");
+  }
+}
+
+// Llama a la función cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", initializeOverlayClick);
+
 const buttons = document.querySelectorAll(".accordion-button2");
 
 buttons.forEach((button) => {
@@ -274,6 +294,18 @@ document.querySelectorAll("a").forEach((link) => {
   });
 });
 
+/*
+// Detectar clics fuera del tooltip
+document.addEventListener("click", function(event) {
+	const tooltipElement = document.querySelector(".tooltip2"); // Seleccionamos el tooltip
+	const overlayElement = document.querySelector(".overlay");  // Si usas un overlay puedes agregar esta validación
+  
+	// Si el clic ocurrió fuera del tooltip y del overlay
+	if (tooltipElement && !tooltipElement.contains(event.target) && !overlayElement.contains(event.target)) {
+	  tooltipElement.style("display", "none");  // Ocultar el tooltip
+	}
+  });
+*/
 // Al hacer clic en "Bilateral partnerships", simulamos el clic en el primer botón de la lista "EU"
 document
   .querySelector('.accordion-button2[data-bs-target="#flush-collapseOne"]')
@@ -532,11 +564,11 @@ const observer2 = new MutationObserver((mutationsList) => {
       //  resetToInitialView();
 
       if (selectedBlock.textContent.trim() == "African countries overview") {
+		
         resetToInitialView();
       } else {
       }
       simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
-
       //console.log("El texto del span cambió a:", mySpan);
       // Aquí puedes agregar cualquier acción adicional
     }
@@ -563,3 +595,11 @@ document.querySelector(".buttonChange").addEventListener("click", () => {
     africanButton.click();
   }
 });
+function closeTooltip() {
+	// Aquí debes definir cómo quieres ocultar o eliminar el tooltip.
+	// Por ejemplo, si el tooltip se encuentra en un contenedor específico:
+	const tooltipContainer = document.querySelector('#tooltip-container');
+	if (tooltipContainer) {
+	  tooltipContainer.innerHTML = ''; // Limpia el contenido del tooltip
+	}
+  }

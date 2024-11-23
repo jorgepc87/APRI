@@ -24,6 +24,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script type="module" src="main.js"></script>
+
     <link rel="stylesheet" type="text/css" href="CSS/style.css" />
     <title>Africa’s Critical Mineral Partnerships</title>
   </head>
@@ -101,9 +103,8 @@
         <div class="hidenthings">
           <span class="_picker-open" id="selectedText">open</span>
           <span class="_picker-open" id="africanCountry">open</span>
-		  <span class="_picker-open" id="blockNameNowTemp">open</span>
-		  <span class="_picker-open" id="blockNameTemp">open</span>
-
+          <span class="_picker-open" id="blockNameNowTemp">open</span>
+          <span class="_picker-open" id="blockNameTemp">open</span>
         </div>
       </div>
 
@@ -111,8 +112,8 @@
         <div class="picker" id="picker" style="display: none">
           <div class="picker-panel">
             <div class="picker-choose">
-              <span class="cancel" onclick="cancel()">Cancel</span>
-              <span class="confirm" onclick="confirmPicker()">Choose</span>
+              <span class="cancel" onclick="cancel()">Close</span>
+              <span class="confirm" onclick="confirmPicker()">Select</span>
               <h1 class="picker-title"></h1>
             </div>
             <div class="picker-content">
@@ -132,7 +133,7 @@
       <div id="printable" class="allview">
         <div class="first-col d-flex justify-content-end selectores col-4">
           <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
+            <div class="accordion-item divAfrican">
               <h2
                 class="accordion-header partner-header"
                 id="flush-headingZero"
@@ -356,7 +357,6 @@
                 African countries overview
               </h2>
             </div>
-            <div class="buttonChange">Change selection</div>
           </div>
         </div>
 
@@ -364,6 +364,20 @@
           id="map"
           class="second-col justify-content-center align-center center"
         >
+          <div class="overlay" id="showScrollable">
+            <div class="overlay-text">
+              <img
+                class="hand"
+                src="./img/icons/hand-touch.svg"
+                alt="Zoom In"
+              />
+
+              <h1 class="titleBlur">Touch the screen</h1>
+              <h2 class="subtitleBlur">to start exploring the map</h2>
+            </div>
+          </div>
+		  <script src="./main.js"></script>
+
           <div class="controls">
             <!-- Controles aquí -->
             <div class="control-toggle">
@@ -386,9 +400,8 @@
         <div class="instruccions">
           <div style="flex-grow: 1; font-family: RalewayLightItalic">
             Explore global agreements on access to Africa's critical minerals.
-            Select a country in the top pane to view specific agreements with
-            African states. Use the + and - buttons to zoom in and out of the
-            map.
+            <strong>Select a country or partnetship</strong> on the left to view specific agreements or partnerships
+            African states. 
           </div>
         </div>
         <div class="right">
@@ -398,6 +411,5 @@
         </div>
       </div>
     </div>
-    <script type="module" src="main.js"></script>
   </body>
 </html>

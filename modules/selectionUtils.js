@@ -515,8 +515,10 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   blocSource.style.marginLeft = "4px"; // Tamaño de fuente
 
   blocSource.style.color = "#0071BC"; // Cambiar color
+  blocSource.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
 
   blocSource.innerHTML = "View agreement";
+
   iconLinkContainer.appendChild(blocSource); // Añadir el enlace al contenedor
 
   // Añadir el contenedor de icono y enlace al contenedor principal

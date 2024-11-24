@@ -20,37 +20,36 @@ const Multilateral = [
   { text: "IPEF Critical Minerals Dialogue", value: 5, disabled: false },
 ];
 const AfricanOverview = [
-	{ text: "None - overview", value: 1, disabled: false },
-
-	{ text: "Algeria", value: 1, disabled: false },
-	{ text: "Angola", value: 2, disabled: false },
-	{ text: "Chad", value: 3, disabled: false },
-	{ text: "Democratic Republic of the Congo", value: 4, disabled: false },
-	{ text: "Ivory Coast", value: 5, disabled: false },
-	{ text: "Ethiopia", value: 6, disabled: false },
-	{ text: "Guinea", value: 7, disabled: false },
-	{ text: "Guinea Bissau", value: 8, disabled: false },
-	{ text: "Kenya", value: 9, disabled: false },
-	{ text: "Libya", value: 10, disabled: false },
-	{ text: "Madagascar", value: 11, disabled: false },
-	{ text: "Malawi", value: 12, disabled: false },
-	{ text: "Mali", value: 13, disabled: false },
-	{ text: "Morocco", value: 14, disabled: false },
-	{ text: "Mozambique", value: 15, disabled: false },
-	{ text: "Namibia", value: 16, disabled: false },
-	{ text: "Niger", value: 17, disabled: false },
-	{ text: "Nigeria", value: 18, disabled: false },
-	{ text: "Rwanda", value: 19, disabled: false },
-	{ text: "Senegal", value: 20, disabled: false },
-	{ text: "Somalia", value: 21, disabled: false },
-	{ text: "South Africa", value: 22, disabled: false },
-	{ text: "Sudan", value: 23, disabled: false },
-	{ text: "United Republic of Tanzania", value: 24, disabled: false },
-	{ text: "Uganda", value: 25, disabled: false },
-	{ text: "Zambia", value: 26, disabled: false },
-	{ text: "Zimbabwe", value: 27, disabled: false }
+  { text: "None - overview", value: 0, disabled: false },
+  { text: "Algeria", value: 1, disabled: false },
+  { text: "Angola", value: 2, disabled: false },
+  { text: "Chad", value: 3, disabled: false },
+  { text: "Democratic Republic of the Congo", value: 4, disabled: false },
+  { text: "Ivory Coast", value: 5, disabled: false },
+  { text: "Ethiopia", value: 6, disabled: false },
+  { text: "Guinea", value: 7, disabled: false },
+  { text: "Guinea Bissau", value: 8, disabled: false },
+  { text: "Kenya", value: 9, disabled: false },
+  { text: "Libya", value: 10, disabled: false },
+  { text: "Madagascar", value: 11, disabled: false },
+  { text: "Malawi", value: 12, disabled: false },
+  { text: "Mali", value: 13, disabled: false },
+  { text: "Morocco", value: 14, disabled: false },
+  { text: "Mozambique", value: 15, disabled: false },
+  { text: "Namibia", value: 16, disabled: false },
+  { text: "Niger", value: 17, disabled: false },
+  { text: "Nigeria", value: 18, disabled: false },
+  { text: "Rwanda", value: 19, disabled: false },
+  { text: "Senegal", value: 20, disabled: false },
+  { text: "Somalia", value: 21, disabled: false },
+  { text: "South Africa", value: 22, disabled: false },
+  { text: "Sudan", value: 23, disabled: false },
+  { text: "United Republic of Tanzania", value: 24, disabled: false },
+  { text: "Uganda", value: 25, disabled: false },
+  { text: "Zambia", value: 26, disabled: false },
+  { text: "Zimbabwe", value: 27, disabled: false },
 ];
-let selectedIndex = 2;
+let selectedIndex = 0;
 let pickerData;
 let wheelList = document.getElementById("wheelList");
 
@@ -95,7 +94,7 @@ function confirmPicker() {
   const showtooltip = document.getElementById("tooltip2");
   console.log(showtooltip);
 
- // showtooltip.style.display="none"
+  // showtooltip.style.display="none"
 
   console.log(blockNameNowTemp);
   blockNameTemp.innerText = blockNameNowTemp.textContent.trim();
@@ -219,3 +218,5 @@ wheelList.addEventListener("touchmove", (e) => {
 wheelList.addEventListener("touchend", () => {
   isTouching = false;
 });
+
+

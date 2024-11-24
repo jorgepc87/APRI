@@ -13,25 +13,35 @@ function zoomed(event) {
   g.attr("transform", transform);
   g.attr("stroke-width", 1 / transform.k);
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
   if (isMobile) {
-	// Mostrar nombres de países si el zoom es 4
-	if (transform.k >= 3) {
-	  d3.selectAll(".city-label")
-		.transition()
-		.duration(300)
-		.style("opacity", 1); // Hacer visibles las etiquetas
-	} else {
-	  d3.selectAll(".city-label")
-		.transition()
-		.duration(300)
-		.style("opacity", 0); // Ocultar las etiquetas
-	}
+    // Mostrar nombres de países si el zoom es 3 o más
+    if (transform.k >= 2) {
+      d3.selectAll(".city-label")
+        .transition()
+        .duration(300)
+        .style("opacity", 1); // Hacer visibles las etiquetas
+
+      // Mostrar el tooltip después de la animación del zoom
+      setTimeout(() => {
+        console.log("abre el tooltip");
+        const tooltip = d3.select(".tooltip2");
+        tooltip.style("display", "block").style("pointer-events", "auto"); // Hacer visible el tooltip
+      }, 300); // Retraso para sincronizar con la animación de la etiqueta
+    } else {
+      d3.selectAll(".city-label")
+        .transition()
+        .duration(300)
+        .style("opacity", 0); // Ocultar las etiquetas
+      
+    }
+    /* if (transform.k >= 7) {
+      d3.selectAll(".tooltip2").remove(); // Eliminar los tooltips del DOM
+      console.log("destruido");
+    }*/
   }
 }
 //aumentar un parametro para identificar el pais y con ello hacer el zoom mas personalizado para cada uno - JORGE PAREDES
 export function drawMap(geojson, filteredCountryGeoJSON, partner) {
-  console.log(filteredCountryGeoJSON);
   // Establecer el viewBox inicial
   svg.attr("viewBox", `-100 0 1000 600`);
 
@@ -40,7 +50,9 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
 
   // Eliminar los caminos existentes (opcional, si deseas eliminar los anteriores)
   svg.selectAll("path").remove();
-
+  const filteredCountryNames = new Set(
+    filteredCountryGeoJSON.features.map((d) => d.properties.name)
+  );
   // Agregar los caminos de GeoJSON dentro del grupo <g>
   const paths = g
     .selectAll("path")
@@ -51,7 +63,12 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
     .attr("fill", "#d3d3d3")
     .attr("stroke", "white")
     .attr("stroke-width", 0.5)
-    .on("click", clicked);
+    .on("click", function (event, d) {
+      // Comprobar si el país está en la lista de países filtrados
+      if (filteredCountryNames.has(d.properties.name)) {
+        clicked(event, d); // Solo llamar al método clicked si está en los países filtrados
+      }
+    });
   //console.log(partner);
   const labels = g
     .selectAll("text")
@@ -199,7 +216,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
   const zoom2 = d3
     .zoom()
-    .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
+    .scaleExtent([1, 8]) // Límite de escala (zoom mínimo y máximo)
     .translateExtent([
       [-100, -100],
       [1240, 700],
@@ -282,24 +299,18 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
         console.log(partnersList);
-        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(
+          navigator.userAgent
+        );
 
         // Generar el contenido del tooltip
 
         tooltip.html(`
-			<div style="display: flex; flex-direction: column; width: 170px; position: relative;">
-			  <!-- Botón de cierre -->
-			  ${
-          isMobile
-            ? `<button 
-				style="pointer-events:auto ; position: absolute; top: -2px; right: -2px; background: none; border: none; font-size: 12px; cursor: pointer;" 
-				onclick="(function(event) { console.log("HOlaaaaaaa") ; event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); }>
-				✖
-				</button> `
-            : ""
-        }
+			<div style="display: flex; flex-direction: column; width: 130px; position: relative;">
+			
 			  <div style="display: flex; justify-content: space-between; width: 170px;">
 				<h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
+				
 			  </div>
 			  <p style="margin: 5px 0; margin-top: 8px; font-family: 'RalewayLightItalic', sans-serif; font-size: 11pt">${partnerCount} partner${
           partnerCount !== 1 ? "s" : ""
@@ -333,39 +344,44 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         console.log(
           `Country: ${countryName}, Area: ${areaInSquareKm.toFixed(2)} km²`
         );
-        if (areaInSquareKm.toFixed(2) < 250000) {
-          // Mostrar el ícono en el centro de la ciudad
-          g.append("image")
-            .attr("class", "hover-icon")
-            .attr("xlink:href", "img/icons/noun.svg")
-            .attr("width", 20)
-            .attr("height", 20)
-            .attr("x", path.centroid(d)[0] - 10)
-            .attr("y", path.centroid(d)[1] - 20)
-            .style("pointer-events", "none") // Ignora eventos del mouse
-            .style("opacity", 0)
-            .transition()
-            .duration(300)
-            .style("opacity", 1);
-        } else {
-          // Mostrar el ícono en el centro de la ciudad
-          g.append("image")
-            .attr("class", "hover-icon")
-            .attr("xlink:href", "img/icons/noun.svg")
-            .attr("width", 20)
-            .attr("height", 20)
-            .attr("x", path.centroid(d)[0] - 10)
-            .attr("y", path.centroid(d)[1] - 10)
-            .style("pointer-events", "none") // Ignora eventos del mouse
-            .style("opacity", 0)
-            .transition()
-            .duration(300)
-            .style("opacity", 1);
+        if (!isMobile) {
+          if (areaInSquareKm.toFixed(2) < 250000) {
+            // Mostrar el ícono en el centro de la ciudad
+            g.append("image")
+              .attr("class", "hover-icon")
+              .attr("xlink:href", "img/icons/noun.svg")
+              .attr("width", 20)
+              .attr("height", 20)
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] - 20)
+              .style("pointer-events", "none") // Ignora eventos del mouse
+              .style("opacity", 0)
+              .transition()
+              .duration(300)
+              .style("opacity", 1);
+          } else {
+            // Mostrar el ícono en el centro de la ciudad
+            g.append("image")
+              .attr("class", "hover-icon")
+              .attr("xlink:href", "img/icons/noun.svg")
+              .attr("width", 20)
+              .attr("height", 20)
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] - 10)
+              .style("pointer-events", "none") // Ignora eventos del mouse
+              .style("opacity", 0)
+              .transition()
+              .duration(300)
+              .style("opacity", 1);
+          }
         }
       } else {
+        /*
         const partnersList =
           countryData && countryData.partners ? countryData.partners : [];
-        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(
+          navigator.userAgent
+        );
 
         tooltip.html(`
 			<div style="display: flex; flex-direction: column; width: 170px; position: relative;">
@@ -375,7 +391,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           isMobile
             ? `<button 
 						style="
-						pointer-events:auto ;
+						  pointer-events:auto;
 						  position: absolute; 
 						  top: 0px; 
 						  right: 5px; 
@@ -386,7 +402,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 						  font-weight: bold;
 						  color: #333;
 						" 
-						onclick="(function(event) { console.log("HOlaaaaaaa") ; event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); })(event)">
+						onclick="(function(event) { event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); })(event)">
 						✖
 					  </button>`
             : ""
@@ -404,7 +420,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           });
         }
         tooltip.style("display", "block");
-        tooltip.style("pointer-events", "none");
+        //  tooltip.style("pointer-events", "none");
 
         d3.select(this).transition().duration(300).style("opacity", 1);
 
@@ -417,7 +433,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           .filter((label) => label.properties.name === d.properties.name)
           .transition()
           .duration(300)
-          .style("opacity", 0);
+          .style("opacity", 0);*/
       }
     })
     .on("mouseout", function (event, d) {
@@ -458,12 +474,23 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           .style("opacity", 0)
           .remove();
       }
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(
+        navigator.userAgent
+      );
+      if (isMobile) {
+        g.selectAll(".city-label")
+          .filter((label) => label.properties.name === d.properties.name)
+          .transition()
+          .duration(300)
+          .style("opacity", 1);
+      }
     })
     .on("mousemove", function (event, d) {
       // Mostrar el nombre de la ciudad en la consola
       const countryName = d.properties.name;
+      console.log("City name on mousemove:", countryName);
 
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
+      if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         console.log("City name on mousemove:", countryName);
 
         // Calcular las posiciones para centrar el tooltip
@@ -471,7 +498,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         const tooltipHeight = tooltip.node().offsetHeight;
 
         const centerX = window.innerWidth / 2 - tooltipWidth / 2 + 100;
-        const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abajo
+        const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 300; // Agregar 200px más abajo
 
         console.log(centerY);
 
@@ -542,6 +569,24 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
               .attr("x", path.centroid(d)[0] + 20)
               .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
               .text(line);
+          } else if (name == "SOMALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SOMALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SOMALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .text(line);
           } else {
             textElement
               .append("tspan")
@@ -602,6 +647,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   function clicked(event, d) {
     const countryName = d.properties.name;
     const partnerCount = partnerCounts[countryName] || 0; // Número de acuerdos del país
+    console.log(event);
 
     if (partnerCount === 0) {
       // No hacer nada si el país no tiene acuerdos
@@ -611,7 +657,6 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
     tooltip.style("display", "block");
 
     const [[x0, y0], [x1, y1]] = path.bounds(d);
-    event.stopPropagation();
     svg
       .transition()
       .duration(1200)
@@ -726,7 +771,66 @@ export function deleteCountryLabels() {
   d3.selectAll("image").transition().duration(500).style("opacity", 0); // Hacer invisibles los íconos
 }
 
-export function zoomToCountry(svg, path, geojsonData, countryName) {
+export function simulateCountryClick(svg, geojsonData, countryName) {
+  // Buscar el país correspondiente en los datos GeoJSON
+  const countryFeature = geojsonData.features.find(
+    (feature) => feature.properties.name === countryName
+  );
+  if (countryFeature) {
+    console.log(countryFeature.properties.name);
+    // Seleccionar el elemento <path> correspondiente al país
+    const countryPath = svg
+      .selectAll("path")
+      .filter((d) => d === countryFeature);
+
+    console.log(countryPath);
+
+    if (!countryPath.empty()) {
+      // Simular el evento `click` en el elemento
+      // Crear un evento de clic simulado
+      const clickEvent = new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      });
+
+      // Disparar el evento en countryPath
+      countryPath.node().dispatchEvent(clickEvent);
+      console.error(`click en el country`);
+    } else {
+      console.error(`No SVG path found for country: ${countryName}`);
+    }
+  } else {
+    console.error(`Country "${countryName}" not found in GeoJSON data.`);
+  }
+}
+
+// Función para hacer zoom in
+export function zoomIn() {
+  console.log("zONIN");
+  svg.transition().duration(500).call(zoom.scaleBy, 1.5); // Incrementa el nivel de zoom
+}
+
+// Función para hacer zoom out
+export function zoomOut() {
+  svg.transition().duration(500).call(zoom.scaleBy, 0.75); // Reduce el nivel de zoom
+}
+export { path };
+/*export function zoomToCountry(countryName) {
+	const feature = mergedBiData.features.find(
+	  (d) => d.properties.name === countryName
+	);
+	if (!feature) return;
+	const [centerX, centerY] = feature.properties.center || [0, 0];
+	const zoomLevel = feature.properties.zoom || 1;
+	let [x, y] = projection([centerX, centerY]);
+	const transformMap = d3.zoomIdentity
+	  .translate(width, height)
+	  .scale(zoomLevel)
+	  .translate(-x, -y);
+	svg.transition().duration(750).call(d3.zoom().transform, transformMap);
+  }*/
+/*export function zoomToCountry(svg, path, geojsonData, countryName) {
   console.log(geojsonData);
   // Buscar el país en los datos geoJSON
   const countryFeature = geojsonData.features.find(
@@ -760,53 +864,4 @@ export function zoomToCountry(svg, path, geojsonData, countryName) {
   } else {
     console.error(`Country "${countryName}" not found in geojson data.`);
   }
-}
-
-export function simulateCountryClick(svg, geojsonData, countryName) {
-  // Buscar el país correspondiente en los datos GeoJSON
-  const countryFeature = geojsonData.features.find(
-    (feature) => feature.properties.name === countryName
-  );
-
-  if (countryFeature) {
-    // Seleccionar el elemento <path> correspondiente al país
-    const countryPath = svg
-      .selectAll("path")
-      .filter((d) => d === countryFeature);
-
-    if (!countryPath.empty()) {
-      // Simular el evento `click` en el elemento
-      countryPath.dispatch("click");
-    } else {
-      console.error(`No SVG path found for country: ${countryName}`);
-    }
-  } else {
-    console.error(`Country "${countryName}" not found in GeoJSON data.`);
-  }
-}
-
-/*export function zoomToCountry(countryName) {
-  const feature = mergedBiData.features.find(
-    (d) => d.properties.name === countryName
-  );
-  if (!feature) return;
-  const [centerX, centerY] = feature.properties.center || [0, 0];
-  const zoomLevel = feature.properties.zoom || 1;
-  let [x, y] = projection([centerX, centerY]);
-  const transformMap = d3.zoomIdentity
-    .translate(width, height)
-    .scale(zoomLevel)
-    .translate(-x, -y);
-  svg.transition().duration(750).call(d3.zoom().transform, transformMap);
 }*/
-// Función para hacer zoom in
-export function zoomIn() {
-	console.log("zONIN")
-  svg.transition().duration(500).call(zoom.scaleBy, 1.5); // Incrementa el nivel de zoom
-}
-
-// Función para hacer zoom out
-export function zoomOut() {
-  svg.transition().duration(500).call(zoom.scaleBy, 0.75); // Reduce el nivel de zoom
-}
-export { path };

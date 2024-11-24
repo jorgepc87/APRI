@@ -24,6 +24,10 @@
   font-family: "RalewayBold";
   src: url("../img/font/Raleway-Bold.ttf") format("truetype");
 }
+@font-face {
+	font-family: "RalewayItalic";
+	src: url("../img/font/Raleway-Italic.ttf") format("truetype");
+  }
 body {
   font-family: "MiFuenteNormal", sans-serif;
 }
@@ -190,6 +194,9 @@ h2.accordion-header.partner-header {
   border: none;
   border-bottom: #252525 solid 0.5px;
   margin-right: 10px;
+  margin-top: 5px !important;
+
+  padding: 15px 15px  15px 0px!important;
 }
 
 /* Quitar el borde del último ítem */
@@ -807,8 +814,8 @@ img.zoom-out-active {
     justify-content: flex-start; /* Alineamos al inicio de la columna */
   }
   .second-col {
-    /*border-bottom: 1px solid lightgray;
-    border-top: 1px solid lightgray;*/
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
   }
 
   .second-col {
@@ -980,24 +987,70 @@ img.zoom-out-active {
     );
   }
   .wheel-wrapper {
-    display: flex;
-    padding: 0 16px;
+	position: relative;
   }
-
+  
+  .wheel::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+	pointer-events: none; /* Asegura que no interfiera con los clics */
+  }
+  
+  .wheel::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+	pointer-events: none; /* Asegura que no interfiera con los clics */
+  }
   .wheel {
     flex: 1;
     height: 173px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
+    overflow-y: scroll; /* Asegúrate de tener overflow-y en scroll */
+    -webkit-overflow-scrolling: touch; /* Utiliza touch para tener el desplazamiento suave en iOS */
+    scrollbar-width: thin; /* Esto funciona para algunos navegadores para mostrar el scrollbar delgado */
+    scrollbar-color: #b91b1b #d11919; /* Define el color del scrollbar si aplica */
+}
 
   .wheel-scroll {
     margin-top: 0px;
     line-height: 36px;
-    list-style: none;
+    list-style:circle;
     padding: 0;
   }
-
+  .wheel-wrapper {
+	position: relative;
+  }
+  
+  .wheel {
+	flex: 1;
+	height: 173px;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	padding-right: 20px; /* Deja espacio para el scrollbar */
+  }
+  
+  .wheel-scrollbar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 10px; /* Ancho del scrollbar */
+	height: 100%;
+	background: #8f8f8f;
+	border-radius: 4px;
+  }
+  
+  .wheel::-webkit-scrollbar {
+	width: 0; /* Ocultar el scrollbar predeterminado */
+  }
   .wheel-item {
     height: 36px;
     overflow: hidden;
@@ -1008,7 +1061,7 @@ img.zoom-out-active {
   }
 
   .wheel-disabled-item {
-    opacity: 0.2;
+    opacity: 1;
   }
 
   .selected-item {

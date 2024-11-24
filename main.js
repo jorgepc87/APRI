@@ -16,7 +16,6 @@ import {
   deleteCountryLabels,
   zoomIn,
   zoomOut,
-  zoomToCountry,
   simulateCountryClick,
 } from "./modules/mapUtils.js";
 import {
@@ -73,13 +72,21 @@ function resetToInitialView() {
   removeThirdColumn(); // Oculta la tercera columna
   // zoomToCountry(svg, path, filteredGeoJSON, "Chad");
 }
-
+document.addEventListener("DOMContentLoaded", function() {
+	const wheelElement = document.querySelector('.wheel');
+	const scrollbarElement = document.querySelector('.wheel-scrollbar');
+  
+	wheelElement.addEventListener('scroll', function() {
+	  const scrollPercentage = wheelElement.scrollTop / (wheelElement.scrollHeight - wheelElement.clientHeight);
+	  scrollbarElement.style.top = (scrollPercentage * (wheelElement.clientHeight - scrollbarElement.clientHeight)) + 'px';
+	});
+  });
 function refresh() {
   if (/Mobi|Android/i.test(navigator.userAgent)) {
     // El usuario está en un dispositivo móvil
     console.log("Estás en un dispositivo móvil");
     // simulateCountryClick(svg, filteredGeoJSON, "Chad");
-    showPickerAfrica(simulateCountryClick, svg, filteredGeoJSON);
+    showPickerAfrica();
     //button.scrollIntoView({ behavior: "smooth", block: "center" });
   } else {
     window.location.href = window.location.href;
@@ -541,7 +548,7 @@ const observer = new MutationObserver((mutationsList) => {
         resetToInitialView();
       } else {
       }
-      simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
+      //simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
 
       //console.log("El texto del span cambió a:", mySpan);
       // Aquí puedes agregar cualquier acción adicional

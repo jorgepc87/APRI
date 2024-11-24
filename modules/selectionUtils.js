@@ -30,7 +30,7 @@ export function highlightPartnership(svg, filteredGeoJSON, itemSelected) {
     .selectAll("path")
 
     .attr("fill", (d) => {
-     // console.log("item ", d.properties.name + "el otro es" + itemSelected);
+      // console.log("item ", d.properties.name + "el otro es" + itemSelected);
 
       if (d.properties.name.toString() == itemSelected.toString()) {
         return "#fec030"; // Color para los países en blocCountries
@@ -95,16 +95,15 @@ export function highlightEu(svg, filteredGeoJSON) {
 
   const updatedCountriesSet = new Set(updatedCountries);
 
-  
-  svg
-    .selectAll("path")
-    .attr("fill", (d) =>
+  svg.selectAll("path").attr(
+    "fill",
+    (d) =>
       excludedCountries.has(d.properties.name)
         ? "#FFDC94 " // Amarillo para excludedCountries
         : updatedCountriesSet.has(d.properties.name)
         ? "#fec03c" // Verde para updatedCountries
         : "#f2f2f2" // Gris claro para el resto
-    );
+  );
 
   svg.attr("viewBox", "-100 0 1000 600");
   // svg.attr("viewBox", "100 50 600 350");
@@ -174,19 +173,14 @@ export function populatePartnerships(biData, selectedCountry) {
   scrollContainer.classList.add("custom-scroll"); // Se añade 'custom-scroll' aquí
   scrollContainer.style.maxHeight = "100%"; // Establecer el alto máximo para hacer scroll
   scrollContainer.style.overflowY = "auto"; // Activar el scroll vertical
-  scrollContainer.style.marginTop = "10px"; // Espacio entre el título y el contenido
+  scrollContainer.style.marginTop = "0px"; // Espacio entre el título y el contenido
 
   infoPartnerContainer.appendChild(scrollContainer);
 
   partnerSelected.partnership.forEach((partner) => {
     ////console.log('Partnership in container', partner)
     const partnershipCard = document.createElement("div");
-    partnershipCard.classList.add(
-      "card-body",
-      "mb-3",
-      "partner",
-      "custom-scroll"
-    );
+    partnershipCard.classList.add("card-body", "partner", "custom-scroll");
     const partnerTitle = document.createElement("h5");
     partnerTitle.classList.add("card-title", "list-partners");
     partnerTitle.innerHTML = `${partner.country}`;
@@ -196,20 +190,24 @@ export function populatePartnerships(biData, selectedCountry) {
 
       //for para cada acuerdo
       //console.log("Multiple agreements", partner.agreements);
-      partner.agreements.forEach((agreement) => {
+      partner.agreements.forEach((agreement, index) => {
         const partnerAgreement = document.createElement("h5");
         partnerAgreement.classList.add("card-subtitle", "mb-1", "agreement");
+        partnerAgreement.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
+        partnerAgreement.style.marginBottom = "0px !important"; // Aplicar la fuente personalizada
+
         partnerAgreement.innerHTML = agreement.typeAgreement
           ? `${agreement.typeAgreement}`
           : "";
         partnershipCard.appendChild(partnerAgreement);
         // Crear el elemento para el tiempo (time) y agregarlo segundo
         const time = document.createElement("p");
-        time.classList.add("card-text", "mb-1");
+        time.classList.add("card-text");
         time.innerHTML = `<strong>Signed:</strong> ${agreement.year}`;
         time.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
         time.style.fontSize = "11pt"; // Aplicar la fuente personalizada
         time.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
+        time.style.marginBottom = "0px"; // Aplicar la fuente personalizada
 
         partnershipCard.appendChild(time);
 
@@ -268,7 +266,6 @@ export function populatePartnerships(biData, selectedCountry) {
 
           // Contenedor de tags
           const tagsContainer = document.createElement("div");
-          tagsContainer.classList.add("mb-3");
           const rightElement = document.querySelector(".right");
           rightElement.style.marginTop = "0px"; // Ajusta el valor según lo que necesites
 
@@ -310,6 +307,18 @@ export function populatePartnerships(biData, selectedCountry) {
           });
           // Agregar el contenedor de tags a partnershipCard
           partnershipCard.appendChild(tagsContainer);
+        }
+        // Agregar la línea separadora solo si no es el último elemento
+        if (index < partner.agreements.length - 1) {
+          const line = document.createElement("hr");
+          line.classList.add("line_black");
+
+          // Personalizar los estilos de la línea
+          line.style.border = "0.5px solid gray";
+          line.style.margin = "7px 0 3px 0";
+          line.style.padding = "0px";
+
+          partnershipCard.appendChild(line);
         }
       });
     } else if (partner.typeAgreement) {
@@ -390,7 +399,6 @@ export function populatePartnerships(biData, selectedCountry) {
 
         // Contenedor de tags
         const tagsContainer = document.createElement("div");
-        tagsContainer.classList.add("mb-3");
         const rightElement = document.querySelector(".right");
         rightElement.style.marginTop = "0px"; // Ajusta el valor según lo que necesites
 
@@ -454,7 +462,7 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   scrollContainer.classList.add("custom-scroll"); // Se añade la clase para estilos personalizados
   scrollContainer.style.maxHeight = "100%"; // Altura máxima para el contenedor
   scrollContainer.style.overflowY = "auto"; // Habilitar scroll vertical
-  scrollContainer.style.marginTop = "10px"; // Espacio entre el título y el contenido
+  scrollContainer.style.marginTop = "0px"; // Espacio entre el título y el contenido
   scrollContainer.style.paddingRight = "18px"; // Espacio entre el título y el contenido
 
   // Crear y agregar el título principal

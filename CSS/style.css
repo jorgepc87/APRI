@@ -881,6 +881,7 @@ img.zoom-out-active {
 
   .control-toggle {
     order: 2; /* Poner control-toggle debajo de BtnZoom */
+	display: none
   }
   .control-toggle {
     margin-top: 0px;

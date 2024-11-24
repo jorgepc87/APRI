@@ -313,6 +313,8 @@ document
     if (/Mobi|Android/i.test(navigator.userAgent)) {
       // El usuario está en un dispositivo móvil
       showPickerBilateral();
+      this.scrollIntoView({ behavior: "smooth", block: "start" });
+
       const selectedText = document.getElementById("blockNameNowTemp");
       selectedText.innerText = "Bilateral Parnerships";
     } else {
@@ -332,9 +334,11 @@ document
   .addEventListener("click", function () {
     if (/Mobi|Android/i.test(navigator.userAgent)) {
       // El usuario está en un dispositivo móvil
+
       showPickerMultilateral();
       const selectedText = document.getElementById("blockNameNowTemp");
       blockNameNowTemp.innerText = "Multilateral Parnerships";
+      this.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
       if (firstBlocButton) {
@@ -564,7 +568,6 @@ const observer2 = new MutationObserver((mutationsList) => {
       //  resetToInitialView();
 
       if (selectedBlock.textContent.trim() == "African countries overview") {
-		
         resetToInitialView();
       } else {
       }
@@ -596,10 +599,10 @@ document.querySelector(".buttonChange").addEventListener("click", () => {
   }
 });
 function closeTooltip() {
-	// Aquí debes definir cómo quieres ocultar o eliminar el tooltip.
-	// Por ejemplo, si el tooltip se encuentra en un contenedor específico:
-	const tooltipContainer = document.querySelector('#tooltip-container');
-	if (tooltipContainer) {
-	  tooltipContainer.innerHTML = ''; // Limpia el contenido del tooltip
-	}
+  // Aquí debes definir cómo quieres ocultar o eliminar el tooltip.
+  // Por ejemplo, si el tooltip se encuentra en un contenedor específico:
+  const tooltipContainer = document.querySelector("#tooltip-container");
+  if (tooltipContainer) {
+    tooltipContainer.innerHTML = ""; // Limpia el contenido del tooltip
   }
+}

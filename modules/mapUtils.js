@@ -5,13 +5,29 @@ let projection = d3
   .scale(400)
   .translate([width / 2, height / 2]);
 let path = d3.geoPath().projection(projection);
-let zoom = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
+let zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
 let g;
 // Función que maneja el evento de zoom
 function zoomed(event) {
   const { transform } = event;
   g.attr("transform", transform);
   g.attr("stroke-width", 1 / transform.k);
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+	// Mostrar nombres de países si el zoom es 4
+	if (transform.k >= 3) {
+	  d3.selectAll(".city-label")
+		.transition()
+		.duration(300)
+		.style("opacity", 1); // Hacer visibles las etiquetas
+	} else {
+	  d3.selectAll(".city-label")
+		.transition()
+		.duration(300)
+		.style("opacity", 0); // Ocultar las etiquetas
+	}
+  }
 }
 //aumentar un parametro para identificar el pais y con ello hacer el zoom mas personalizado para cada uno - JORGE PAREDES
 export function drawMap(geojson, filteredCountryGeoJSON, partner) {
@@ -104,15 +120,16 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
   }
   // Crear el comportamiento de zoom
   // aca se debe hacer los if para cada pais JORGE PAREDES
- // const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", zoomed);
+  // const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", zoomed);
 
-  const zoom = d3.zoom()
-  .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
-  .translateExtent([[-100, -100], [1240, 650]]) // Límite de traslación (pan)
-  .on("zoom", zoomed);
-
-
-
+  const zoom = d3
+    .zoom()
+    .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
+    .translateExtent([
+      [-60, -100],
+      [900, 650],
+    ]) // Límite de traslación (pan)
+    .on("zoom", zoomed);
 
   // Llamar al comportamiento de zoom sobre el SVG
   svg.call(zoom);
@@ -125,6 +142,23 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
     g.attr("transform", transform);
     // Ajustar el grosor de las líneas al hacer zoom
     g.attr("stroke-width", 1 / transform.k);
+
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Mostrar nombres de países si el zoom es 4
+      if (transform.k >= 3) {
+        d3.selectAll(".city-label")
+          .transition()
+          .duration(300)
+          .style("opacity", 1); // Hacer visibles las etiquetas
+      } else {
+        d3.selectAll(".city-label")
+          .transition()
+          .duration(300)
+          .style("opacity", 0); // Ocultar las etiquetas
+      }
+    }
   }
   function clicked(event, d) {
     const [[x0, y0], [x1, y1]] = path.bounds(d);
@@ -162,12 +196,15 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
   //console.log("GeoJSON features:", geojsonData.features);
   //console.log("Number data", numberData);
- // const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
 
-  const zoom2 = d3.zoom()
-  .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
-  .translateExtent([[-100, -100], [1240, 700]]) // Límite de traslación (pan)
-  .on("zoom", zoomed);
+  const zoom2 = d3
+    .zoom()
+    .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
+    .translateExtent([
+      [-100, -100],
+      [1240, 700],
+    ]) // Límite de traslación (pan)
+    .on("zoom", zoomed);
 
   const colorScale = d3
     .scaleQuantize()
@@ -433,7 +470,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         const tooltipWidth = tooltip.node().offsetWidth;
         const tooltipHeight = tooltip.node().offsetHeight;
 
-        const centerX = window.innerWidth / 2 - tooltipWidth / 2 +100;
+        const centerX = window.innerWidth / 2 - tooltipWidth / 2 + 100;
         const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abajo
 
         console.log(centerY);
@@ -540,11 +577,27 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   d3.selectAll("text").style("opacity", 0); // Ocultar los nombres de los países
   d3.selectAll("image").style("opacity", 0); // Mostrar los íconos
 
-  function zoomed(event) {
+  /*function zoomed(event) {
     const { transform } = event;
     g.attr("transform", transform);
     g.attr("stroke-width", 1 / transform.k);
-  }
+
+	
+    if (isMobile) {
+		// Mostrar nombres de países si el zoom es 4
+		if (transform.k >= 4) {
+		  d3.selectAll(".city-label")
+			.transition()
+			.duration(300)
+			.style("opacity", 1); // Hacer visibles las etiquetas
+		} else {
+		  d3.selectAll(".city-label")
+			.transition()
+			.duration(300)
+			.style("opacity", 0); // Ocultar las etiquetas
+		}
+	  }
+  }*/
 
   function clicked(event, d) {
     const countryName = d.properties.name;
@@ -748,6 +801,7 @@ export function simulateCountryClick(svg, geojsonData, countryName) {
 }*/
 // Función para hacer zoom in
 export function zoomIn() {
+	console.log("zONIN")
   svg.transition().duration(500).call(zoom.scaleBy, 1.5); // Incrementa el nivel de zoom
 }
 

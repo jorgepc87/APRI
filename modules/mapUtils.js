@@ -104,7 +104,15 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
   }
   // Crear el comportamiento de zoom
   // aca se debe hacer los if para cada pais JORGE PAREDES
-  const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", zoomed);
+ // const zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", zoomed);
+
+  const zoom = d3.zoom()
+  .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
+  .translateExtent([[-100, -100], [1240, 650]]) // Límite de traslación (pan)
+  .on("zoom", zoomed);
+
+
+
 
   // Llamar al comportamiento de zoom sobre el SVG
   svg.call(zoom);
@@ -154,7 +162,12 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
   //console.log("GeoJSON features:", geojsonData.features);
   //console.log("Number data", numberData);
-  const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
+ // const zoom2 = d3.zoom().scaleExtent([1, 4]).on("zoom", zoomed);
+
+  const zoom2 = d3.zoom()
+  .scaleExtent([1, 10]) // Límite de escala (zoom mínimo y máximo)
+  .translateExtent([[-100, -100], [1240, 700]]) // Límite de traslación (pan)
+  .on("zoom", zoomed);
 
   const colorScale = d3
     .scaleQuantize()
@@ -242,7 +255,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 			  ${
           isMobile
             ? `<button 
-				style="pointer-events:auto ; position: absolute; top: 5px; right: 5px; background: none; border: none; font-size: 12px; cursor: pointer;" 
+				style="pointer-events:auto ; position: absolute; top: -2px; right: -2px; background: none; border: none; font-size: 12px; cursor: pointer;" 
 				onclick="(function(event) { console.log("HOlaaaaaaa") ; event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); }>
 				✖
 				</button> `
@@ -420,8 +433,8 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         const tooltipWidth = tooltip.node().offsetWidth;
         const tooltipHeight = tooltip.node().offsetHeight;
 
-        const centerX = window.innerWidth / 2 - tooltipWidth / 2;
-        const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 250; // Agregar 200px más abajo
+        const centerX = window.innerWidth / 2 - tooltipWidth / 2 +100;
+        const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abajo
 
         console.log(centerY);
 

@@ -847,7 +847,7 @@ img.zoom-out-active {
     width: 100%; /* Asegura que abarque todo el ancho del viewport */
     padding: 0px 0px 0px 0px;
     margin: 0px;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 20px 0px 20px;
     border-radius: 5px !important;
     border: 0px solid lightgray; /* Cambia el borde a gris claro */
   }
@@ -1103,7 +1103,7 @@ img.zoom-out-active {
   }
 
   .titleBlur {
-    color: #f2f2f2;
+    color: #ffffff;
     font-size: 14px;
     font-family: "RalewayN", sans-serif;
     margin: 5px;
@@ -1111,7 +1111,7 @@ img.zoom-out-active {
     font-weight: bold;
   }
   .subtitleBlur {
-    color: #f2f2f2;
+    color: #ffffff;
     font-size: 12px;
     font-family: "RalewayN", sans-serif;
     margin: 0px;
@@ -1119,5 +1119,8 @@ img.zoom-out-active {
   }
   .divAfrican {
     margin-top: 3px !important;
+  }
+  .ms-2 {
+	margin-left: 3px !important;
   }
 }

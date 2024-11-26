@@ -1128,7 +1128,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   }
 
   svg.call(zoom2);
-  d3.selectAll("text").style("opacity", 1); // Ocultar los nombres de los países
+  d3.selectAll("text").style("opacity", 0); // Ocultar los nombres de los países
   d3.selectAll("image").style("opacity", 0); // Mostrar los íconos
 
   /*function zoomed(event) {

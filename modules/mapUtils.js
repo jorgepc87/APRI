@@ -32,7 +32,6 @@ function zoomed(event) {
         .transition()
         .duration(300)
         .style("opacity", 0); // Ocultar las etiquetas
-      
     }
     /* if (transform.k >= 7) {
       d3.selectAll(".tooltip2").remove(); // Eliminar los tooltips del DOM
@@ -80,20 +79,25 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
     .attr("y", (d) => path.centroid(d)[1])
     .attr("text-anchor", "middle")
     .attr("font-size", function (d) {
+      console.log(partner);
       if (partner === "EU") {
-        return "1pt";
+        return "3pt";
+      } else if (partner === "Russia") {
+        return "2.5pt";
+      } else if (partner === "USA") {
+        return "4pt";
       } else if (partner === "EU") {
         return "1pt";
       } else if (partner === "BRICS Geological Platform") {
-        return "1.5pt";
+        return "4pt";
       } else if (partner === "Minerals Security Partnership") {
-        return "1.5pt";
+        return "4pt";
       } else if (partner === "EU Raw Materials Club") {
-        return "1.5pt";
+        return "3pt";
       } else if (partner === "Energy Resource Governance Initiative") {
-        return "1.5pt";
+        return "3pt";
       } else if (partner === "IPEF Critical Minerals Dialogue") {
-        return "1.5pt";
+        return "5pt";
       } else {
         return "5pt";
       }
@@ -104,15 +108,472 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
     .each(function (d) {
       const countryName = d.properties.name;
       const name = countryName.toUpperCase();
-      const wrappedText = wrapText(name, 10); // Ajusta el número de caracteres por línea
+      const wrappedText = wrapText(name, 15); // Ajusta el número de caracteres por línea
       // Crear un tspan para cada línea de texto
       const textElement = d3.select(this);
       wrappedText.forEach((line, i) => {
-        textElement
-          .append("tspan")
-          .attr("x", path.centroid(d)[0])
-          .attr("y", path.centroid(d)[1] + i * 6) // Ajusta la separación entre líneas
-          .text(line);
+        if (partner == "BRICS Geological Platform") {
+          if (name == "Russia") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "CHINA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 8)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "INDIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "EGYPT") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + -3)
+              .attr("y", path.centroid(d)[1] + i * 8 + 1) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "ETHIOPIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "UNITED ARAB EMIRATES") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 5 + 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SOUTH AFRICA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text("SOUTH");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .text("AFRICA");
+          } else {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          }
+        } else if (partner == "Minerals Security Partnership") {
+          //Canada. India, Japan, South Korea, Australia
+          if (name == "CANADA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 40)
+              .attr("y", path.centroid(d)[1] + i * 5 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SOUTH KOREA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 - 4) // Ajusta la separación entre líneas
+              .text("SOUTH");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text("KOREA");
+          } else if (name == "INDIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "JAPAN") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "AUSTRALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 15)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SLOVAKIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 25)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text("EUROPEAN UNION");
+          } else {
+            /*textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);*/
+          } //EU Raw Materials Club
+        } else if (partner == "EU Raw Materials Club") {
+          if (name == "PORTUGAL") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SPAIN") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "FRANCE") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 35)
+              .attr("y", path.centroid(d)[1] + i * 8 - 30) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "IRELAND") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 0)
+              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "NETHERLANDS") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "BELGIUM") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 2)
+              .attr("y", path.centroid(d)[1] + i * 8 - 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "GERMANY") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 2)
+              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "LUXEMBOURG") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 13)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "DENMARK") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 3)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "POLAND") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "BULGARIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "CROATIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 2)
+              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SLOVAKIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 3)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SLOVENIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "HUNGARY") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SWEDEN") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 6)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "LATVIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "FINLAND") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 2)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "CZECH REPUBLIC") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 2)
+              .attr("y", path.centroid(d)[1] + i * 8 + -1) // Ajusta la separación entre líneas
+              .text("CZECH");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 2)
+              .attr("y", path.centroid(d)[1] + i * 8 + 4) // Ajusta la separación entre líneas
+              .text("REPUBLIC");
+          } else {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          }
+        } else if (partner == "Energy Resource Governance Initiative") {
+          if (name == "AUSTRALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 4) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "CANADA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 40)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "USA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 30)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text("UNITED STATE");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 30)
+              .attr("y", path.centroid(d)[1] + i * 8 + 15) // Ajusta la separación entre líneas
+              .text("OF AMERICA");
+          } else if (name == "BOTSWANA") {
+            //Botswana
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "PERU") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 6)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          }
+        } else if (partner == "IPEF Critical Minerals Dialogue") {
+          if (name == "INDIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "THAILAND") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "VIETNAM") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 30)
+              .attr("y", path.centroid(d)[1] + i * 8 + 20) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MALAYSIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 6)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "INDONESIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 20)
+              .attr("y", path.centroid(d)[1] + i * 8 - 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "AUSTRALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "FIJI") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 65)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "NEW ZEALAND") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          }
+        } else if (partner == "EU") {
+          if (name == "DEMOCRATIC REPUBLIC OF THE CONGO") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 1)
+              .attr("y", path.centroid(d)[1] + i * 6 - 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "ZAMBIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "NAMIBIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "RWANDA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SLOVAKIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 45)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text("EUROPEAN UNION");
+          } 
+        } else {
+          if (name == "ZAMBIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MALAWI") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 12)
+              .attr("y", path.centroid(d)[1] + i * 8 + 7) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MOZAMBIQUE") {
+            if (partner != " Russia") {
+              textElement
+                .append("tspan")
+                .attr("x", path.centroid(d)[0] + 12)
+                .attr("y", path.centroid(d)[1] + i * 8 + 13) // Ajusta la separación entre líneas
+                .text(line);
+            }
+          } else if (name == "SOUTH AFRICA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .text("SOUTH");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 12) // Ajusta la separación entre líneas
+              .text("AFRICA");
+          } else if (name == "MALI") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "RWANDA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "TOGO") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 4)
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "NAMIBIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "ANGOLA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "ZIMBABWE") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 1)
+              .attr("y", path.centroid(d)[1] + i * 8 + 1) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "USA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 33) // Ajusta la separación entre líneas
+              .text("UNITED STATE");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 40) // Ajusta la separación entre líneas
+              .text("OF AMERICA");
+          } else if (name == "DEMOCRATIC REPUBLIC OF THE CONGO") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 1)
+              .attr("y", path.centroid(d)[1] + i * 6 - 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          }
+
+          //PERSONALIZADO
+          if (partner == "Russia") {
+            if (name == "MOZAMBIQUE") {
+              textElement
+                .append("tspan")
+                .attr("x", path.centroid(d)[0] + 13)
+                .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+                .text(line);
+            } else if (name == "ZIMBABWE2") {
+              textElement
+                .append("tspan")
+                .attr("x", path.centroid(d)[0] + 0)
+                .attr("y", path.centroid(d)[1] + i * 8 + 2) // Ajusta la separación entre líneas
+                .text(line);
+            }
+          }
+        }
       });
     });
 
@@ -212,14 +673,14 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   svg.selectAll("path").remove();
 
   //console.log("GeoJSON features:", geojsonData.features);
-  //console.log("Number data", numberData);
+  console.log("Number data", numberData);
 
   const zoom2 = d3
     .zoom()
     .scaleExtent([1, 8]) // Límite de escala (zoom mínimo y máximo)
     .translateExtent([
-      [-100, -100],
-      [1240, 700],
+      [-0, -0],
+      [1040, 700],
     ]) // Límite de traslación (pan)
     .on("zoom", zoomed);
 
@@ -288,7 +749,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
     .on("click", clicked)
     .on("mouseover", function (event, d) {
-      //  console.log(d.properties.name);
+      console.log(d.properties.name);
       const countryName = d.properties.name;
       const countryData = numberData.find(
         (country) => country.africanCountry === countryName
@@ -540,7 +1001,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       const partnerCount = partnerCounts[countryName] || 0;
       if (partnerCount > 0) {
         const name = countryName.toUpperCase();
-        const wrappedText = wrapText(name, 10); // Ajusta el número de caracteres por línea
+        const wrappedText = wrapText(name, 13); // Ajusta el número de caracteres por línea
 
         // Crear un tspan para cada línea de texto
         const textElement = d3.select(this);
@@ -567,25 +1028,73 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
               .text(line);
-          } else if (name == "SOMALIA") {
+          } else if (name == "GUINEA BISSAU") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 35)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MALI") {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text(line);
-          } else if (name == "SOMALIA") {
+          } else if (name == "ALGERIA") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
               .text(line);
-          } else if (name == "SOMALIA") {
+          } else if (name == "LIBYA") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", path.centroid(d)[1] + i * 8 + 25) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "RWANDA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 15)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "ZAMBIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 8)
+              .attr("y", path.centroid(d)[1] + i * 8 + 12) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MALAWI") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 7)
+              .attr("y", path.centroid(d)[1] + i * 8 + 2) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SOUTH AFRICA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MOZAMBIQUE") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 14)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "NAMIBIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MADAGASCAR") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 25)
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
               .text(line);
           } else {
             textElement
@@ -619,7 +1128,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   }
 
   svg.call(zoom2);
-  d3.selectAll("text").style("opacity", 0); // Ocultar los nombres de los países
+  d3.selectAll("text").style("opacity", 1); // Ocultar los nombres de los países
   d3.selectAll("image").style("opacity", 0); // Mostrar los íconos
 
   /*function zoomed(event) {
@@ -693,8 +1202,10 @@ export function handleSelection(type, item) {
   //console.log(item);
   // console.log("cesar");
   //  console.log("input FOR HANDLE SELECTOR", width);
-  if (item == "EU") {
-    updateProjection(300, [20, 0], [width / 1.5, height / 10]);
+  //alert(item.trim())
+  console.log(item);
+  if (item.trim() == "EU") {
+    updateProjection(350, [20, 0], [width / 1.5, height / 1.43]);
   } else if (item == "Saudi Arabia") {
     updateProjection(550, [20, 0], [width / 2, height / 1.6]);
   } else if (item == "United Arab Emirates") {
@@ -712,7 +1223,7 @@ export function handleSelection(type, item) {
   } else if (item == "Russia") {
     updateProjection(200, [40, 0], [width / 2, height / 2]);
   } else if (item == "USA") {
-    updateProjection(250, [0, 0], [width / 2, height / 2]);
+    updateProjection(350, [0, 0], [width / 1.4, height / 1.3]);
   } else if (item == "Turkey") {
     updateProjection(550, [20, 5], [width / 2, height / 1.3]);
   } else if (item == "EU Raw Materials Club") {

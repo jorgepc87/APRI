@@ -168,6 +168,12 @@ export function populatePartnerships(biData, selectedCountry) {
 
   infoPartnerContainer.appendChild(bilateralPartner);
 
+  const partnerSubTitle = document.createElement("h4");
+  partnerSubTitle.classList.add("card-subTitle");
+  partnerSubTitle.innerHTML = "Partnership countries";
+
+  infoPartnerContainer.appendChild(partnerSubTitle);
+
   // Crear el contenedor para el contenido con scroll
   const scrollContainer = document.createElement("div");
   scrollContainer.classList.add("custom-scroll"); // Se añade 'custom-scroll' aquí
@@ -192,9 +198,10 @@ export function populatePartnerships(biData, selectedCountry) {
       //console.log("Multiple agreements", partner.agreements);
       partner.agreements.forEach((agreement, index) => {
         const partnerAgreement = document.createElement("h5");
-        partnerAgreement.classList.add("card-subtitle", "mb-1", "agreement");
+        partnerAgreement.classList.add("card-subtitle", "agreement");
         partnerAgreement.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
-        partnerAgreement.style.marginBottom = "0px !important"; // Aplicar la fuente personalizada
+        partnerAgreement.style.marginBottom = "0px"; // Aplicar la fuente personalizada
+        partnerAgreement.style.fontFamily = "RalewayMedium"; // Aplicar la fuente personalizada
 
         partnerAgreement.innerHTML = agreement.typeAgreement
           ? `${agreement.typeAgreement}`
@@ -203,8 +210,8 @@ export function populatePartnerships(biData, selectedCountry) {
         // Crear el elemento para el tiempo (time) y agregarlo segundo
         const time = document.createElement("p");
         time.classList.add("card-text");
-        time.innerHTML = `<strong>Signed:</strong> ${agreement.year}`;
-        time.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
+        time.innerHTML = `Signed: ${agreement.year}`;
+        time.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
         time.style.fontSize = "11pt"; // Aplicar la fuente personalizada
         time.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
         time.style.marginBottom = "0px"; // Aplicar la fuente personalizada
@@ -213,9 +220,9 @@ export function populatePartnerships(biData, selectedCountry) {
 
         // Crear el párrafo para Access y agregarlo al final
         const access = document.createElement("p");
-        access.classList.add("card-text", "mb-1");
-        access.innerHTML = `<strong>Access:</strong> Publicly available`;
-        access.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
+        access.classList.add("card-text");
+        access.innerHTML = `Access: Publicly available`;
+        access.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
         access.style.fontSize = "11pt"; // Aplicar la fuente personalizada
         access.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
 
@@ -255,8 +262,7 @@ export function populatePartnerships(biData, selectedCountry) {
           // Crear el subtítulo de "Areas of Cooperation"
           const areasTitle = document.createElement("h1");
           areasTitle.classList.add("card-text");
-          areasTitle.style.fontWeight = "bold"; // Poner el texto en negrita
-          areasTitle.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
+          areasTitle.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
           areasTitle.style.fontSize = "11pt"; // Aplicar la fuente personalizada
           areasTitle.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
           areasTitle.style.marginBottom = "0px"; // Aplicar la fuente personalizada
@@ -325,6 +331,8 @@ export function populatePartnerships(biData, selectedCountry) {
       // Crear el elemento para partnerAgreement y agregarlo primero
       const partnerAgreement = document.createElement("h5");
       partnerAgreement.classList.add("card-subtitle", "mb-1", "agreement");
+      partnerAgreement.style.fontFamily = "RalewayMedium"; // Aplicar la fuente personalizada
+
       partnerAgreement.innerHTML = partner.typeAgreement
         ? `${partner.typeAgreement}`
         : "";
@@ -333,8 +341,8 @@ export function populatePartnerships(biData, selectedCountry) {
       // Crear el elemento para el tiempo (time) y agregarlo segundo
       const time = document.createElement("p");
       time.classList.add("card-text", "mb-1");
-      time.innerHTML = `<strong>Signed:</strong> ${partner.year}`;
-      time.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
+      time.innerHTML = `Signed: ${partner.year}`;
+      time.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
       time.style.fontSize = "11pt"; // Aplicar la fuente personalizada
       time.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
 
@@ -345,10 +353,10 @@ export function populatePartnerships(biData, selectedCountry) {
       access.classList.add("card-text", "mb-1");
 
       access.innerHTML = partner.linkAgreement
-        ? `<strong>Access:</strong> Publicly available`
-        : `<strong>Access:</strong> Not publicly available`;
+        ? `Access: Publicly available`
+        : `Access: Not publicly available`;
 
-      access.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
+      access.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
       access.style.fontSize = "11pt"; // Aplicar la fuente personalizada
       access.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
 
@@ -386,19 +394,29 @@ export function populatePartnerships(biData, selectedCountry) {
       //console.log(partner.areasCoop);
       if (partner.areasCoop != "") {
         // Crear el subtítulo de "Areas of Cooperation"
-        const areasTitle = document.createElement("h1");
-        areasTitle.classList.add("card-text");
-        areasTitle.style.fontWeight = "bold"; // Poner el texto en negrita
-        areasTitle.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
-        areasTitle.style.fontSize = "11pt"; // Aplicar la fuente personalizada
-        areasTitle.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
-        areasTitle.style.marginBottom = "0px"; // Aplicar la fuente personalizada
+        const areasTitleContainer = document.createElement("div");
+        areasTitleContainer.style.display = "flex";
+        areasTitleContainer.style.alignItems = "center";
+        areasTitleContainer.style.flexWrap = "wrap";
+        areasTitleContainer.style.gap = "5px";
 
+        const areasTitle = document.createElement("span");
+        areasTitle.classList.add("card-text");
+        areasTitle.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
+        areasTitle.style.fontSize = "11pt"; // Aplicar la fuente personalizada
+        areasTitle.style.paddingBottom = "0px";
+        areasTitle.style.marginBottom = "0px";
+        areasTitle.style.marginRight = "10px";
         areasTitle.innerHTML = "Areas of Cooperation:";
-        partnershipCard.appendChild(areasTitle);
+        areasTitleContainer.appendChild(areasTitle);
 
         // Contenedor de tags
         const tagsContainer = document.createElement("div");
+        tagsContainer.style.display = "flex";
+        tagsContainer.style.flexWrap = "wrap";
+        tagsContainer.style.alignItems = "center";
+        tagsContainer.style.gap = "5px";
+
         const rightElement = document.querySelector(".right");
         rightElement.style.marginTop = "0px"; // Ajusta el valor según lo que necesites
 
@@ -417,15 +435,30 @@ export function populatePartnerships(biData, selectedCountry) {
           "Value Chain Integration": "#EBD6E4",
         };
 
+        // Obtener el primer elemento que tenga 25 letras o menos y luego el resto en su orden original
+        const firstShortElement = partner.areasCoop.find(
+          (area) => area.length <= 60
+        );
+        const remainingAreas = partner.areasCoop.filter(
+          (area) => area !== firstShortElement
+        );
+        const reorderedAreas = firstShortElement
+          ? [firstShortElement, ...remainingAreas]
+          : remainingAreas;
+
         // Crear los tags para cada área de cooperación con colores específicos
-        partner.areasCoop.forEach((area) => {
+        reorderedAreas.forEach((area, index) => {
           const tag = document.createElement("span");
           tag.classList.add("tag");
           tag.textContent = area;
+          tag.style.whiteSpace = "nowrap"; // Evitar que el texto del tag se parta en varias líneas
 
           // Aplicar el color específico al fondo del tag según el área de cooperación
           tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
           tag.style.color = "black"; // Texto en color negro
+          tag.style.padding = "2px 6px";
+          tag.style.borderRadius = "4px";
+          tag.style.fontSize = "9pt";
 
           // Crear el tooltip
           const tooltip = document.createElement("span");
@@ -435,11 +468,17 @@ export function populatePartnerships(biData, selectedCountry) {
           // Añadir el tooltip al tag
           tag.appendChild(tooltip);
 
-          // Añadir el tag al contenedor de tags
-          tagsContainer.appendChild(tag);
+          // Añadir el tag al contenedor de título solo si es el primer elemento corto, el resto va al contenedor de tags
+          if (index === 0 && firstShortElement === area) {
+            areasTitleContainer.appendChild(tag);
+          } else {
+            tagsContainer.appendChild(tag);
+          }
         });
-        // Agregar el contenedor de tags a partnershipCard
-        partnershipCard.appendChild(tagsContainer);
+
+        // Agregar el contenedor de título y tags a partnershipCard
+        areasTitleContainer.appendChild(tagsContainer);
+        partnershipCard.appendChild(areasTitleContainer);
       }
     }
     scrollContainer.appendChild(partnershipCard);

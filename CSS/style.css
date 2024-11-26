@@ -25,9 +25,9 @@
   src: url("../img/font/Raleway-Bold.ttf") format("truetype");
 }
 @font-face {
-	font-family: "RalewayItalic";
-	src: url("../img/font/Raleway-Italic.ttf") format("truetype");
-  }
+  font-family: "RalewayItalic";
+  src: url("../img/font/Raleway-Italic.ttf") format("truetype");
+}
 body {
   font-family: "MiFuenteNormal", sans-serif;
 }
@@ -103,7 +103,13 @@ h2.accordion-header.partner-header {
   border: 1px solid #ccc;
   padding: 10px;
 }
+.card-subTitle {
+  font-size: 11pt;
+  padding: 0px;
+  margin: 0px;
+  font-family: "RalewayItalic", sans-serif;
 
+}
 /* Ocultar las flechas del scrollbar en navegadores WebKit */
 .custom-scroll::-webkit-scrollbar {
   width: 8px; /* Ancho del scrollbar */
@@ -196,7 +202,7 @@ h2.accordion-header.partner-header {
   margin-right: 10px;
   margin-top: 5px !important;
 
-  padding: 15px 15px  15px 0px!important;
+  padding: 15px 15px 15px 0px !important;
 }
 
 /* Quitar el borde del último ítem */
@@ -207,10 +213,9 @@ h2.accordion-header.partner-header {
 .card-subtitle.agreement {
   font-weight: 400;
   font-size: 11pt;
-  font-family: "RalewayLight", sans-serif;
   line-height: 1.5; /* Ajusta el valor para aumentar el interlineado */
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   padding-left: 0rem !important;
 }
 
@@ -467,7 +472,7 @@ h2.accordion-header.partner-header {
   display: inline-block;
   background-color: #e0f7fa;
   padding: 1px 10px;
-  margin: 3px;
+  margin: 0.5px;
   border-radius: 5px;
   color: #00796b;
   font-size: 0.7em;
@@ -716,6 +721,7 @@ img.zoom-out-active {
 .overlay {
   display: none;
 }
+
 /*para movil */
 @media (max-width: 768px) {
   body {
@@ -888,7 +894,7 @@ img.zoom-out-active {
 
   .control-toggle {
     order: 2; /* Poner control-toggle debajo de BtnZoom */
-	display: none
+    display: none;
   }
   .control-toggle {
     margin-top: 0px;
@@ -959,6 +965,7 @@ img.zoom-out-active {
   .picker-content {
     position: relative;
     top: 20px;
+    padding-right: 10px;
   }
 
   .mask-top,
@@ -987,29 +994,28 @@ img.zoom-out-active {
     );
   }
   .wheel-wrapper {
-	position: relative;
+    position: relative;
+    padding-left: 20px;
   }
-  
+
   .wheel::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 20px;
-	background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-	pointer-events: none; /* Asegura que no interfiera con los clics */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    pointer-events: none; /* Asegura que no interfiera con los clics */
   }
-  
+
   .wheel::after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 20px;
-	background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-	pointer-events: none; /* Asegura que no interfiera con los clics */
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    pointer-events: none; /* Asegura que no interfiera con los clics */
   }
   .wheel {
     flex: 1;
@@ -1017,45 +1023,39 @@ img.zoom-out-active {
     overflow-y: scroll; /* Asegúrate de tener overflow-y en scroll */
     -webkit-overflow-scrolling: touch; /* Utiliza touch para tener el desplazamiento suave en iOS */
     scrollbar-width: thin; /* Esto funciona para algunos navegadores para mostrar el scrollbar delgado */
-    scrollbar-color: #b91b1b #d11919; /* Define el color del scrollbar si aplica */
-}
+  }
 
   .wheel-scroll {
     margin-top: 0px;
     line-height: 36px;
-    list-style:circle;
+    list-style: circle;
     padding: 0;
   }
-  .wheel-wrapper {
-	position: relative;
-  }
-  
+
   .wheel {
-	flex: 1;
-	height: 173px;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	padding-right: 20px; /* Deja espacio para el scrollbar */
+    flex: 1;
+    height: 173px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
-  
+
   .wheel-scrollbar {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 10px; /* Ancho del scrollbar */
-	height: 100%;
-	background: #8f8f8f;
-	border-radius: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px; /* Ancho del scrollbar */
+    height: 100%;
+    background: #ccc;
+    border-radius: 4px;
   }
-  
   .wheel::-webkit-scrollbar {
-	width: 0; /* Ocultar el scrollbar predeterminado */
+    width: 0; /* Ocultar el scrollbar predeterminado */
   }
   .wheel-item {
     height: 36px;
     overflow: hidden;
     white-space: nowrap;
-    color: #cbcbcb;
+    color: #cbcbcbf3;
     cursor: pointer;
     font-family: "RalewayMedium", sans-serif;
   }
@@ -1175,6 +1175,6 @@ img.zoom-out-active {
     margin-top: 3px !important;
   }
   .ms-2 {
-	margin-left: 3px !important;
+    margin-left: 3px !important;
   }
 }

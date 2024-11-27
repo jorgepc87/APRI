@@ -72,15 +72,20 @@ function resetToInitialView() {
   removeThirdColumn(); // Oculta la tercera columna
   // zoomToCountry(svg, path, filteredGeoJSON, "Chad");
 }
-document.addEventListener("DOMContentLoaded", function() {
-	const wheelElement = document.querySelector('.wheel');
-	const scrollbarElement = document.querySelector('.wheel-scrollbar');
-  
-	wheelElement.addEventListener('scroll', function() {
-	  const scrollPercentage = wheelElement.scrollTop / (wheelElement.scrollHeight - wheelElement.clientHeight);
-	  scrollbarElement.style.top = (scrollPercentage * (wheelElement.clientHeight - scrollbarElement.clientHeight)) + 'px';
-	});
+document.addEventListener("DOMContentLoaded", function () {
+  const wheelElement = document.querySelector(".wheel");
+  const scrollbarElement = document.querySelector(".wheel-scrollbar");
+
+  wheelElement.addEventListener("scroll", function () {
+    const scrollPercentage =
+      wheelElement.scrollTop /
+      (wheelElement.scrollHeight - wheelElement.clientHeight);
+    scrollbarElement.style.top =
+      scrollPercentage *
+        (wheelElement.clientHeight - scrollbarElement.clientHeight) +
+      "px";
   });
+});
 function refresh() {
   if (/Mobi|Android/i.test(navigator.userAgent)) {
     // El usuario está en un dispositivo móvil
@@ -477,6 +482,7 @@ if (window.innerWidth <= 768) {
   button.id = "toggleDescription";
   button.textContent = " Read more";
 
+
   // Insertamos el texto inicial con el botón
   descriptionText.innerHTML = firstPart;
   descriptionText.appendChild(button);
@@ -487,17 +493,26 @@ if (window.innerWidth <= 768) {
       // Mostrar todo el texto sin los tres puntos y cambiar el texto del botón a "Show less"
       descriptionText.innerHTML = firstPart.slice(0, -3) + " " + secondPart; // Eliminar los '...' de firstPart
       descriptionText.appendChild(button);
+      document.getElementById("descriptionText2").classList.remove("hidden");
+
+	
       button.textContent = " Show less";
     } else {
       // Mostrar solo la primera parte con '...' y cambiar el texto del botón a "Read more"
       descriptionText.innerHTML = firstPart;
       descriptionText.appendChild(button);
+      document.getElementById("descriptionText2").classList.add("hidden");
+
       button.textContent = " Read more";
     }
   }
-
   // Añadimos el evento de alternar el texto y el texto del botón al hacer clic
   button.addEventListener("click", toggleText);
+} else {
+  document.getElementById("viewMoreBtn").addEventListener("click", function () {
+    document.getElementById("descriptionText2").classList.remove("hidden");
+    this.style.display = "none"; // Ocultar el botón después de hacer clic
+  });
 }
 
 window.addEventListener("resize", changeButtonText);

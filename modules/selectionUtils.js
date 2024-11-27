@@ -170,7 +170,7 @@ export function populatePartnerships(biData, selectedCountry) {
 
   const partnerSubTitle = document.createElement("h4");
   partnerSubTitle.classList.add("card-subTitle");
-  partnerSubTitle.innerHTML = "Partnership countries";
+  partnerSubTitle.innerHTML = "Partnerships with African Countries";
 
   infoPartnerContainer.appendChild(partnerSubTitle);
 
@@ -225,6 +225,7 @@ export function populatePartnerships(biData, selectedCountry) {
         access.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
         access.style.fontSize = "11pt"; // Aplicar la fuente personalizada
         access.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
+        access.style.marginBottom = "0px"; // Aplicar la fuente personalizada
 
         // Crear el ícono
         const icon = document.createElement("img");
@@ -276,18 +277,11 @@ export function populatePartnerships(biData, selectedCountry) {
           rightElement.style.marginTop = "0px"; // Ajusta el valor según lo que necesites
 
           const colorMap = {
-            "Economic Diversification / Value Addition": "#75D1D1",
-            "Training & Capacity Building": "#F4A27D",
-            "Knowledge Sharing / Joint Research / Expert Exchanges": "#E3F5F5",
-            "Technology Sharing": "#FFDC94",
-            "Cooperation on Extraction": "#EF9CAF",
-            "Promotion of Company Cooperation": "#CCE2CB",
-            "Promotion of Investment": "#98C1A8",
-            "Mining Infrastructure Development": "#C7D78F",
-            "Promotion of Social & Environmental Sustainability": "#FFD8BD",
-            "Cooperation on Legislation & Policies": "#FFFCB6",
-            "Cooperation on Exploration & Geology": "#CBAACB",
-            "Value Chain Integration": "#EBD6E4",
+            "Economic Linkages and Diversification": "#75D1D1",
+            "Capital Mobilization": "#F4A27D",
+            "Sustainable Governance": "#E3F5F5",
+            "Knowledge and Capacity Building": "#FFDC94",
+            "Extraction and Exploration Partnerships": "#EF9CAF",
           };
 
           // Crear los tags para cada área de cooperación con colores específicos
@@ -345,6 +339,7 @@ export function populatePartnerships(biData, selectedCountry) {
       time.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
       time.style.fontSize = "11pt"; // Aplicar la fuente personalizada
       time.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
+      //time.style.marginBottom = "0px"; // Aplicar la fuente personalizada
 
       partnershipCard.appendChild(time);
 
@@ -421,18 +416,11 @@ export function populatePartnerships(biData, selectedCountry) {
         rightElement.style.marginTop = "0px"; // Ajusta el valor según lo que necesites
 
         const colorMap = {
-          "Economic Diversification / Value Addition": "#75D1D1",
-          "Training & Capacity Building": "#F4A27D",
-          "Knowledge Sharing / Joint Research / Expert Exchanges": "#E3F5F5",
-          "Technology Sharing": "#FFDC94",
-          "Cooperation on Extraction": "#EF9CAF",
-          "Promotion of Company Cooperation": "#CCE2CB",
-          "Promotion of Investment": "#98C1A8",
-          "Mining Infrastructure Development": "#C7D78F",
-          "Promotion of Social & Environmental Sustainability": "#FFD8BD",
-          "Cooperation on Legislation & Policies": "#FFFCB6",
-          "Cooperation on Exploration & Geology": "#CBAACB",
-          "Value Chain Integration": "#EBD6E4",
+          "Economic Linkages and Diversification": "#75D1D1",
+          "Capital Mobilization": "#F4A27D",
+          "Sustainable Governance": "#E3F5F5",
+          "Knowledge and Capacity Building": "#FFDC94",
+          "Extraction and Exploration Partnerships": "#EF9CAF",
         };
 
         // Obtener el primer elemento que tenga 25 letras o menos y luego el resto en su orden original
@@ -529,8 +517,12 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   loremText.style.fontFamily = "RalewayN"; // Aplicar la fuente personalizada
   loremText.style.paddingLeft = "0rem"; // Aplicar la fuente personalizada
 
-  loremText.innerHTML =
-    "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl utaliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan";
+  let nombre = selectedBloc.replace(/\s+/g, " ");
+
+  let des = multiJsonData.find((item) => item.blocName === nombre).description;
+  loremText.innerHTML = des;
+
+  console.log(des);
   scrollContainer.appendChild(loremText);
 
   // Crear el contenedor para el ícono y el enlace
@@ -546,14 +538,10 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   icon.style.height = "20px";
   iconLinkContainer.appendChild(icon); // Añadir el ícono al contenedor
 
-  //console.log("Multi JSON data to populate", selectedBloc.trim());
-  let prueba = selectedBloc.replace(/\s+/g, " ");
-  //console.log("test ", prueba);
-
   // Crear el enlace de "Source"
   const blocSource = document.createElement("a");
   blocSource.classList.add("card-link");
-  blocSource.href = multiJsonData.find((item) => item.blocName === prueba).link;
+  blocSource.href = multiJsonData.find((item) => item.blocName === nombre).link;
 
   blocSource.target = "_blank";
   // Aplicar estilos al enlace

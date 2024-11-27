@@ -12,7 +12,7 @@
                 "Denmark",
                 "Estonia",
                 "Finland",
-                "France",
+                "France", 
                 "Germany",
                 "Greece",
                 "Hungary",
@@ -30,7 +30,7 @@
                 "Slovenia",
                 "Spain",
                 "Sweden"
-            ]
+            ]            
         },
         "partnership": [
             {
@@ -39,10 +39,15 @@
                 "year": "2023-10-26",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                        "Value Chain Integration",
+                        "Promotion of Investment",
+                        "Economic Diversification / Value Addition",
+                        "Mining Infrastructure Development",
+                        "Promotion of Social & Environmental Sustainability",
+                        "Knowledge Sharing / Joint Research / Expert Exchanges",
+                        "Training & Capacity Building",
+                        "Promotion of Company Cooperation",
+                        "Technology Sharing"
                 ],
                 "linkAgreement": "https://single-market-economy.ec.europa.eu/publications/memorandum-understanding-eu-democratic-republic-congo-sustainable-raw-materials_en"
             },
@@ -52,25 +57,34 @@
                 "year": "2022-11-08",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                    "Value Chain Integration",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Mining Infrastructure Development",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing"
                 ],
                 "linkAgreement": "https://single-market-economy.ec.europa.eu/document/download/56b5fdff-bc0e-4b3a-8e0f-6b9fc907617b_en",
                 "sources": ""
-            },
+            }, 
             {
                 "country": "Rwanda",
                 "typeAgreement": "MoU on a strategic partnership on sustainable raw materials value chains",
                 "year": "2024-02-19",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building",
-                    "Capital Mobilization"
+                    "Value Chain Integration",
+                    "Promotion of Company Cooperation",
+                    "Mining Infrastructure Development",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Technology Sharing",
+                    "Training & Capacity Building",
+                    "Economic Diversification / Value Addition",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "https://ec.europa.eu/docsroom/documents/58035",
                 "sources": ""
@@ -80,13 +94,17 @@
                 "typeAgreement": "MoU on a partnership on sustainable raw materials value chains",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                    "Value Chain Integration",
+                    "Promotion of Company Cooperation",
+                    "Promotion of Investment",
+                    "Mining Infrastructure Development",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Technology Sharing",
+                    "Training & Capacity Building"
                 ],
                 "linkAgreement": "https://single-market-economy.ec.europa.eu/publications/memorandum-understanding-eu-zambia-sustainable-raw-materials_en?prefLang=de",
-                "sources": ""
+                "sources": ""                
             }
         ]
     },
@@ -99,9 +117,10 @@
                 "year": "2024-05-21",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Company Cooperation",
+                    "Promotion of Investment",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.agenzianova.com/en/news/la-missione-di-urso-in-libia-focus-su-industria-materie-prime-e-rinnovabili/"
@@ -117,17 +136,14 @@
                 "year": "2014-03-27",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Company Cooperation",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "",
                 "sources": "https://allafrica.com/stories/201403281654.html"
             }
         ],
-        "center": [
-            11.1607181,
-            12.2795728
-        ],
+        "center": [11.1607181, 12.2795728],
         "zoom": 4
     },
     {
@@ -138,9 +154,7 @@
                 "typeAgreement": "MoU on Cooperation in the Field of Mineral Wealth",
                 "year": "2024-01-10",
                 "minerals": "Nickel, Cobalt, Copper, Manganese, Lithium",
-                "areasCoop": [
-                    "Capital Mobilization"
-                ],
+                "areasCoop": ["Promotion of Investment"],
                 "linkAgreement": "",
                 "sources": "https://agsiw.org/saudi-arabias-and-the-uaes-quest-for-african-critical-minerals/"
             },
@@ -149,9 +163,7 @@
                 "typeAgreement": "MoU on Cooperation in the Field of Mineral Wealth",
                 "year": "2024-01-10",
                 "minerals": "",
-                "areasCoop": [
-                    "Capital Mobilization"
-                ],
+                "areasCoop": ["Promotion of Investment"],
                 "linkAgreement": "",
                 "sources": "https://agsiw.org/saudi-arabia-pushes-ahead-to-become-a-global-mining-player/"
             },
@@ -160,9 +172,7 @@
                 "typeAgreement": "MoU on Cooperation in the Field of Mineral Wealth",
                 "year": "2024-01-10",
                 "minerals": "",
-                "areasCoop": [
-                    "Capital Mobilization"
-                ],
+                "areasCoop": ["Promotion of Investment"],
                 "linkAgreement": "",
                 "sources": "https://www.mining-technology.com/news/saudi-arabia-mou-mining/?cf-view"
             },
@@ -171,9 +181,7 @@
                 "typeAgreement": "Joint Technical Committee",
                 "year": "2024-01-10",
                 "minerals": "",
-                "areasCoop": [
-                    "Capital Mobilization"
-                ],
+                "areasCoop": ["Promotion of Investment"],
                 "linkAgreement": "",
                 "sources": "https://fmino.gov.ng/nigeria-saudi-arabia-pledge-collaboration-on-mining-sector-development/"
             },
@@ -183,9 +191,10 @@
                 "year": "2023-11-11",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Sustainable Governance",
-                    "Capital Mobilization"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
@@ -196,9 +205,10 @@
                 "year": "2023-11-11",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Sustainable Governance",
-                    "Capital Mobilization"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
@@ -209,9 +219,10 @@
                 "year": "2023-11-11",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Sustainable Governance",
-                    "Capital Mobilization"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
@@ -226,10 +237,7 @@
                 "sources": "https://www.saudigazette.com.sa/article/637598/SAUDI-ARABIA/Saudi-minister-discuss-enhancing-cooperation-in-industry-mining-sectors-with-ministers-of-African-countries"
             }
         ],
-        "center": [
-            20.839707,
-            40.204066
-        ]
+        "center": [20.839707, 40.204066]
     },
     {
         "nonafrican": "United Arab Emirates",
@@ -239,9 +247,7 @@
                 "typeAgreement": "MoU to Strengthen Mineral Resource Exploration",
                 "year": "2023-07-21",
                 "minerals": "",
-                "areasCoop": [
-                    "Extraction and Exploration Partnerships"
-                ],
+                "areasCoop": ["Cooperation on Exploration & Geology"],
                 "linkAgreement": "",
                 "sources": "https://www.lusakatimes.com/2023/07/21/zambia-uae-seal-mining-exploration-dea/"
             },
@@ -251,34 +257,17 @@
                 "year": "2024-04-21",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Knowledge and Capacity Building",
-                    "Extraction and Exploration Partnerships",
-                    "Economic Linkages and Diversification"
+                    "Promotion of Investment",
+                    "Technology Sharing",
+                    "Cooperation on Exploration & Geology",
+                    "Economic Diversification / Value Addition"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.thenationalnews.com/business/economy/2024/04/24/uae-and-kenya-sign-investment-pact-to-bolster-mining-and-technology-sectors/"
             }
         ],
-        "center": [
-            5.0336537,
-            34.4408996
-        ],
+        "center": [5.0336537, 34.4408996],
         "zoom": 4.24
-    },
-    {
-        "nonafrican": "Qatar",
-        "partnership": [
-            {
-                "country": "Kenya",
-                "typeAgreement": "MoU in the Sector of Mining",
-                "year": "2014-04-23",
-                "minerals": "",
-                "areasCoop": "",
-                "linkAgreement": "",
-                "sources": "https://thepeninsulaqatar.com/article/12/04/2017/Qatar-and-Kenya-bolster-ties-in-several-fields https://www.gulf-times.com/story/389571/qatar-kenya-sign-agreements-and-mous"
-            }
-        ]
     },
     {
         "nonafrican": "Iran",
@@ -298,7 +287,7 @@
         "nonafrican": "India",
         "partnership": [
             {
-                "country": "Ivory Coast",
+                "country": "Cote d'Ivoire",
                 "typeAgreement": "MoU - Field of Geology and Mineral Resources",
                 "year": "2024-02-05",
                 "minerals": "Cobalt, Copper, Lithium",
@@ -312,21 +301,23 @@
                 "year": "2010-09-30",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Knowledge and Capacity Building",
-                    "Capital Mobilization"
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Training & Capacity Building",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e7873a68f51680767091.pdf",
                 "sources": ""
             },
             {
-                "country": "United Republic of Tanzania",
+                "country": "Tanzania",
                 "typeAgreement": "Agreement to Collaborate on Research on Strategic Minerals ",
                 "year": "2023-04-dd",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Extraction and Exploration Partnerships"
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Cooperation on Exploration & Geology"
                 ],
                 "linkAgreement": "",
                 "sources": "https://dailynews.co.tz/tanzania-india-agree-to-develop-research-in-strategic-minerals/"
@@ -337,10 +328,11 @@
                 "year": "2019-08-21",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Extraction and Exploration Partnerships",
-                    "Knowledge and Capacity Building",
-                    "Economic Linkages and Diversification"
+                    "Promotion of Investment",
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation"
                 ],
                 "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/6437889f7e2f91681361055.pdf",
                 "sources": ""
@@ -351,8 +343,10 @@
                 "year": "2010-11-03",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Knowledge and Capacity Building"
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Technology Sharing",
+                    "Training & Capacity Building"
                 ],
                 "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e78b0858f81680767152.pdf",
                 "sources": ""
@@ -363,9 +357,11 @@
                 "year": "2018-11-03",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building",
-                    "Capital Mobilization"
+                    "Technology Sharing",
+                    "Promotion of Company Cooperation",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e74b0298b71680766128.pdf",
                 "sources": ""
@@ -376,10 +372,13 @@
                 "year": "2012-01-11",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Extraction and Exploration Partnerships",
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Investment",
+                    "Technology Sharing",
+                    "Cooperation on Exploration & Geology",
+                    "Economic Diversification / Value Addition",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation"
                 ],
                 "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e7649cfa151680766537.pdf",
                 "sources": ""
@@ -399,18 +398,16 @@
                 "year": "2018-04-11",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                    "Cooperation on Exploration & Geology",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "https://mines.gov.in/admin/storage/app/uploads/642e7615ca2cd1680766485.pdf",
                 "sources": ""
             }
         ],
-        "center": [
-            0.6800132,
-            28.0431746
-        ],
+        "center": [0.6800132, 28.0431746],
         "zoom": 3.86
     },
     {
@@ -421,20 +418,16 @@
                 "typeAgreement": "MoU on Critical Minerals",
                 "year": "2024-06-05",
                 "minerals": "",
-                "areasCoop": [
-                    "Economic Linkages and Diversification"
-                ],
+                "areasCoop": ["Value Chain Integration"],
                 "linkAgreement": "",
                 "sources": "https://en.yna.co.kr/view/AEN20240605007151320"
             },
             {
-                "country": "United Republic of Tanzania",
+                "country": "Tanzania",
                 "typeAgreement": "MoU on Critical Minerals",
                 "year": "2024-06-05",
                 "minerals": "",
-                "areasCoop": [
-                    "Economic Linkages and Diversification"
-                ],
+                "areasCoop": ["Value Chain Integration"],
                 "linkAgreement": "",
                 "sources": "https://en.yna.co.kr/view/AEN20240605007151320"
             },
@@ -448,10 +441,7 @@
                 "sources": "https://punchng.com/south-korea-indicates-interest-in-nigerias-lithium/"
             }
         ],
-        "center": [
-            6.7340692,
-            60.1059652
-        ],
+        "center": [6.7340692, 60.1059652],
         "zoom": 3.91
     },
     {
@@ -463,8 +453,8 @@
                 "year": "2023-08-08",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Economic Linkages and Diversification"
+                    "Cooperation on Exploration & Geology",
+                    "Value Chain Integration"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.reuters.com/markets/commodities/japan-signs-deal-with-namibia-explore-rare-earth-minerals-2023-08-08/"
@@ -477,8 +467,9 @@
                         "year": "2022-12-09",
                         "minerals": "",
                         "areasCoop": [
-                            "Capital Mobilization",
-                            "Economic Linkages and Diversification"
+                            "Promotion of Investment",
+                            "Value Chain Integration",
+                            "Promotion of Company Cooperation"
                         ],
                         "linkAgreement": "",
                         "sources": "https://english.kyodonews.net/news/2022/12/fc7ee5cec6b2-japan-to-promote-investment-in-congo-for-stable-rare-mineral-supply.html"
@@ -487,9 +478,7 @@
                         "typeAgreement": "Agreement on the Exploration and Extraction of Mineral Resources",
                         "year": "2023-08-10",
                         "minerals": "",
-                        "areasCoop": [
-                            "Extraction and Exploration Partnerships"
-                        ],
+                        "areasCoop": ["Cooperation on Exploration & Geology"],
                         "linkAgreement": "",
                         "sources": "https://northafricapost.com/70647-japan-inks-critical-mineral-deals-with-five-african-countries-to-mitigate-reliance-on-china.html"
                     }
@@ -509,9 +498,7 @@
                 "typeAgreement": "Agreement for Participation in Nickel and Cobalt Mining and Refining Enterprises",
                 "year": "2023-08-dd",
                 "minerals": "",
-                "areasCoop": [
-                    "Economic Linkages and Diversification"
-                ],
+                "areasCoop": ["Value Chain Integration"],
                 "linkAgreement": "",
                 "sources": "https://energycapitalpower.com/japan-mineral-deals-five-african-countries/"
             },
@@ -521,18 +508,16 @@
                 "year": "2017-02-09",
                 "minerals": "",
                 "areasCoop": [
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building",
-                    "Capital Mobilization"
+                    "Training & Capacity Building",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Investment"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.howwemadeitinafrica.com/japans-engagement-with-africa-shows-a-long-term-commitment-to-the-continent/62055/"
             }
         ],
-        "center": [
-            4.0604365,
-            74.014325
-        ],
+        "center": [4.0604365, 74.014325],
         "zoom": 3.68
     },
     {
@@ -568,6 +553,15 @@
                 ]
             },
             {
+                "country": "Democratic Republic of the Congo",
+                "typeAgreement": "Cooperation Package of 'Resource for Projects' (mining industry & infrastructure) / 'Sicomines Agreement'",
+                "year": "2007",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "http://pg.china-embassy.gov.cn/eng/fyrth/202305/t20230522_11081498.htm ; https://news.cgtn.com/news/2023-05-24/DRC-president-s-visit-to-China-a-gold-mine-for-bilateral-relations-1k3W7Wr63gk/index.html"
+            },
+            {
                 "country": "Angola",
                 "agreements": [
                     {
@@ -591,8 +585,8 @@
                         "year": "2016-09-05",
                         "minerals": "",
                         "areasCoop": [
-                            "Extraction and Exploration Partnerships",
-                            "Knowledge and Capacity Building"
+                            "Cooperation on Exploration & Geology",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges"
                         ],
                         "linkAgreement": "",
                         "sources": "https://forumchinaplp.org.mo/en/economic_trade/view/3396"
@@ -625,8 +619,8 @@
                         "year": "2010-mm-dd",
                         "minerals": "",
                         "areasCoop": [
-                            "Knowledge and Capacity Building",
-                            "Extraction and Exploration Partnerships"
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Cooperation on Exploration & Geology"
                         ],
                         "linkAgreement": "",
                         "sources": "http://sd.china-embassy.gov.cn/eng/dshd/202010/t20201016_6689197.htm"
@@ -636,8 +630,9 @@
                         "year": "2012-mm-dd",
                         "minerals": "",
                         "areasCoop": [
-                            "Knowledge and Capacity Building",
-                            "Extraction and Exploration Partnerships"
+                            "Training & Capacity Building",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Cooperation on Exploration & Geology"
                         ],
                         "linkAgreement": "",
                         "sources": "https://china.aiddata.org/projects/30432/"
@@ -712,21 +707,9 @@
                         "sources": "https://www.theeastafrican.co.ke/tea/news/east-africa/kagame-xi-sign-15-deals-strengthen-rwanda-china-ties-1398832"
                     }
                 ]
-            },
-            {
-                "country": "Guinea Bissau",
-                "typeAgreement": "Strategic Partnership, including Bilateral Agreement on Geology and Mining",
-                "year": "2014-07-10",
-                "minerals": "",
-                "areasCoop": "",
-                "linkAgreement": "",
-                "sources": "https://www.africanews.com/2024/07/11/guinea-bissau-china-upgrade-ties-as-presidents-meet//"
             }
         ],
-        "center": [
-            11.6200344,
-            58.3297427
-        ],
+        "center": [11.6200344, 58.3297427],
         "zoom": 3.56
     },
     {
@@ -738,25 +721,31 @@
                 "year": "2023-08-21",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Knowledge and Capacity Building",
-                    "Economic Linkages and Diversification",
-                    "Sustainable Governance"
+                    "Cooperation on Exploration & Geology",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation",
+                    "Training & Capacity Building",
+                    "Promotion of Social & Environmental Sustainability"
                 ],
                 "linkAgreement": "https://treaty-room.kemlu.go.id/daftar-perjanjian",
                 "sources": "https://www.theeastafrican.co.ke/tea/business/the-deals-kenya-signed-with-indonesia-4342920"
             },
             {
-                "country": "United Republic of Tanzania",
+                "country": "Tanzania",
                 "typeAgreement": "Agreement on Investment in Minerals",
                 "year": "2024-01-25",
                 "minerals": "",
                 "areasCoop": [
-                    "Sustainable Governance",
-                    "Extraction and Exploration Partnerships",
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building",
-                    "Capital Mobilization"
+                    "Cooperation on Legislation & Policies",
+                    "Cooperation on Exploration & Geology",
+                    "Economic Diversification / Value Addition",
+                    "Cooperation on Extraction",
+                    "Technology Sharing",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Promotion of Investment",
+                    "Value Chain Integration"
                 ],
                 "linkAgreement": "https://treaty-room.kemlu.go.id/daftar-perjanjian",
                 "sources": "https://www.theeastafrican.co.ke/tea/news/east-africa/samia-inks-gas-health-and-agriculture-deals-in-indonesia-4505156"
@@ -767,8 +756,8 @@
                 "year": "2023-12-01",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Economic Linkages and Diversification"
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
                 ],
                 "linkAgreement": "",
                 "sources": "https://kemlu.go.id/algiers/en/news/27530/visiting-algeria-for-the-first-time-the-indonesian-foreign-minister-strengthens-economic-cooperation-between-the-two-countries"
@@ -788,22 +777,21 @@
                 "year": "2008-02-07",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building"
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Extraction",
+                    "Economic Diversification / Value Addition",
+                    "Training & Capacity Building",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "https://treaty-room.kemlu.go.id/daftar-perjanjian",
                 "sources": "https://treaty-room.kemlu.go.id/daftar-perjanjian"
             }
         ],
-        "center": [
-            0.7232849,
-            56.9653558
-        ],
+        "center": [0.7232849, 56.9653558],
         "zoom": 3.79
     },
     {
-        "nonafrican": "East Timor",
+        "nonafrican": "Timor-Leste",
         "partnership": [
             {
                 "country": "Mozambique",
@@ -826,9 +814,7 @@
                         "typeAgreement": "MoU on geological exploration of mineral resources",
                         "year": "2019-10-25",
                         "minerals": "",
-                        "areasCoop": [
-                            "Extraction and Exploration Partnerships"
-                        ],
+                        "areasCoop": ["Cooperation on Exploration & Geology"],
                         "linkAgreement": "",
                         "sources": "https://saiia.org.za/wp-content/uploads/2020/11/Special-Report-kachur-002.pdf.   https://www.herald.co.zw/zim-russia-sign-2-mining-mous/"
                     },
@@ -836,9 +822,7 @@
                         "typeAgreement": "MoU on Cooperation in the Field of Diamond Exploration and Mining",
                         "year": "2020-10-29",
                         "minerals": "",
-                        "areasCoop": [
-                            "Extraction and Exploration Partnerships"
-                        ],
+                        "areasCoop": ["Cooperation on Exploration & Geology"],
                         "linkAgreement": "",
                         "sources": "https://africanminingmarket.com/zimbabwe-and-russia-sign-exploration-mining-mous/8449/"
                     },
@@ -854,9 +838,7 @@
                         "typeAgreement": "MoU on cooperation in environmental protection and sustainable use of resources",
                         "year": "2019-10-25",
                         "minerals": "",
-                        "areasCoop": [
-                            "Sustainable Governance"
-                        ],
+                        "areasCoop": ["Promotion of Social & Environmental Sustainability"],
                         "linkAgreement": "",
                         "sources": "https://saiia.org.za/wp-content/uploads/2020/11/Special-Report-kachur-002.pdf https://www.herald.co.zw/zim-russia-sign-2-mining-mous/"
                     }
@@ -879,8 +861,9 @@
                         "year": "2013-03-27",
                         "minerals": "",
                         "areasCoop": [
-                            "Extraction and Exploration Partnerships",
-                            "Knowledge and Capacity Building"
+                            "Cooperation on Exploration & Geology",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Technology Sharing"
                         ],
                         "linkAgreement": "",
                         "sources": "https://www.miningreview.com/news/south-africa-and-russia-recommit-to-pgms-mou/"
@@ -890,13 +873,24 @@
                         "year": "1999-04-28",
                         "minerals": "",
                         "areasCoop": [
-                            "Knowledge and Capacity Building",
-                            "Economic Linkages and Diversification"
+                            "Knowledge Sharing / Joint Research / Expert Exchanges",
+                            "Promotion of Company Cooperation",
+                            "Technology Sharing",
+                            "Training & Capacity Building"
                         ],
                         "linkAgreement": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC064704/",
                         "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC064704/"
                     }
                 ]
+            },
+            {
+                "country": "Togo",
+                "typeAgreement": "Agreeement for Cooperation in Energy, Natural Resources and Agriculture",
+                "year": "2021-02-dd",
+                "minerals": "",
+                "areasCoop": "",
+                "linkAgreement": "",
+                "sources": "https://www.bannedthought.net/Australia/CPA-ML/Pamphlets/CPA-ML-Russia'sNewAfricanAdventure-2022.pdf"
             },
             {
                 "country": "Angola",
@@ -914,8 +908,8 @@
                         "year": "2009-06-26",
                         "minerals": "",
                         "areasCoop": [
-                            "Extraction and Exploration Partnerships",
-                            "Knowledge and Capacity Building"
+                            "Cooperation on Exploration & Geology",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges"
                         ],
                         "linkAgreement": "",
                         "sources": "https://saiia.org.za/wp-content/uploads/2013/10/Occasional-Paper-154.pdf"
@@ -940,10 +934,7 @@
                 "sources": "http://en.kremlin.ru/events/president/news/61882"
             }
         ],
-        "center": [
-            32.6635629,
-            75.0995067
-        ],
+        "center": [32.6635629, 75.0995067],
         "zoom": 3
     },
     {
@@ -955,9 +946,10 @@
                 "year": "2015-03-03",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Investment",
+                    "Training & Capacity Building",
+                    "Economic Diversification / Value Addition",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpmg.org.za%2Ffiles%2F201014Bilateral_agreements2020.rtf&psig=AOvVaw2u5V7DIiB1gH5ER8V_TByc&ust=1720188444272000&source=images&cd=vfe&opi=89978449&ved=0CAcQr5oMahcKEwio3K_LyY2HAxUAAAAAHQAAAAAQBA https://www.sowetanlive.co.za/news/2015-03-04-sa-canada-sign-mining-agreement/"
@@ -973,9 +965,10 @@
                 "year": "2022-12-13",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Value Chain Integration",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
                 ],
                 "linkAgreement": "https://www.state.gov/wp-content/uploads/2023/01/2023.01.13-E-4-Release-MOU-USA-DRC-ZAMBIA-Tripartite-Agreement-Tab-1-MOU-for-U.S.-Assistance-to-Support-DRC-Zambia-EV-Value-Chain-Cooperation-Instrument.pdf",
                 "sources": ""
@@ -986,18 +979,16 @@
                 "year": "2022-12-13",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Economic Linkages and Diversification",
-                    "Capital Mobilization"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Value Chain Integration",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
                 ],
                 "linkAgreement": "https://www.state.gov/wp-content/uploads/2023/01/2023.01.13-E-4-Release-MOU-USA-DRC-ZAMBIA-Tripartite-Agreement-Tab-1-MOU-for-U.S.-Assistance-to-Support-DRC-Zambia-EV-Value-Chain-Cooperation-Instrument.pdf",
                 "sources": ""
             }
         ],
-        "center": [
-            14.5798609,
-            -29.2579057
-        ],
+        "center": [14.5798609, -29.2579057],
         "zoom": 3.6
     },
     {
@@ -1010,9 +1001,7 @@
                         "typeAgreement": "MoU on cooperation in the field of energy and mining",
                         "year": "2005-05-16",
                         "minerals": "",
-                        "areasCoop": [
-                            "Sustainable Governance"
-                        ],
+                        "areasCoop": ["Cooperation on Legislation & Policies"],
                         "linkAgreement": "",
                         "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC067571/"
                     },
@@ -1021,13 +1010,14 @@
                         "year": "2023-09-04",
                         "minerals": "",
                         "areasCoop": [
-                            "Economic Linkages and Diversification",
-                            "Knowledge and Capacity Building"
+                            "Promotion of Company Cooperation",
+                            "Knowledge Sharing / Joint Research / Expert Exchanges"
                         ],
                         "linkAgreement": "",
                         "sources": "https://www.minrel.gob.cl/noticias-anteriores/subsecretaria-gloria-de-la-fuente-encabezo-v-reunion-de-consultas"
                     }
                 ]
+                
             },
             {
                 "country": "South Africa",
@@ -1063,9 +1053,10 @@
                 "year": "2009-02-05",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Legislation & Policies",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Training & Capacity Building"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC135336"
@@ -1105,11 +1096,14 @@
                 "year": "2022-11-21",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Capital Mobilization",
-                    "Economic Linkages and Diversification",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                    "Cooperation on Exploration & Geology",
+                    "Promotion of Investment",
+                    "Economic Diversification / Value Addition",
+                    "Value Chain Integration",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Training & Capacity Building",
+                    "Promotion of Company Cooperation",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.gov.uk/government/publications/uk-south-africa-joint-statement-on-partnering-on-minerals-for-future-clean-energy-technologies"
@@ -1119,9 +1113,7 @@
                 "typeAgreement": "Joint Technical Working Group on Mining Development",
                 "year": "2024-01-dd",
                 "minerals": "",
-                "areasCoop": [
-                    "Capital Mobilization"
-                ],
+                "areasCoop": ["Promotion of Investment"],
                 "linkAgreement": "",
                 "sources": "https://independent.ng/nigeria-uk-to-form-technical-committee-on-mining-development/"
             },
@@ -1130,9 +1122,7 @@
                 "typeAgreement": "UK-Zambia Green Growth Compact",
                 "year": "2023-08-03",
                 "minerals": "",
-                "areasCoop": [
-                    "Capital Mobilization"
-                ],
+                "areasCoop": ["Promotion of Investment"],
                 "linkAgreement": "",
                 "sources": "https://www.reuters.com/world/britain-agrees-deals-clean-energy-critical-minerals-with-zambia-2023-08-02/"
             }
@@ -1147,8 +1137,10 @@
                 "year": "2024-06-27",
                 "minerals": "",
                 "areasCoop": [
-                    "Economic Linkages and Diversification",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Company Cooperation",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building",
+                    "Technology Sharing"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.moroccoworldnews.com/2024/06/363512/morocco-turkey-sign-strategic-energy-and-mining-agreements"
@@ -1159,8 +1151,8 @@
                 "year": "2021-10-20",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Investment",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.aa.com.tr/en/energy/international-relations/turkey-nigeria-sign-energy-hydrocarbons-and-mining-mous/33844"
@@ -1171,8 +1163,8 @@
                 "year": "2016-06-02",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Economic Linkages and Diversification"
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation"
                 ],
                 "linkAgreement": "",
                 "sources": "https://nordicmonitor.com/2020/02/turkey-set-up-mechanism-to-explore-oil-gas-and-mining-opportunities-in-somalia/"
@@ -1183,9 +1175,10 @@
                 "year": "2017-02-23",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Knowledge and Capacity Building",
-                    "Economic Linkages and Diversification"
+                    "Cooperation on Exploration & Geology",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation",
+                    "Training & Capacity Building"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC165318/"
@@ -1196,9 +1189,11 @@
                 "year": "2018-01-12",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Extraction and Exploration Partnerships",
-                    "Sustainable Governance"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Technology Sharing",
+                    "Training & Capacity Building",
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Legislation & Policies"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC173335/"
@@ -1209,9 +1204,9 @@
                 "year": "2017-08-02",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Economic Linkages and Diversification",
-                    "Extraction and Exploration Partnerships"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Promotion of Company Cooperation",
+                    "Cooperation on Exploration & Geology"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC172291/"
@@ -1221,9 +1216,7 @@
                 "typeAgreement": "MoU on cooperation in the fields of hydrocarbons, mining and minerals",
                 "year": "2016-10-30",
                 "minerals": "",
-                "areasCoop": [
-                    "Knowledge and Capacity Building"
-                ],
+                "areasCoop": ["Knowledge Sharing / Joint Research / Expert Exchanges"],
                 "linkAgreement": "",
                 "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC165316/"
             },
@@ -1233,20 +1226,18 @@
                 "year": "2016-12-28",
                 "minerals": "",
                 "areasCoop": [
-                    "Knowledge and Capacity Building",
-                    "Capital Mobilization",
-                    "Economic Linkages and Diversification",
-                    "Extraction and Exploration Partnerships",
-                    "Sustainable Governance"
+                    "Knowledge Sharing / Joint Research / Expert Exchanges",
+                    "Training & Capacity Building",
+                    "Promotion of Investment",
+                    "Promotion of Company Cooperation",
+                    "Cooperation on Exploration & Geology",
+                    "Cooperation on Legislation & Policies"
                 ],
                 "linkAgreement": "https://nordicmonitor.com/2020/02/turkey-approves-agreement-with-ethiopia-for-cooperation-in-petroleum-and-mining/#:~:text=The%20agreement%20states%20in%20Article,and%20gas%20infrastructure%3B%20and%20the",
                 "sources": "https://nordicmonitor.com/2020/02/turkey-approves-agreement-with-ethiopia-for-cooperation-in-petroleum-and-mining/"
             }
         ],
-        "center": [
-            20.554766,
-            33.6492337
-        ],
+        "center": [20.554766, 33.6492337],
         "zoom": 4.34
     },
     {
@@ -1258,9 +1249,10 @@
                 "year": "2017-05-01",
                 "minerals": "",
                 "areasCoop": [
-                    "Capital Mobilization",
-                    "Sustainable Governance",
-                    "Knowledge and Capacity Building"
+                    "Promotion of Investment",
+                    "Promotion of Social & Environmental Sustainability",
+                    "Cooperation on Legislation & Policies",
+                    "Technology Sharing"
                 ],
                 "linkAgreement": "",
                 "sources": "https://sudantribune.com/article60531/"
@@ -1276,12 +1268,13 @@
                 "year": "1982-02-09",
                 "minerals": "",
                 "areasCoop": [
-                    "Extraction and Exploration Partnerships",
-                    "Knowledge and Capacity Building"
+                    "Cooperation on Exploration & Geology",
+                    "Knowledge Sharing / Joint Research / Expert Exchanges"
                 ],
                 "linkAgreement": "",
                 "sources": "https://www.fao.org/faolex/results/details/en/c/LEX-FAOC136416/"
             }
         ]
     }
+
 ]

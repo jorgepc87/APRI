@@ -7,11 +7,18 @@ let projection = d3
 let path = d3.geoPath().projection(projection);
 let zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
 let g;
+let banderaClick = false;
+
 // Función que maneja el evento de zoom
 function zoomed(event) {
   const { transform } = event;
   g.attr("transform", transform);
   g.attr("stroke-width", 1 / transform.k);
+
+  // Ocultar el tooltip inmediatamente al comenzar el movimiento del zoom
+  const tooltip = d3.select(".tooltip2");
+  tooltip.style("display", "none").style("pointer-events", "none");
+  console.log(banderaClick);
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   if (isMobile) {
     // Mostrar nombres de países si el zoom es 3 o más
@@ -20,23 +27,23 @@ function zoomed(event) {
         .transition()
         .duration(300)
         .style("opacity", 1); // Hacer visibles las etiquetas
-
-      // Mostrar el tooltip después de la animación del zoom
-      setTimeout(() => {
-        console.log("abre el tooltip");
-        const tooltip = d3.select(".tooltip2");
-        tooltip.style("display", "block").style("pointer-events", "auto"); // Hacer visible el tooltip
-      }, 300); // Retraso para sincronizar con la animación de la etiqueta
+      if (banderaClick) {
+        // Mostrar el tooltip después de la animación del zoom
+        setTimeout(() => {
+          tooltip.style("display", "block").style("pointer-events", "auto"); // Hacer visible el tooltip
+          // Usamos una segunda función de `setTimeout` para asegurarnos de que `banderaClick` cambie después de haber mostrado el tooltip
+          setTimeout(() => {
+            banderaClick = false;
+            console.log("MUESTRAAA" + banderaClick);
+          }, 500); // Retraso adicional para asegurar que se haya completado la animación del tooltip
+        }, 500); // Retraso para sincronizar con la animación de la etiqueta
+      }
     } else {
       d3.selectAll(".city-label")
         .transition()
         .duration(300)
         .style("opacity", 0); // Ocultar las etiquetas
     }
-    /* if (transform.k >= 7) {
-      d3.selectAll(".tooltip2").remove(); // Eliminar los tooltips del DOM
-      console.log("destruido");
-    }*/
   }
 }
 //aumentar un parametro para identificar el pais y con ello hacer el zoom mas personalizado para cada uno - JORGE PAREDES
@@ -146,19 +153,19 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
           } else if (name == "UNITED ARAB EMIRATES") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", path.centroid(d)[1] + i * 5 + 2) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 5 + 5) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "SOUTH AFRICA") {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 5)
-              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 4) // Ajusta la separación entre líneas
               .text("SOUTH");
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 5)
-              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 9) // Ajusta la separación entre líneas
               .text("AFRICA");
           } else {
             textElement
@@ -178,13 +185,13 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
           } else if (name == "SOUTH KOREA") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 10)
-              .attr("y", path.centroid(d)[1] + i * 8 - 4) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] + 7)
+              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
               .text("SOUTH");
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 10)
-              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] + 7)
+              .attr("y", path.centroid(d)[1] + i * 8 + 4) // Ajusta la separación entre líneas
               .text("KOREA");
           } else if (name == "INDIA") {
             textElement
@@ -201,7 +208,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
           } else if (name == "AUSTRALIA") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 15)
+              .attr("x", path.centroid(d)[0] + 0)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "SLOVAKIA") {
@@ -240,7 +247,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 0)
-              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 - 0) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "NETHERLANDS") {
             textElement
@@ -264,6 +271,12 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 13)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "AUSTRIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 4)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "DENMARK") {
@@ -300,7 +313,13 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 5)
-              .attr("y", path.centroid(d)[1] + i * 8 + 2) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "CYPRUS") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 4) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "HUNGARY") {
             textElement
@@ -355,31 +374,31 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 40)
-              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "USA") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 30)
+              .attr("x", path.centroid(d)[0] + 15)
               .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
-              .text("UNITED STATE");
+              .text("UNITED STATES");
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 30)
+              .attr("x", path.centroid(d)[0] + 15)
               .attr("y", path.centroid(d)[1] + i * 8 + 15) // Ajusta la separación entre líneas
               .text("OF AMERICA");
           } else if (name == "BOTSWANA") {
             //Botswana
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 10)
+              .attr("x", path.centroid(d)[0] + 3)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "PERU") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] - 6)
-              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] - 4)
+              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
               .text(line);
           }
         } else if (partner == "IPEF Critical Minerals Dialogue") {
@@ -431,6 +450,18 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .attr("x", path.centroid(d)[0] + 10)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text(line);
+          } else if (name == "JAPAN") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 6)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          }else if (name == "SINGAPORE") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 0)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text(line);
           }
         } else if (partner == "EU") {
           if (name == "DEMOCRATIC REPUBLIC OF THE CONGO") {
@@ -463,12 +494,12 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .attr("x", path.centroid(d)[0] - 45)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text("EUROPEAN UNION");
-          } 
+          }
         } else {
           if (name == "ZAMBIA") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] - 5)
+              .attr("x", path.centroid(d)[0] - 9)
               .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "MALAWI") {
@@ -478,7 +509,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .attr("y", path.centroid(d)[1] + i * 8 + 7) // Ajusta la separación entre líneas
               .text(line);
           } else if (name == "MOZAMBIQUE") {
-            if (partner != " Russia") {
+            if (partner == " Russia") {
               textElement
                 .append("tspan")
                 .attr("x", path.centroid(d)[0] + 12)
@@ -486,16 +517,29 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
                 .text(line);
             }
           } else if (name == "SOUTH AFRICA") {
+            // SOLO PARA RUSIA
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] - 10)
-              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text("SOUTH");
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] - 10)
-              .attr("y", path.centroid(d)[1] + i * 8 + 12) // Ajusta la separación entre líneas
+              .attr("x", path.centroid(d)[0] - 5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 6) // Ajusta la separación entre líneas
               .text("AFRICA");
+          } else if (name == "IVORY COAST") {
+            // SOLO PARA RUSIA
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8 - 2) // Ajusta la separación entre líneas
+              .text("IVORY");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .text("COAST");
           } else if (name == "MALI") {
             textElement
               .append("tspan")
@@ -537,7 +581,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 20)
               .attr("y", path.centroid(d)[1] + i * 8 + 33) // Ajusta la separación entre líneas
-              .text("UNITED STATE");
+              .text("UNITED STATES");
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 20)
@@ -547,7 +591,25 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 1)
-              .attr("y", path.centroid(d)[1] + i * 6 - 5) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 7 - 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "MAURITANIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8 + 12) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "UGANDA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8 + 5) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "SOMALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 15) // Ajusta la separación entre líneas
               .text(line);
           } else {
             textElement
@@ -949,7 +1011,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
     .on("mousemove", function (event, d) {
       // Mostrar el nombre de la ciudad en la consola
       const countryName = d.properties.name;
-      console.log("City name on mousemove:", countryName);
+      //console.log("City name on mousemove:", countryName);
 
       if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         console.log("City name on mousemove:", countryName);
@@ -966,7 +1028,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         // Posicionar el tooltip al centro de la pantalla (ajustado)
         tooltip.style("left", centerX + "px").style("top", centerY + "px");
       } else {
-        console.log("City name on mousemove:", countryName);
+        //console.log("City name on mousemove:", countryName);
         if (countryName == "South Africa" || countryName == "Zambia") {
           tooltip
             .style("left", event.pageX + 10 + "px") // Desplazar un poco a la derecha
@@ -979,6 +1041,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         }
       }
     });
+
   const labels = g
     .selectAll("text")
     .data(geojsonData.features)
@@ -988,7 +1051,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
     .attr("x", (d) => path.centroid(d)[0])
     .attr("y", (d) => path.centroid(d)[1])
     .attr("text-anchor", "middle")
-    .attr("font-size", "5pt")
+    .style("font-size", "5pt")
     .attr("font-family", "RalewayMedium")
     .attr("fill", "black")
     .style("opacity", function (d) {
@@ -1076,8 +1139,13 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] - 10)
-              .attr("y", path.centroid(d)[1] + i * 8 + 3) // Ajusta la separación entre líneas
-              .text(line);
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text("SOUTH");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 10)
+              .attr("y", path.centroid(d)[1] + i * 8 + 7) // Ajusta la separación entre líneas
+              .text("AFRICA");
           } else if (name == "MOZAMBIQUE") {
             textElement
               .append("tspan")
@@ -1093,7 +1161,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           } else if (name == "MADAGASCAR") {
             textElement
               .append("tspan")
-              .attr("x", path.centroid(d)[0] + 25)
+              .attr("x", path.centroid(d)[0] + 15)
               .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
               .text(line);
           } else {
@@ -1156,15 +1224,17 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   function clicked(event, d) {
     const countryName = d.properties.name;
     const partnerCount = partnerCounts[countryName] || 0; // Número de acuerdos del país
-    console.log(event);
+    console.log("CLICKKKK");
+    banderaClick = true;
+    console.log(banderaClick);
 
     if (partnerCount === 0) {
       // No hacer nada si el país no tiene acuerdos
       console.log(`${countryName} no tiene acuerdos, no se hará zoom.`);
       return;
     }
-    tooltip.style("display", "block");
-
+    tooltip.style("display", "none");
+    banderaClick = true;
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     svg
       .transition()
@@ -1211,25 +1281,25 @@ export function handleSelection(type, item) {
   } else if (item == "United Arab Emirates") {
     updateProjection(580, [20, 0], [width / 3.2, height / 2]);
   } else if (item == "India") {
-    updateProjection(400, [20, 0], [width / 3, height / 2]);
+    updateProjection(450, [20, 0], [width / 4, height / 2]);
   } else if (item == "South Korea") {
-    updateProjection(370, [20, 5], [width / 5, height / 2]);
+    updateProjection(400, [20, 5], [width / 5, height / 2]);
   } else if (item == "Japan") {
-    updateProjection(370, [20, 0], [width / 7, height / 2]);
+    updateProjection(350, [20, 0], [width / 7, height / 1.8]);
   } else if (item == "China") {
-    updateProjection(350, [20, 0], [width / 3.5, height / 1.7]);
+    updateProjection(310, [20, 0], [width / 3.5, height / 1.5]);
   } else if (item == "Indonesia") {
     updateProjection(350, [20, 0], [width / 5, height / 1.7]);
   } else if (item == "Russia") {
-    updateProjection(200, [40, 0], [width / 2, height / 2]);
+    updateProjection(200, [40, 0], [width / 1.7, height / 2]);
   } else if (item == "USA") {
     updateProjection(350, [0, 0], [width / 1.4, height / 1.3]);
   } else if (item == "Turkey") {
     updateProjection(550, [20, 5], [width / 2, height / 1.3]);
   } else if (item == "EU Raw Materials Club") {
-    updateProjection(400, [20, 10], [width / 1.35, height / 1.22]);
+    updateProjection(550, [20, 10], [width / 1.35, height / 1.15]);
   } else if (item == "IPEF Critical Minerals Dialogue") {
-    updateProjection(350, [20, 20], [width / 15, height / 3.7]);
+    updateProjection(350, [20, 20], [width / 300, height / 3.7]);
   } else {
     updateProjection(210, [20, 0], [width / 2, height / 2]);
   }

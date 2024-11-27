@@ -283,6 +283,22 @@ export function populatePartnerships(biData, selectedCountry) {
             "Knowledge and Capacity Building": "#FFDC94",
             "Extraction and Exploration Partnerships": "#EF9CAF",
           };
+          const tooltipMap = {
+            "Economic Linkages and Diversification":
+              "Provisions broadly relating to the integration of value chains, fostering economic diversification, and creating business models that strengthen trade, governance, and infrastructure development.\n\n- Promotion of Investment\n- Mining Infrastructure Development",
+
+            "Capital Mobilization":
+              "Provisions focused on securing and attracting funds for infrastructure, encouraging private sector investment, promoting joint ventures, fostering new business models, and promoting joint initiatives, including public-private partnerships, to strengthen trade and exploration efforts.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+
+            "Sustainable Governance":
+              "This involves collaborative efforts to promote responsible production, integrate ESG (Environmental, Social, Governance) criteria, strengthen governance, and ensure traceability through sustainable legislation, policies, and industry standards.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+
+            "Knowledge and Capacity Building":
+              "Involves initiatives such as the establishment of data banks, the sharing of expertise, joint research initiatives, specialized training, and the exchange of technical knowledge to enhance skills, foster innovation, and support sustainable development in the sector.\n\n- Knowledge Sharing / Joint Research / Expert Exchanges\n- Training & Capacity Building\n- Technology Sharing",
+
+            "Extraction and Exploration Partnerships":
+              "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.\n\n- Cooperation on Extraction\n- Cooperation on Exploration & Geology",
+          };
 
           // Crear los tags para cada área de cooperación con colores específicos
           agreement.areasCoop.forEach((area) => {
@@ -292,12 +308,14 @@ export function populatePartnerships(biData, selectedCountry) {
 
             // Aplicar el color específico al fondo del tag según el área de cooperación
             tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
-            tag.style.color = "black"; // Texto en color negro
-
+            tag.style.color = "red"; // Texto en color negro
+			tag.style.padding = "2px 10px";
+			tag.style.borderRadius = "4px";
+			tag.style.fontSize = "9pt";
             // Crear el tooltip
             const tooltip = document.createElement("span");
             tooltip.classList.add("tooltip");
-            tooltip.textContent = area;
+            tooltip.textContent = tooltipMap[area];
 
             // Añadir el tooltip al tag
             tag.appendChild(tooltip);
@@ -422,7 +440,22 @@ export function populatePartnerships(biData, selectedCountry) {
           "Knowledge and Capacity Building": "#FFDC94",
           "Extraction and Exploration Partnerships": "#EF9CAF",
         };
+		const tooltipMap = {
+            "Economic Linkages and Diversification":
+              "Provisions broadly relating to the integration of value chains, fostering economic diversification, and creating business models that strengthen trade, governance, and infrastructure development.\n\n- Promotion of Investment\n- Mining Infrastructure Development",
 
+            "Capital Mobilization":
+              "Provisions focused on securing and attracting funds for infrastructure, encouraging private sector investment, promoting joint ventures, fostering new business models, and promoting joint initiatives, including public-private partnerships, to strengthen trade and exploration efforts.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+
+            "Sustainable Governance":
+              "This involves collaborative efforts to promote responsible production, integrate ESG (Environmental, Social, Governance) criteria, strengthen governance, and ensure traceability through sustainable legislation, policies, and industry standards.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+
+            "Knowledge and Capacity Building":
+              "Involves initiatives such as the establishment of data banks, the sharing of expertise, joint research initiatives, specialized training, and the exchange of technical knowledge to enhance skills, foster innovation, and support sustainable development in the sector.\n\n- Knowledge Sharing / Joint Research / Expert Exchanges\n- Training & Capacity Building\n- Technology Sharing",
+
+            "Extraction and Exploration Partnerships":
+              "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.\n\n- Cooperation on Extraction\n- Cooperation on Exploration & Geology",
+          };
         // Obtener el primer elemento que tenga 25 letras o menos y luego el resto en su orden original
         const firstShortElement = partner.areasCoop.find(
           (area) => area.length <= 60
@@ -444,14 +477,14 @@ export function populatePartnerships(biData, selectedCountry) {
           // Aplicar el color específico al fondo del tag según el área de cooperación
           tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
           tag.style.color = "black"; // Texto en color negro
-          tag.style.padding = "2px 6px";
+          tag.style.padding = "2px 10px";
           tag.style.borderRadius = "4px";
           tag.style.fontSize = "9pt";
 
           // Crear el tooltip
           const tooltip = document.createElement("span");
           tooltip.classList.add("tooltip");
-          tooltip.textContent = area;
+          tooltip.textContent = tooltipMap[area] ;
 
           // Añadir el tooltip al tag
           tag.appendChild(tooltip);

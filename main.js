@@ -469,8 +469,12 @@ function printDiv(divId) {
     });
 }
 if (window.innerWidth <= 768) {
+  document.getElementById("descriptionText3").classList.add("hidden");
+
   // Contamos las palabras del texto
-  const descriptionText = document.getElementById("descriptionText");
+  const descriptionText = document.getElementById("descriptionText1");
+  const descriptionText3 = document.getElementById("descriptionText3");
+
   const words = descriptionText.innerText.split(" ");
 
   // Encontramos la primera parte del texto y lo separamos
@@ -481,7 +485,6 @@ if (window.innerWidth <= 768) {
   const button = document.createElement("button");
   button.id = "toggleDescription";
   button.textContent = " Read more";
-
 
   // Insertamos el texto inicial con el botón
   descriptionText.innerHTML = firstPart;
@@ -494,24 +497,49 @@ if (window.innerWidth <= 768) {
       descriptionText.innerHTML = firstPart.slice(0, -3) + " " + secondPart; // Eliminar los '...' de firstPart
       descriptionText.appendChild(button);
       document.getElementById("descriptionText2").classList.remove("hidden");
+      document.getElementById("descriptionText3").classList.remove("hidden");
+      document.getElementById("viewLessBtn").style.visibility = "hidden";
 
-	
-      button.textContent = " Show less";
+      button.textContent = "";
     } else {
       // Mostrar solo la primera parte con '...' y cambiar el texto del botón a "Read more"
       descriptionText.innerHTML = firstPart;
       descriptionText.appendChild(button);
       document.getElementById("descriptionText2").classList.add("hidden");
+      document.getElementById("descriptionText3").classList.add("hidden");
 
       button.textContent = " Read more";
     }
   }
   // Añadimos el evento de alternar el texto y el texto del botón al hacer clic
   button.addEventListener("click", toggleText);
+
+  document
+    .getElementById("viewLessBtn2")
+    .addEventListener("click", function () {
+      console.log("CLICL");
+      document.getElementById("descriptionText2").classList.add("hidden");
+      document.getElementById("descriptionText3").classList.add("hidden");
+
+	  descriptionText.innerHTML = firstPart;
+      descriptionText.appendChild(button);
+      document.getElementById("descriptionText2").classList.add("hidden");
+      document.getElementById("descriptionText3").classList.add("hidden");
+
+      button.textContent = " Read more";
+    });
 } else {
+	document.getElementById("viewLessBtn2").style.visibility = "hidden";
+
   document.getElementById("viewMoreBtn").addEventListener("click", function () {
     document.getElementById("descriptionText2").classList.remove("hidden");
-    this.style.display = "none"; // Ocultar el botón después de hacer clic
+    this.style.visibility = "hidden"; // Ocultar el botón después de hacer clic
+    document.getElementById("viewLessBtn").style.visibility = "visible";
+  });
+  document.getElementById("viewLessBtn").addEventListener("click", function () {
+    document.getElementById("descriptionText2").classList.add("hidden");
+    this.style.visibility = "hidden"; // Ocultar el botón después de hacer clic
+    document.getElementById("viewMoreBtn").style.visibility = "visible";
   });
 }
 

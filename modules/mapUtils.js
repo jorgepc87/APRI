@@ -456,7 +456,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .attr("x", path.centroid(d)[0] + 6)
               .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
               .text(line);
-          }else if (name == "SINGAPORE") {
+          } else if (name == "SINGAPORE") {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 0)
@@ -494,6 +494,120 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .attr("x", path.centroid(d)[0] - 45)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text("EUROPEAN UNION");
+          }
+        } else if (partner == "Critical Minerals Mapping Initiative") {
+          if (name == "CANADA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 35)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "AUSTRALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "USA") {
+            // SOLO PARA RUSIA
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text("UNITED STATES");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 17) // Ajusta la separación entre líneas
+              .text("OF AMERICA");
+          }
+        } else if (
+          partner ==
+          "France-Germany-Italy Joint Communique on Critical Raw Materials"
+        ) {
+          if (name == "FRANCE") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 40)
+              .attr("y", path.centroid(d)[1] + i * 8 - 35) // Ajusta la separación entre líneas
+              .text(line);
+          } else {
+            // SOLO PARA RUSIA
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          }
+        } else if (partner == "Conference on Critical Materials and Minerals") {
+          if (name == "CANADA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 35)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "AUSTRALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "USA") {
+            // SOLO PARA RUSIA
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text("UNITED STATES");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 17) // Ajusta la separación entre líneas
+              .text("OF AMERICA");
+          } else {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          }
+        } else if (partner == "Sustainable Critical Mineral Alliance") {
+          if (name == "CANADA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] - 35)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "AUSTRALIA") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
+          } else if (name == "USA") {
+            // SOLO PARA RUSIA
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 10) // Ajusta la separación entre líneas
+              .text("UNITED STATES");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8 + 17) // Ajusta la separación entre líneas
+              .text("OF AMERICA");
+          } else if (name == "FRANCE") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] + 20)
+              .attr("y", path.centroid(d)[1] + i * 8-15 ) // Ajusta la separación entre líneas
+              .text(line);
+          } else {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0])
+              .attr("y", path.centroid(d)[1] + i * 8) // Ajusta la separación entre líneas
+              .text(line);
           }
         } else {
           if (name == "ZAMBIA") {
@@ -1300,6 +1414,12 @@ export function handleSelection(type, item) {
     updateProjection(550, [20, 10], [width / 1.35, height / 1.15]);
   } else if (item == "IPEF Critical Minerals Dialogue") {
     updateProjection(350, [20, 20], [width / 300, height / 3.7]);
+  } else if (
+    item == "France-Germany-Italy Joint Communique on Critical Raw Materials"
+  ) {
+    updateProjection(450, [20, 20], [width / 1.5, height / 2]);
+  } else if (item == "Lobito Corridor Project") {
+    updateProjection(340, [20, 20], [width / 1.2, height / 2]);
   } else {
     updateProjection(210, [20, 0], [width / 2, height / 2]);
   }

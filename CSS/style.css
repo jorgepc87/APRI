@@ -345,7 +345,7 @@ h2.accordion-header.partner-header {
   justify-content: space-between;
   margin: 0 60px 0 60px;
   box-sizing: border-box; /* Asegura que los bordes no causen desbordamiento */
-  height: 600px;
+  height: 640px;
 }
 .selectores {
   width: 250px;
@@ -486,7 +486,7 @@ h2.accordion-header.partner-header {
 
   line-height: 1; /* Reducir interlineado */
   text-align: left; /* Alineación del texto a la izquierda */
-  padding: 4px 6px; /* Espaciado interno en el tooltip */
+  padding: 8px 10px; /* Espaciado interno en el tooltip */
   font-size: 8pt;
   width: 150px; /* Ajusta el ancho del tooltip */
   background-color: #333;
@@ -494,7 +494,7 @@ h2.accordion-header.partner-header {
   border-radius: 2px;
   position: absolute;
   bottom: 125%; /* Ajusta la posición del tooltip */
-  left: 50%;
+  left: 70%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
@@ -722,12 +722,32 @@ img.zoom-out-active {
 }
 #viewMoreBtn {
   cursor: pointer;
-  color: #0071bc;
+  color: #007bff;
   text-decoration: none;
   background: none;
   border: none;
   padding: 0;
-  font-size: 1em;
+  font-size: 10pt;
+  font-family: "RalewayN", sans-serif;
+}
+#viewLessBtn {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 10pt;
+  font-family: "RalewayN", sans-serif;
+}
+#viewLessBtn2 {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 10pt;
   font-family: "RalewayN", sans-serif;
 }
 /*para movil */
@@ -1186,6 +1206,6 @@ img.zoom-out-active {
     margin-left: 3px !important;
   }
   #viewMoreBtn {
-   display: none;
+    display: none;
   }
 }

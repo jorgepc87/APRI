@@ -47,6 +47,11 @@ const blocColors = {
   "EU Raw Materials Club": "#fcc12c", // Green
   "Energy Resource Governance Initiative": "#fcc12c", // Red
   "IPEF Critical Minerals Dialogue": "#fcc12c", // Purple
+  "Sustainable Critical Mineral Alliance": "#fcc12c",
+  "Conference on Critical Materials and Minerals": "#fcc12c",
+  "France-Germany-Italy Joint Communique on Critical Raw Materials": "#fcc12c",
+  "Critical Minerals Mapping Initiative": "#fcc12c",
+  "Lobito Corridor Project": "#fcc12c",
 };
 
 // Export the variables

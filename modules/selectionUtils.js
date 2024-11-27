@@ -308,7 +308,7 @@ export function populatePartnerships(biData, selectedCountry) {
 
             // Aplicar el color específico al fondo del tag según el área de cooperación
             tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
-            tag.style.color = "red"; // Texto en color negro
+            tag.style.color = "black"; // Texto en color negro
 			tag.style.padding = "2px 10px";
 			tag.style.borderRadius = "4px";
 			tag.style.fontSize = "9pt";

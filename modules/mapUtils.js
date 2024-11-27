@@ -35,8 +35,8 @@ function zoomed(event) {
           setTimeout(() => {
             banderaClick = false;
             console.log("MUESTRAAA" + banderaClick);
-          }, 500); // Retraso adicional para asegurar que se haya completado la animación del tooltip
-        }, 500); // Retraso para sincronizar con la animación de la etiqueta
+          }, 1); // Retraso adicional para asegurar que se haya completado la animación del tooltip
+        }, 1000); // Retraso para sincronizar con la animación de la etiqueta
       }
     } else {
       d3.selectAll(".city-label")
@@ -44,6 +44,15 @@ function zoomed(event) {
         .duration(300)
         .style("opacity", 0); // Ocultar las etiquetas
     }
+  } else {
+    setTimeout(() => {
+      tooltip.style("display", "block").style("pointer-events", "auto"); // Hacer visible el tooltip
+      // Usamos una segunda función de `setTimeout` para asegurarnos de que `banderaClick` cambie después de haber mostrado el tooltip
+      setTimeout(() => {
+        banderaClick = false;
+        console.log("MUESTRAAA" + banderaClick);
+      }, 500); // Retraso adicional para asegurar que se haya completado la animación del tooltip
+    }, 500); // Retraso para sincronizar con la animación de la etiqueta
   }
 }
 //aumentar un parametro para identificar el pais y con ello hacer el zoom mas personalizado para cada uno - JORGE PAREDES
@@ -217,6 +226,17 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
               .attr("x", path.centroid(d)[0] - 25)
               .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
               .text("EUROPEAN UNION");
+          } else if (name == "ENGLAND") {
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0]+5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 0) // Ajusta la separación entre líneas
+              .text("UNITED ");
+            textElement
+              .append("tspan")
+              .attr("x", path.centroid(d)[0] +5)
+              .attr("y", path.centroid(d)[1] + i * 8 + 7) // Ajusta la separación entre líneas
+              .text(" KINGDOM");
           } else {
             /*textElement
               .append("tspan")
@@ -600,7 +620,7 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
             textElement
               .append("tspan")
               .attr("x", path.centroid(d)[0] + 20)
-              .attr("y", path.centroid(d)[1] + i * 8-15 ) // Ajusta la separación entre líneas
+              .attr("y", path.centroid(d)[1] + i * 8 - 15) // Ajusta la separación entre líneas
               .text(line);
           } else {
             textElement
@@ -628,6 +648,20 @@ export function drawMap(geojson, filteredCountryGeoJSON, partner) {
                 .append("tspan")
                 .attr("x", path.centroid(d)[0] + 12)
                 .attr("y", path.centroid(d)[1] + i * 8 + 13) // Ajusta la separación entre líneas
+                .text(line);
+            }
+            if (partner == "India") {
+              textElement
+                .append("tspan")
+                .attr("x", path.centroid(d)[0] + 12)
+                .attr("y", path.centroid(d)[1] + i * 8 + 13) // Ajusta la separación entre líneas
+                .text(line);
+            }
+            if (partner == "China") {
+              textElement
+                .append("tspan")
+                .attr("x", path.centroid(d)[0] + 30)
+                .attr("y", path.centroid(d)[1] + i * 8 - 5) // Ajusta la separación entre líneas
                 .text(line);
             }
           } else if (name == "SOUTH AFRICA") {
@@ -943,10 +977,10 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
         // Generar el contenido del tooltip
 
         tooltip.html(`
-			<div style="display: flex; flex-direction: column; width: 130px; position: relative;">
+			<div style="display: flex; flex-direction: column; width: 135px; position: relative;">
 			
-			  <div style="display: flex; justify-content: space-between; width: 170px;">
-				<h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
+			  <div style="display: flex; justify-content: space-between; width: 135px;">
+				<h3 style="margin: 0; font-family: 'RalewayN',   sans-serif; font-weight: bold; font-size: 13pt">${countryName}</h3>
 				
 			  </div>
 			  <p style="margin: 5px 0; margin-top: 8px; font-family: 'RalewayLightItalic', sans-serif; font-size: 11pt">${partnerCount} partner${
@@ -959,7 +993,15 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 			  </ul>
 			</div>
 		  `);
-        tooltip.style("display", "block");
+
+        // Uso
+        if (window.innerWidth <= 768) {
+          tooltip.style("display", "none");
+        } else {
+          tooltip.style("display", "block");
+        }
+
+        // tooltip.style("display", "block");
         tooltip.style("pointer-events", "none");
 
         d3.select(this).transition().duration(300).style("opacity", 1);
@@ -1013,64 +1055,34 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           }
         }
       } else {
-        /*
-        const partnersList =
-          countryData && countryData.partners ? countryData.partners : [];
         const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(
           navigator.userAgent
         );
+        if (!isMobile) {
+          tooltip.html(`
+				<div style="display: flex; flex-direction: column; width: 135px; position: relative;">
+				  <div style="display: flex; justify-content: space-between; align-items: center; width: 135px;">
+					<h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt;">${countryName}</h3>
+				
+				  </div>
+				</div>
+			  `);
+          tooltip.style("display", "block");
+          //  tooltip.style("pointer-events", "none");
 
-        tooltip.html(`
-			<div style="display: flex; flex-direction: column; width: 170px; position: relative;">
-			  <div style="display: flex; justify-content: space-between; align-items: center; width: 170px;">
-				<h3 style="margin: 0; font-family: 'RalewayN', sans-serif; font-weight: bold; font-size: 13pt;">${countryName}</h3>
-				${
-          isMobile
-            ? `<button 
-						style="
-						  pointer-events:auto;
-						  position: absolute; 
-						  top: 0px; 
-						  right: 5px; 
-						  background: none; 
-						  border: none; 
-						  font-size: 12px; 
-						  cursor: pointer; 
-						  font-weight: bold;
-						  color: #333;
-						" 
-						onclick="(function(event) { event.stopPropagation(); d3.select('.tooltip2').style('display', 'none'); })(event)">
-						✖
-					  </button>`
-            : ""
+          d3.select(this).transition().duration(300).style("opacity", 1);
+
+          // Cambiar el color con colorScaleShalow
+          const partnerCountShalow = partnerCount;
+          d3.select(this).attr("fill", colorScaleShalow(partnerCountShalow));
+
+          // Ocultar el nombre de la ciudad
+          g.selectAll(".city-label")
+            .filter((label) => label.properties.name === d.properties.name)
+            .transition()
+            .duration(300)
+            .style("opacity", 0);
         }
-			  </div>
-			</div>
-		  `);
-
-        // Agregar evento al botón de cerrar si es móvil
-        if (isMobile) {
-          d3.select(".close-btn").on("click", function (event) {
-            event.stopPropagation(); // Detener propagación del evento
-            console.log("¡Hola! Se hizo clic en el botón cerrar.");
-            d3.select(".tooltip2").style("display", "none"); // Cerrar el tooltip
-          });
-        }
-        tooltip.style("display", "block");
-        //  tooltip.style("pointer-events", "none");
-
-        d3.select(this).transition().duration(300).style("opacity", 1);
-
-        // Cambiar el color con colorScaleShalow
-        const partnerCountShalow = partnerCount;
-        d3.select(this).attr("fill", colorScaleShalow(partnerCountShalow));
-
-        // Ocultar el nombre de la ciudad
-        g.selectAll(".city-label")
-          .filter((label) => label.properties.name === d.properties.name)
-          .transition()
-          .duration(300)
-          .style("opacity", 0);*/
       }
     })
     .on("mouseout", function (event, d) {
@@ -1129,13 +1141,24 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
       if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         console.log("City name on mousemove:", countryName);
+        const userAgent =
+          navigator.userAgent || navigator.vendor || window.opera;
 
         // Calcular las posiciones para centrar el tooltip
         const tooltipWidth = tooltip.node().offsetWidth;
         const tooltipHeight = tooltip.node().offsetHeight;
-
-        const centerX = window.innerWidth / 2 - tooltipWidth / 2 + 100;
-        const centerY = window.innerHeight / 2 - tooltipHeight / 2 + 300; // Agregar 200px más abajo
+        let centerX;
+        let centerY;
+        if (/android/i.test(userAgent)) {
+          centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
+          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 100; // Agregar 200px más abaj
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          centerX = window.innerWidth / 2 - tooltipWidth / 2 + 100;
+          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 500; // Agregar 200px más abaj
+        } else {
+          centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
+          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 100; // Agregar 200px más abaj
+        }
 
         console.log(centerY);
 
@@ -1336,6 +1359,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   }*/
 
   function clicked(event, d) {
+    const tooltip = d3.select(".tooltip2");
     const countryName = d.properties.name;
     const partnerCount = partnerCounts[countryName] || 0; // Número de acuerdos del país
     console.log("CLICKKKK");

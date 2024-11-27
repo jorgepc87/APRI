@@ -94,6 +94,8 @@ function refresh() {
     showPickerAfrica();
     //button.scrollIntoView({ behavior: "smooth", block: "center" });
   } else {
+	console.log("test222222");
+
     window.location.href = window.location.href;
   }
 }

@@ -486,7 +486,9 @@ if (window.innerWidth <= 768) {
   // Creamos el botón
   const button = document.createElement("button");
   button.id = "toggleDescription";
-  button.textContent = "Show more";
+  button.style.marginLeft="6px"
+
+  button.textContent = "   Show more";
 
   // Insertamos el texto inicial con el botón
   descriptionText.innerHTML = firstPart;
@@ -494,9 +496,9 @@ if (window.innerWidth <= 768) {
 
   // Función para alternar entre mostrar más o menos texto
   function toggleText() {
-    if (button.textContent === "Show more") {
+    if (button.textContent === "   Show more") {
       // Mostrar todo el texto sin los tres puntos y cambiar el texto del botón a "Show less"
-      descriptionText.innerHTML = firstPart.slice(0, -3) + " " + secondPart; // Eliminar los '...' de firstPart
+      descriptionText.innerHTML = firstPart + secondPart; // Eliminar los '...' de firstPart
       descriptionText.appendChild(button);
       //document.getElementById("descriptionText2").classList.remove("hidden");
       document.getElementById("descriptionText3").classList.remove("hidden");
@@ -514,7 +516,7 @@ if (window.innerWidth <= 768) {
       document.getElementById("descriptionText2").classList.add("hidden");
       document.getElementById("descriptionText3").classList.add("hidden");
 
-      button.textContent = "Show more";
+      button.textContent = "   Show more";
     }
   }
   // Añadimos el evento de alternar el texto y el texto del botón al hacer clic
@@ -533,7 +535,7 @@ if (window.innerWidth <= 768) {
       document.getElementById("descriptionText2").classList.add("hidden");
       document.getElementById("descriptionText3").classList.add("hidden");
 
-      button.textContent = "Show more";
+      button.textContent = "   Show more";
     });
 } else {
   //document.getElementById("viewLessBtn2").style.visibility = "hidden";

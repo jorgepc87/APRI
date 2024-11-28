@@ -8,7 +8,8 @@ export function addLegend(svg, colorScale) {
     .style("margin", "10px 0")
     .style("font-weight", "bold")
     .style("font-size",  window.innerWidth <= 768 ?  "10pt" : "12pt")
-	.style("margin-bottom",  window.innerWidth <= 768 ? "5px" :"")
+	.style("margin-bottom",  window.innerWidth <= 768 ? "9px" :"")
+	.style("padding-bottom",  window.innerWidth <= 768 ? "2.5px" :"")
 
 	.style("border-bottom",  window.innerWidth <= 768 ? "1px solid black" :"")
 	.style("width",  window.innerWidth <= 768 ? "155px" :"")

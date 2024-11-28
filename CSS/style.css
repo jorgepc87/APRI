@@ -478,29 +478,29 @@ h2.accordion-header.partner-header {
   cursor: pointer;
   font-family: "RalewayN", sans-serif;
 }
-
-.tag .tooltip {
-  font-family: "RalewayLight", sans-serif;
-
-  visibility: hidden;
-
-  line-height: 1; /* Reducir interlineado */
-  text-align: left; /* Alineación del texto a la izquierda */
-  padding: 8px 10px; /* Espaciado interno en el tooltip */
-  font-size: 8pt;
-  width: 260px; /* Ajusta el ancho del tooltip */
-  background-color: #333;
-  color: #fff;
-  border-radius: 2px;
-  position: absolute;
-  bottom: 125%; /* Ajusta la posición del tooltip */
-  left: 100%;
-  transform: translateX(-50%);
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s;
+.tag{
+	position: relative;
 }
-
+.tooltip {
+	font-family: "RalewayLight", sans-serif;
+	visibility: hidden;
+	line-height: 1; /* Reducir interlineado */
+	text-align: left; /* Alineación del texto a la izquierda */
+	padding: 8px 10px; /* Espaciado interno en el tooltip */
+	font-size: 8pt;
+	width: 240px; /* Ajusta el ancho del tooltip */
+	background-color: #333;
+	color: #fff;
+	border-radius: 2px;
+	position: absolute;
+	bottom: 125%; /* Ajusta la posición del tooltip */
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9999; /* Asegura que el tooltip esté encima de otros elementos */
+	opacity: 0;
+	transition: opacity 0.3s;
+  }
+  
 .tag:hover .tooltip {
   visibility: visible;
   opacity: 1;

@@ -648,7 +648,7 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
 
     // Ícono de información
     const infoIcon = document.createElement("img");
-    infoIcon.src = "../img/icons/info.svg"; // Ruta al archivo SVG
+    infoIcon.src = "img/icons/info.svg"; // Ruta al archivo SVG
     infoIcon.className = "info-icon";
 
     // Crear el tooltip

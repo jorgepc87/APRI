@@ -1153,11 +1153,11 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
           centerY = window.innerHeight / 2 - tooltipHeight / 2 + 100; // Agregar 200px más abaj
         } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          centerX = window.innerWidth / 2 - tooltipWidth / 2 + 100;
-          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 500; // Agregar 200px más abaj
+          centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
+          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abaj
         } else {
           centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
-          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 100; // Agregar 200px más abaj
+          centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abaj
         }
 
         console.log(centerY);

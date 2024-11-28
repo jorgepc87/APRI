@@ -488,13 +488,13 @@ h2.accordion-header.partner-header {
   text-align: left; /* Alineación del texto a la izquierda */
   padding: 8px 10px; /* Espaciado interno en el tooltip */
   font-size: 8pt;
-  width: 150px; /* Ajusta el ancho del tooltip */
+  width: 260px; /* Ajusta el ancho del tooltip */
   background-color: #333;
   color: #fff;
   border-radius: 2px;
   position: absolute;
   bottom: 125%; /* Ajusta la posición del tooltip */
-  left: 70%;
+  left: 100%;
   transform: translateX(-50%);
   z-index: 1;
   opacity: 0;
@@ -749,6 +749,71 @@ img.zoom-out-active {
   padding: 0;
   font-size: 10pt;
   font-family: "RalewayN", sans-serif;
+}
+.country-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinear el contenido al inicio */
+  margin-bottom: 5px;
+}
+
+.country-name {
+  margin: 0;
+  font-size: 11pt;
+  display: inline-block;
+}
+
+.tooltipMulti {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute; /* Cambiado a absolute para posicionar relativo al viewport */
+  z-index: 1000; /* Asegura que el tooltip esté por encima de otros elementos */
+  bottom: 125%; /* Mostrar sobre el ícono */
+  left: 1%;
+
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltipMulti.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipMulti::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Flecha del tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+.info-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 25px;
+  display: inline-block;
+  margin: 0;
+  padding-left: 5px;
+}
+
+.tooltipMulti .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
 }
 /*para movil */
 @media (max-width: 768px) {

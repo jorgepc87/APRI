@@ -13,12 +13,17 @@ const Bilateral = [
 ];
 
 const Multilateral = [
-  { text: "BRICS Geological Platform", value: 1, disabled: false },
-  { text: "Minerals Security Partnership", value: 2, disabled: false },
-  { text: "EU Raw Materials Club", value: 3, disabled: false },
-  { text: "Energy Resource Governance Initiative", value: 4, disabled: false },
-  { text: "IPEF Critical Minerals Dialogue", value: 5, disabled: false },
-];
+	{ text: "BRICS Geological Platform", value: 1, disabled: false },
+	{ text: "Minerals Security Partnership", value: 2, disabled: false },
+	{ text: "EU Raw Materials Club", value: 3, disabled: false },
+	{ text: "Energy Resource Governance Initiative", value: 4, disabled: false },
+	{ text: "IPEF Critical Minerals Dialogue", value: 5, disabled: false },
+	{ text: "Sustainable Critical Mineral Alliance", value: 6, disabled: false },
+	{ text: "Conference on Critical Materials and Minerals", value: 7, disabled: false },
+	{ text: "France-Germany-Italy Joint Communique on Critical Raw Materials", value: 8, disabled: false },
+	{ text: "Critical Minerals Mapping Initiative", value: 9, disabled: false },
+	{ text: "Lobito Corridor Project", value: 10, disabled: false },
+  ];
 const AfricanOverview = [
   { text: "None - overview", value: 0, disabled: false },
   { text: "Algeria", value: 1, disabled: false },

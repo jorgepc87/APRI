@@ -285,19 +285,19 @@ export function populatePartnerships(biData, selectedCountry) {
           };
           const tooltipMap = {
             "Economic Linkages and Diversification":
-              "Provisions broadly relating to the integration of value chains, fostering economic diversification, and creating business models that strengthen trade, governance, and infrastructure development.\n\n- Promotion of Investment\n- Mining Infrastructure Development",
+              "Provisions broadly relating to the integration of value chains, fostering economic diversification, and creating business models that strengthen trade, governance, and infrastructure development.",
 
             "Capital Mobilization":
-              "Provisions focused on securing and attracting funds for infrastructure, encouraging private sector investment, promoting joint ventures, fostering new business models, and promoting joint initiatives, including public-private partnerships, to strengthen trade and exploration efforts.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+              "Provisions focused on securing and attracting funds for infrastructure, encouraging private sector investment, promoting joint ventures, fostering new business models, and promoting joint initiatives, including public-private partnerships, to strengthen trade and exploration efforts.",
 
             "Sustainable Governance":
-              "This involves collaborative efforts to promote responsible production, integrate ESG (Environmental, Social, Governance) criteria, strengthen governance, and ensure traceability through sustainable legislation, policies, and industry standards.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+              "This involves collaborative efforts to promote responsible production, integrate ESG (Environmental, Social, Governance) criteria, strengthen governance, and ensure traceability through sustainable legislation, policies, and industry standards.",
 
             "Knowledge and Capacity Building":
-              "Involves initiatives such as the establishment of data banks, the sharing of expertise, joint research initiatives, specialized training, and the exchange of technical knowledge to enhance skills, foster innovation, and support sustainable development in the sector.\n\n- Knowledge Sharing / Joint Research / Expert Exchanges\n- Training & Capacity Building\n- Technology Sharing",
+              "Involves initiatives such as the establishment of data banks, the sharing of expertise, joint research initiatives, specialized training, and the exchange of technical knowledge to enhance skills, foster innovation, and support sustainable development in the sector.",
 
             "Extraction and Exploration Partnerships":
-              "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.\n\n- Cooperation on Extraction\n- Cooperation on Exploration & Geology",
+              "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.",
           };
 
           // Crear los tags para cada área de cooperación con colores específicos
@@ -309,13 +309,15 @@ export function populatePartnerships(biData, selectedCountry) {
             // Aplicar el color específico al fondo del tag según el área de cooperación
             tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
             tag.style.color = "black"; // Texto en color negro
-			tag.style.padding = "2px 10px";
-			tag.style.borderRadius = "4px";
-			tag.style.fontSize = "9pt";
+            tag.style.padding = "2px 10px";
+            tag.style.borderRadius = "4px";
+            tag.style.fontSize = "9pt";
+
             // Crear el tooltip
             const tooltip = document.createElement("span");
             tooltip.classList.add("tooltip");
             tooltip.textContent = tooltipMap[area];
+            tooltip.style.lineHeight = "1.5"; // Aumentar interlineado
 
             // Añadir el tooltip al tag
             tag.appendChild(tooltip);
@@ -440,22 +442,22 @@ export function populatePartnerships(biData, selectedCountry) {
           "Knowledge and Capacity Building": "#FFDC94",
           "Extraction and Exploration Partnerships": "#EF9CAF",
         };
-		const tooltipMap = {
-            "Economic Linkages and Diversification":
-              "Provisions broadly relating to the integration of value chains, fostering economic diversification, and creating business models that strengthen trade, governance, and infrastructure development.\n\n- Promotion of Investment\n- Mining Infrastructure Development",
+        const tooltipMap = {
+          "Economic Linkages and Diversification":
+            "Provisions broadly relating to the integration of value chains, fostering economic diversification, and creating business models that strengthen trade, governance, and infrastructure development.",
 
-            "Capital Mobilization":
-              "Provisions focused on securing and attracting funds for infrastructure, encouraging private sector investment, promoting joint ventures, fostering new business models, and promoting joint initiatives, including public-private partnerships, to strengthen trade and exploration efforts.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+          "Capital Mobilization":
+            "Provisions focused on securing and attracting funds for infrastructure, encouraging private sector investment, promoting joint ventures, fostering new business models, and promoting joint initiatives, including public-private partnerships, to strengthen trade and exploration efforts.",
 
-            "Sustainable Governance":
-              "This involves collaborative efforts to promote responsible production, integrate ESG (Environmental, Social, Governance) criteria, strengthen governance, and ensure traceability through sustainable legislation, policies, and industry standards.\n\n- Promotion of Social & Environmental Sustainability\n- Cooperation on Legislation & Policies",
+          "Sustainable Governance":
+            "This involves collaborative efforts to promote responsible production, integrate ESG (Environmental, Social, Governance) criteria, strengthen governance, and ensure traceability through sustainable legislation, policies, and industry standards.",
 
-            "Knowledge and Capacity Building":
-              "Involves initiatives such as the establishment of data banks, the sharing of expertise, joint research initiatives, specialized training, and the exchange of technical knowledge to enhance skills, foster innovation, and support sustainable development in the sector.\n\n- Knowledge Sharing / Joint Research / Expert Exchanges\n- Training & Capacity Building\n- Technology Sharing",
+          "Knowledge and Capacity Building":
+            "Involves initiatives such as the establishment of data banks, the sharing of expertise, joint research initiatives, specialized training, and the exchange of technical knowledge to enhance skills, foster innovation, and support sustainable development in the sector.",
 
-            "Extraction and Exploration Partnerships":
-              "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.\n\n- Cooperation on Extraction\n- Cooperation on Exploration & Geology",
-          };
+          "Extraction and Exploration Partnerships":
+            "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.",
+        };
         // Obtener el primer elemento que tenga 25 letras o menos y luego el resto en su orden original
         const firstShortElement = partner.areasCoop.find(
           (area) => area.length <= 60
@@ -474,17 +476,28 @@ export function populatePartnerships(biData, selectedCountry) {
           tag.textContent = area;
           tag.style.whiteSpace = "nowrap"; // Evitar que el texto del tag se parta en varias líneas
 
-          // Aplicar el color específico al fondo del tag según el área de cooperación
           tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
           tag.style.color = "black"; // Texto en color negro
           tag.style.padding = "2px 10px";
           tag.style.borderRadius = "4px";
           tag.style.fontSize = "9pt";
 
+          // Añadir eventos para presionar y soltar el tag
+          tag.addEventListener("mouseover", function () {
+            tag.style.border = "1px solid black"; // Añadir borde negro al presionar
+          });
+          // Opcional: Detectar cuando el clic termina aunque no sea sobre el tag (en caso de que se mueva fuera)
+          tag.addEventListener("mouseleave", function () {
+            tag.style.border = "none"; // Quitar borde si el ratón sale del tag mientras se presiona
+          });
+		  tag.addEventListener("touchstart", function () {
+            tag.style.border = "1px solid black"; // Añadir borde negro al presionar
+          });
           // Crear el tooltip
           const tooltip = document.createElement("span");
           tooltip.classList.add("tooltip");
-          tooltip.textContent = tooltipMap[area] ;
+          tooltip.textContent = tooltipMap[area];
+          tooltip.style.lineHeight = "1.5"; // Aumentar interlineado
 
           // Añadir el tooltip al tag
           tag.appendChild(tooltip);
@@ -614,23 +627,97 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   const column2 = document.createElement("div");
   column2.classList.add("w-50", "mb-2"); // La segunda columna también ocupará el 50%
 
-  // Recorrer los países y agregarlos en las columnas
-  blocCountries.forEach((country, index) => {
-    const countryItem = document.createElement("p");
-    countryItem.style.marginBottom = "0pt"; // Tamaño de fuente
-    countryItem.style.fontSize = "11pt"; // Tamaño de fuente
+  // Variable global para rastrear el tooltip activo
+  let activeTooltip = null;
 
-    countryItem.innerHTML = `• ${country.properties.name}`; // Agregar un punto delante del nombre del país
+  // Crear la lista de países con íconos y tooltips
+  blocCountries.forEach((country, index) => {
+    // Crear el contenedor del país
+    const countryItem = document.createElement("div");
+    countryItem.className = "country-item";
+
+    // Agregar el nombre del país
+    const countryName = document.createElement("p");
+    countryName.className = "country-name";
+    countryName.innerHTML = `• ${country.properties.name}`;
+
+    // Crear el contenedor del tooltip
+    const tooltipMultiContainer = document.createElement("div");
+    tooltipMultiContainer.className = "tooltipMulti-container";
+    tooltipMultiContainer.style.position = "relative";
+
+    // Ícono de información
+    const infoIcon = document.createElement("img");
+    infoIcon.src = "../img/icons/info.svg"; // Ruta al archivo SVG
+    infoIcon.className = "info-icon";
+
+    // Crear el tooltip
+    const tooltipMulti = document.createElement("div");
+    tooltipMulti.className = "tooltipMulti";
+
+    // Botón "X" para cerrar el tooltip
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "close-btn";
+    closeBtn.innerHTML = "✖";
+    closeBtn.style.paddingRight = "5px";
+    closeBtn.style.paddingTop = "2px";
+
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevenir que el clic afecte a otros eventos
+      tooltipMulti.classList.remove("active");
+      activeTooltip = null;
+    });
+
+    // Texto dentro del tooltip
+    const tooltipText = document.createElement("div");
+    tooltipText.innerText = "Description";
+    tooltipText.style.marginRight = "20px";
+
+    tooltipMulti.appendChild(closeBtn);
+    tooltipMulti.appendChild(tooltipText);
+
+    tooltipMultiContainer.appendChild(infoIcon);
+    tooltipMultiContainer.appendChild(tooltipMulti);
+
+    // Agregar el nombre y el ícono en línea
+    countryItem.appendChild(countryName);
+    countryItem.appendChild(tooltipMultiContainer);
 
     // Alternar columnas
     if (index % 2 === 0) {
-      column1.appendChild(countryItem); // Agregar a la primera columna
+      column1.appendChild(countryItem);
     } else {
-      column2.appendChild(countryItem); // Agregar a la segunda columna
+      column2.appendChild(countryItem);
+    }
+
+    // Agregar evento de clic al ícono
+    infoIcon.addEventListener("click", (e) => {
+      e.stopPropagation(); // Evitar cerrar el tooltip al hacer clic en el ícono
+      if (activeTooltip && activeTooltip !== tooltipMulti) {
+        // Cerrar el tooltip activo si es diferente
+        activeTooltip.classList.remove("active");
+      }
+
+      // Alternar el tooltip actual
+      if (tooltipMulti.classList.contains("active")) {
+        tooltipMulti.classList.remove("active");
+        activeTooltip = null;
+      } else {
+        tooltipMulti.classList.add("active");
+        activeTooltip = tooltipMulti;
+      }
+    });
+  });
+
+  // Cerrar tooltips al hacer clic en cualquier otra parte de la página
+  document.addEventListener("click", () => {
+    if (activeTooltip) {
+      activeTooltip.classList.remove("active");
+      activeTooltip = null;
     }
   });
 
-  // Agregar las dos columnas al contenedor
+  // Agregar las columnas al contenedor principal
   countriesContainer.appendChild(column1);
   countriesContainer.appendChild(column2);
 

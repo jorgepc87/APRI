@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function refresh() {
   if (/Mobi|Android/i.test(navigator.userAgent)) {
     // El usuario está en un dispositivo móvil
-    console.log("Estás en un dispositivo móvil");
+    //console.log("Estás en un dispositivo móvil");
     // simulateCountryClick(svg, filteredGeoJSON, "Chad");
     showPickerAfrica();
     //button.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -105,12 +105,12 @@ const buttonScroll = document.getElementById("africaButton");
 
 // Asigna el evento click
 buttonScroll.addEventListener("click", () => {
-  console.log("test");
+  //console.log("test");
   refresh();
   buttonScroll.scrollIntoView({ behavior: "smooth", block: "start" });
   const selectedBlock = document.getElementById("blockNameNowTemp");
   selectedBlock.innerText = "African countries overview";
-  console.log(selectedBlock);
+ // console.log(selectedBlock);
 });
 
 // Load and merge data
@@ -280,10 +280,10 @@ function initializeOverlayClick() {
     showScrollable.addEventListener("click", function () {
       // Acción al hacer clic en el div
       this.classList.add("hidden");
-      console.log("Overlay clickeado y ocultado");
+      //console.log("Overlay clickeado y ocultado");
     });
   } else {
-    console.error("El elemento con ID 'showScrollable' no se encontró.");
+    //console.error("El elemento con ID 'showScrollable' no se encontró.");
   }
 }
 
@@ -486,7 +486,7 @@ if (window.innerWidth <= 768) {
   // Creamos el botón
   const button = document.createElement("button");
   button.id = "toggleDescription";
-  button.style.marginLeft="6px"
+  //button.style.marginLeft="6px"
 
   button.textContent = "   Show more";
 
@@ -594,11 +594,11 @@ const mySpan = document.getElementById("africanCountry");
 // Configura el MutationObserver
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
-    console.log("cambio estado");
+   // console.log("cambio estado");
     if (mutation.type === "childList") {
       // resetToInitialView();
       const selectedBlock = document.getElementById("blockName");
-      console.log(selectedBlock.textContent);
+     // console.log(selectedBlock.textContent);
       //  resetToInitialView();
 
       if (selectedBlock.textContent.trim() == "African countries Overview") {
@@ -626,7 +626,7 @@ const observer2 = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
     if (mutation.type === "childList") {
       const selectedBlock = document.getElementById("blockName");
-      console.log(mySpan2);
+   //   console.log(mySpan2);
       selectedBlock.innerText = mySpan2.textContent.trim();
 
       //  resetToInitialView();

@@ -96,19 +96,18 @@ function confirmPicker() {
   const showScrollable = document.getElementById("showScrollable");
   showScrollable.classList.add("hidden");
 
-  const showtooltip = document.getElementById("tooltip2");
-  console.log(showtooltip);
+  ////console.log(showtooltip);
 
   // showtooltip.style.display="none"
 
-  console.log(blockNameNowTemp);
+  //console.log(blockNameNowTemp);
   blockNameTemp.innerText = blockNameNowTemp.textContent.trim();
 
-  console.log(selectedText.innerText);
+  //console.log(selectedText.innerText);
   //---------------------------Multilateral
   const button = Array.from(document.querySelectorAll(".bloc-select")).find(
     (button) => {
-      // console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
+      // //console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
       return button.textContent.trim() === selectedText.innerText;
     }
   );
@@ -116,12 +115,12 @@ function confirmPicker() {
   if (button) {
     button.click(); // Simula un clic en ese botón
   } else {
-    console.log("Botón no encontrado");
+    //console.log("Botón no encontrado");
   }
   //---------------------------Bilateral
   const button2 = Array.from(document.querySelectorAll(".country-select")).find(
     (button) => {
-      //  console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
+      //  //console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
       return button.textContent.trim() === selectedText.innerText;
     }
   );
@@ -129,12 +128,12 @@ function confirmPicker() {
   if (button2) {
     button2.click(); // Simula un clic en ese botón
   } else {
-    console.log("Botón no encontrado");
+    //console.log("Botón no encontrado");
   }
 
   /*
   const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
-  console.log(firstBlocButton);
+  //console.log(firstBlocButton);
 
   if (firstBlocButton) {
     firstBlocButton.classList.add("activeDetail");

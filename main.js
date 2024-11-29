@@ -110,7 +110,7 @@ buttonScroll.addEventListener("click", () => {
   buttonScroll.scrollIntoView({ behavior: "smooth", block: "start" });
   const selectedBlock = document.getElementById("blockNameNowTemp");
   selectedBlock.innerText = "African countries overview";
- // console.log(selectedBlock);
+  // console.log(selectedBlock);
 });
 
 // Load and merge data
@@ -522,21 +522,19 @@ if (window.innerWidth <= 768) {
   // Añadimos el evento de alternar el texto y el texto del botón al hacer clic
   button.addEventListener("click", toggleText);
 
-  document
-    .getElementById("viewLessBtn")
-    .addEventListener("click", function () {
-      console.log("CLICL");
-      document.getElementById("descriptionText2").classList.add("hidden");
-      document.getElementById("descriptionText3").classList.add("hidden");
-      document.getElementById("descriptionText1").classList.add("hidden");
+  document.getElementById("viewLessBtn").addEventListener("click", function () {
+    console.log("CLICL");
+    document.getElementById("descriptionText2").classList.add("hidden");
+    document.getElementById("descriptionText3").classList.add("hidden");
+    document.getElementById("descriptionText1").classList.add("hidden");
 
-      descriptionText.innerHTML = firstPart;
-      descriptionText.appendChild(button);
-      document.getElementById("descriptionText2").classList.add("hidden");
-      document.getElementById("descriptionText3").classList.add("hidden");
+    descriptionText.innerHTML = firstPart;
+    descriptionText.appendChild(button);
+    document.getElementById("descriptionText2").classList.add("hidden");
+    document.getElementById("descriptionText3").classList.add("hidden");
 
-      button.textContent = "   Show more";
-    });
+    button.textContent = "   Show more";
+  });
 } else {
   //document.getElementById("viewLessBtn2").style.visibility = "hidden";
 
@@ -594,15 +592,17 @@ const mySpan = document.getElementById("africanCountry");
 // Configura el MutationObserver
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
-   // console.log("cambio estado");
+    // console.log("cambio estado");
     if (mutation.type === "childList") {
       // resetToInitialView();
       const selectedBlock = document.getElementById("blockName");
-     // console.log(selectedBlock.textContent);
+	  console.log("entra aqui");
+
+      // console.log(selectedBlock.textContent);
       //  resetToInitialView();
 
       if (selectedBlock.textContent.trim() == "African countries Overview") {
-        resetToInitialView();
+        //resetToInitialView();
       } else {
       }
       //simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
@@ -626,14 +626,17 @@ const observer2 = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
     if (mutation.type === "childList") {
       const selectedBlock = document.getElementById("blockName");
-   //   console.log(mySpan2);
+       console.log("entra aqui");
       selectedBlock.innerText = mySpan2.textContent.trim();
 
-      //  resetToInitialView();
-
       if (selectedBlock.textContent.trim() == "African countries overview") {
-        resetToInitialView();
-      } else {
+        //destroyMap();
+        //filteredGeoJSON = filterAfrica(mergedBiData, numberData); // Filtra África
+        //sdrawMapWithPartnerColors(svg, path, filteredGeoJSON, numberData); // Dibuja el mapa inicial
+        //clearCardContent();
+        //addLegend(svg, colorScale); // Añade la leyenda
+        //removeThirdColumn(); // Oculta la tercera columna
+       resetToInitialView();
       }
       simulateCountryClick(svg, filteredGeoJSON, mySpan.textContent);
       //console.log("El texto del span cambió a:", mySpan);

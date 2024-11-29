@@ -18,7 +18,7 @@ function zoomed(event) {
   // Ocultar el tooltip inmediatamente al comenzar el movimiento del zoom
   const tooltip = d3.select(".tooltip2");
   tooltip.style("display", "none").style("pointer-events", "none");
-  //console.log(banderaClick);
+  console.log(banderaClick);
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   if (isMobile) {
     // Mostrar nombres de países si el zoom es 3 o más
@@ -30,39 +30,11 @@ function zoomed(event) {
       if (banderaClick) {
         // Mostrar el tooltip después de la animación del zoom
         setTimeout(() => {
-          // Calcular las posiciones para centrar el tooltip
-		  const userAgent =
-          navigator.userAgent || navigator.vendor || window.opera;
-          const tooltipWidth = tooltip.node().offsetWidth;
-          const tooltipHeight = tooltip.node().offsetHeight;
-          let centerX;
-          let centerY;
-          if (/android/i.test(userAgent)) {
-            console.log("android");
-
-            centerX = window.innerWidth / 2 - tooltipWidth / 2 + 0;
-            centerY = window.innerHeight / 2 - tooltipHeight / 2 + 150; // Agregar 200px más abaj
-          } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          //  console.log("IOS");
-
-            centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
-            centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abaj
-          } else {
-            console.log("otros");
-
-            centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
-            centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abaj
-          }
-
-          // console.log(centerY);
-
-          // Posicionar el tooltip al centro de la pantalla (ajustado)
-          tooltip.style("left", centerX + "px").style("top", centerY + "px");
-          tooltip.style("display", "flex").style("pointer-events", "auto"); // Hacer visible el tooltip
+          tooltip.style("display", "block").style("pointer-events", "auto"); // Hacer visible el tooltip
           // Usamos una segunda función de `setTimeout` para asegurarnos de que `banderaClick` cambie después de haber mostrado el tooltip
           setTimeout(() => {
             banderaClick = false;
-         //   console.log("MUESTRAAA" + banderaClick);
+            console.log("MUESTRAAA" + banderaClick);
           }, 1); // Retraso adicional para asegurar que se haya completado la animación del tooltip
         }, 1000); // Retraso para sincronizar con la animación de la etiqueta
       }
@@ -78,13 +50,14 @@ function zoomed(event) {
       // Usamos una segunda función de `setTimeout` para asegurarnos de que `banderaClick` cambie después de haber mostrado el tooltip
       setTimeout(() => {
         banderaClick = false;
-       // console.log("MUESTRAAA" + banderaClick);
+        console.log("MUESTRAAA" + banderaClick);
       }, 500); // Retraso adicional para asegurar que se haya completado la animación del tooltip
     }, 500); // Retraso para sincronizar con la animación de la etiqueta
   }
 }
 //aumentar un parametro para identificar el pais y con ello hacer el zoom mas personalizado para cada uno - JORGE PAREDES
 export function drawMap(geojson, filteredCountryGeoJSON, partner) {
+
   // Establecer el viewBox inicial
   svg.attr("viewBox", `-100 0 1000 600`);
 
@@ -911,7 +884,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   svg.selectAll("path").remove();
 
   //console.log("GeoJSON features:", geojsonData.features);
-  // console.log("Number data", numberData);
+  console.log("Number data", numberData);
 
   const zoom2 = d3
     .zoom()
@@ -952,21 +925,36 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   numberData.forEach((countryData) => {
     partnerCounts[countryData.africanCountry] = countryData.partnersNo;
   });
-  //console.log(partnerCounts);
+  console.log(partnerCounts);
   g = svg.append("g");
+  
+  let tooltip = d3.select(".tooltip2");
 
-  // Crear tooltip
-  const tooltip = d3
-    .select("body")
-    .append("div")
-    .attr("class", "tooltip2")
-    .style("position", "absolute")
-    .style("background-color", "white")
-    .style("border", "1px solid #ccc")
-    .style("border-radius", "4px")
-    .style("padding", "10px")
-    .style("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)")
-    .style("display", "none");
+  // Si no existe, crearlo; si existe, simplemente actualizar sus estilos
+  if (tooltip.empty()) {
+	// Si no hay ningún tooltip existente, crear uno nuevo
+	tooltip = d3
+	  .select("body")
+	  .append("div")
+	  .attr("class", "tooltip2")
+	  .style("position", "absolute")
+	  .style("background-color", "white")
+	  .style("border", "1px solid #ccc")
+	  .style("border-radius", "4px")
+	  .style("padding", "10px")
+	  .style("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)")
+	  .style("display", "none");
+  } else {
+	// Si el tooltip ya existe, actualizar sus estilos
+	tooltip
+	  .style("position", "absolute")
+	  .style("background-color", "white")
+	  .style("border", "1px solid #ccc")
+	  .style("border-radius", "4px")
+	  .style("padding", "10px")
+	  .style("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.2)")
+	  .style("display", "none");
+  }
 
   const countries = g
     .selectAll("path")
@@ -987,7 +975,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
 
     .on("click", clicked)
     .on("mouseover", function (event, d) {
-      //console.log("mouse oev");
+      console.log(d.properties.name);
       const countryName = d.properties.name;
       const countryData = numberData.find(
         (country) => country.africanCountry === countryName
@@ -1168,7 +1156,7 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       console.log("City name on mousemove:", countryName);
 
       if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        // console.log("City name on mousemove:", countryName);
+        console.log("City name on mousemove:", countryName);
         const userAgent =
           navigator.userAgent || navigator.vendor || window.opera;
 
@@ -1188,13 +1176,13 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
           centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
           centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abaj
         } else {
-          console.log("otros");
+          console.log("android");
 
           centerX = window.innerWidth / 2 - tooltipWidth / 2 + 30;
           centerY = window.innerHeight / 2 - tooltipHeight / 2 + 200; // Agregar 200px más abaj
         }
 
-        // console.log(centerY);
+        console.log(centerY);
 
         // Posicionar el tooltip al centro de la pantalla (ajustado)
         tooltip.style("left", centerX + "px").style("top", centerY + "px");
@@ -1393,11 +1381,10 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
   }*/
 
   function clicked(event, d) {
-	
     const tooltip = d3.select(".tooltip2");
     const countryName = d.properties.name;
     const partnerCount = partnerCounts[countryName] || 0; // Número de acuerdos del país
-    console.log("CLICKKKK de prueba");
+    console.log("CLICKKKK");
     banderaClick = true;
     console.log(banderaClick);
 
@@ -1406,6 +1393,10 @@ export function drawMapWithPartnerColors(svg, path, geojsonData, numberData) {
       console.log(`${countryName} no tiene acuerdos, no se hará zoom.`);
       return;
     }
+	d3.select(this).dispatch("mouseover", { bubbles: true });
+
+	d3.select(this).dispatch("mousemove", { bubbles: true });
+
     tooltip.style("display", "none");
     banderaClick = true;
     const [[x0, y0], [x1, y1]] = path.bounds(d);
@@ -1533,7 +1524,7 @@ export function deleteCountryLabels() {
 
 export function simulateCountryClick(svg, geojsonData, countryName) {
   // Buscar el país correspondiente en los datos GeoJSON
- /* const countryFeature = geojsonData.features.find(
+  const countryFeature = geojsonData.features.find(
     (feature) => feature.properties.name === countryName
   );
   if (countryFeature) {
@@ -1562,7 +1553,7 @@ export function simulateCountryClick(svg, geojsonData, countryName) {
     }
   } else {
     console.error(`Country "${countryName}" not found in GeoJSON data.`);
-  }*/
+  }
 }
 
 // Función para hacer zoom in

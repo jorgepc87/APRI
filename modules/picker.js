@@ -13,17 +13,17 @@ const Bilateral = [
 ];
 
 const Multilateral = [
-	{ text: "BRICS Geological Platform", value: 1, disabled: false },
-	{ text: "Minerals Security Partnership", value: 2, disabled: false },
-	{ text: "EU Raw Materials Club", value: 3, disabled: false },
-	{ text: "Energy Resource Governance Initiative", value: 4, disabled: false },
-	{ text: "IPEF Critical Minerals Dialogue", value: 5, disabled: false },
-	{ text: "Sustainable Critical Mineral Alliance", value: 6, disabled: false },
-	{ text: "Conference on Critical Materials and Minerals", value: 7, disabled: false },
-	{ text: "France-Germany-Italy Joint Communique on Critical Raw Materials", value: 8, disabled: false },
-	{ text: "Critical Minerals Mapping Initiative", value: 9, disabled: false },
-	{ text: "Lobito Corridor Project", value: 10, disabled: false },
-  ];
+  { text: "BRICS Geological Platform", value: 1, disabled: false },
+  { text: "Minerals Security Partnership", value: 2, disabled: false },
+  { text: "EU Raw Materials Club", value: 3, disabled: false },
+  { text: "Energy Resource Governance Initiative", value: 4, disabled: false },
+  { text: "IPEF Critical Minerals Dialogue", value: 5, disabled: false },
+  { text: "Sustainable Critical Mineral Alliance", value: 6, disabled: false },
+  { text: "Conference on Critical Materials and Minerals", value: 7, disabled: false },
+  { text: "France-Germany-Italy Joint Communique on Critical Raw Materials", value: 8, disabled: false },
+  { text: "Critical Minerals Mapping Initiative", value: 9, disabled: false },
+  { text: "Lobito Corridor Project", value: 10, disabled: false },
+];
 const AfricanOverview = [
   { text: "None - overview", value: 0, disabled: false },
   { text: "Algeria", value: 1, disabled: false },
@@ -96,18 +96,23 @@ function confirmPicker() {
   const showScrollable = document.getElementById("showScrollable");
   showScrollable.classList.add("hidden");
 
-  ////console.log(showtooltip);
+  const divElement = document.querySelector('.tooltip2');
 
-  // showtooltip.style.display="none"
+  // Comprobar si existe el elemento antes de modificar el estilo
+  if (divElement) {
+	divElement.style.display = 'none';
+	
+  }
 
-  //console.log(blockNameNowTemp);
+
+  console.log(blockNameNowTemp);
   blockNameTemp.innerText = blockNameNowTemp.textContent.trim();
 
-  //console.log(selectedText.innerText);
+  console.log(selectedText.innerText);
   //---------------------------Multilateral
   const button = Array.from(document.querySelectorAll(".bloc-select")).find(
     (button) => {
-      // //console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
+      // console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
       return button.textContent.trim() === selectedText.innerText;
     }
   );
@@ -115,12 +120,12 @@ function confirmPicker() {
   if (button) {
     button.click(); // Simula un clic en ese botón
   } else {
-    //console.log("Botón no encontrado");
+    console.log("Botón no encontrado");
   }
   //---------------------------Bilateral
   const button2 = Array.from(document.querySelectorAll(".country-select")).find(
     (button) => {
-      //  //console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
+      //  console.log(button.textContent + " no parece " + selectedText.innerText); // Esto imprimirá el botón en cada iteración
       return button.textContent.trim() === selectedText.innerText;
     }
   );
@@ -128,12 +133,12 @@ function confirmPicker() {
   if (button2) {
     button2.click(); // Simula un clic en ese botón
   } else {
-    //console.log("Botón no encontrado");
+    console.log("Botón no encontrado");
   }
 
   /*
   const firstBlocButton = document.querySelector(".bloc-select"); // Selecciona el primer botón en la lista de "Multilateral partnerships"
-  //console.log(firstBlocButton);
+  console.log(firstBlocButton);
 
   if (firstBlocButton) {
     firstBlocButton.classList.add("activeDetail");

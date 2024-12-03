@@ -25,7 +25,7 @@ const Multilateral = [
   { text: "Lobito Corridor Project", value: 10, disabled: false },
 ];
 const AfricanOverview = [
-  { text: "None - overview", value: 0, disabled: false },
+  { text: "General overview", value: 0, disabled: false },
   { text: "Algeria", value: 1, disabled: false },
   { text: "Angola", value: 2, disabled: false },
   { text: "Chad", value: 3, disabled: false },

@@ -170,13 +170,14 @@ export function populatePartnerships(biData, selectedCountry) {
 
   const partnerSubTitle = document.createElement("h4");
   partnerSubTitle.classList.add("card-subTitle");
-  partnerSubTitle.innerHTML = "Partnerships with African Countries";
+  partnerSubTitle.innerHTML = "Partnerships with African countries";
 
   infoPartnerContainer.appendChild(partnerSubTitle);
 
   // Crear el contenedor para el contenido con scroll
   const scrollContainer = document.createElement("div");
   scrollContainer.classList.add("custom-scroll"); // Se añade 'custom-scroll' aquí
+
   scrollContainer.style.maxHeight = "100%"; // Establecer el alto máximo para hacer scroll
   scrollContainer.style.overflowY = "auto"; // Activar el scroll vertical
   scrollContainer.style.marginTop = "0px"; // Espacio entre el título y el contenido
@@ -200,7 +201,7 @@ export function populatePartnerships(biData, selectedCountry) {
         const partnerAgreement = document.createElement("h5");
         partnerAgreement.classList.add("card-subtitle", "agreement");
         partnerAgreement.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
-        partnerAgreement.style.marginBottom = "0px"; // Aplicar la fuente personalizada
+        // partnerAgreement.style.marginBottom = "0px"; // Aplicar la fuente personalizada
         partnerAgreement.style.fontFamily = "RalewayMedium"; // Aplicar la fuente personalizada
 
         partnerAgreement.innerHTML = agreement.typeAgreement
@@ -209,7 +210,7 @@ export function populatePartnerships(biData, selectedCountry) {
         partnershipCard.appendChild(partnerAgreement);
         // Crear el elemento para el tiempo (time) y agregarlo segundo
         const time = document.createElement("p");
-        time.classList.add("card-text");
+        time.classList.add("card-text", "mb-1");
         time.innerHTML = `Signed: ${agreement.year}`;
         time.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
         time.style.fontSize = "11pt"; // Aplicar la fuente personalizada
@@ -220,7 +221,7 @@ export function populatePartnerships(biData, selectedCountry) {
 
         // Crear el párrafo para Access y agregarlo al final
         const access = document.createElement("p");
-        access.classList.add("card-text");
+        access.classList.add("card-text", "mb-1");
         access.innerHTML = `Access: Publicly available`;
         access.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
         access.style.fontSize = "11pt"; // Aplicar la fuente personalizada
@@ -257,22 +258,33 @@ export function populatePartnerships(biData, selectedCountry) {
         partnershipCard.appendChild(access);
 
         //console.log("nuevoooooooooooo");
-
+        let tagsContainer;
         //console.log(agreement.areasCoop);
         if (agreement.areasCoop != "") {
-          // Crear el subtítulo de "Areas of Cooperation"
-          const areasTitle = document.createElement("h1");
+          // Crear el contenedor del título "Areas of Cooperation"
+          const areasTitleContainer = document.createElement("div");
+          areasTitleContainer.style.display = "flex";
+          areasTitleContainer.style.alignItems = "center";
+          areasTitleContainer.style.flexWrap = "wrap";
+          areasTitleContainer.style.gap = "5px";
+
+          const areasTitle = document.createElement("span");
           areasTitle.classList.add("card-text");
           areasTitle.style.fontFamily = "RalewayLight"; // Aplicar la fuente personalizada
-          areasTitle.style.fontSize = "11pt"; // Aplicar la fuente personalizada
-          areasTitle.style.paddingBottom = "0px"; // Aplicar la fuente personalizada
-          areasTitle.style.marginBottom = "0px"; // Aplicar la fuente personalizada
-
+          areasTitle.style.fontSize = "11pt";
+          areasTitle.style.paddingBottom = "0px";
+          areasTitle.style.marginBottom = "0px";
+          areasTitle.style.marginRight = "10px";
           areasTitle.innerHTML = "Areas of Cooperation:";
-          partnershipCard.appendChild(areasTitle);
+          areasTitleContainer.appendChild(areasTitle);
 
           // Contenedor de tags
           const tagsContainer = document.createElement("div");
+          tagsContainer.style.display = "flex";
+          tagsContainer.style.flexWrap = "wrap";
+          tagsContainer.style.alignItems = "center";
+          tagsContainer.style.gap = "5px";
+
           const rightElement = document.querySelector(".right");
           rightElement.style.marginTop = "0px"; // Ajusta el valor según lo que necesites
 
@@ -300,46 +312,107 @@ export function populatePartnerships(biData, selectedCountry) {
               "This broadly involves joint efforts in the exploration of rare earth minerals, development of secure supply chains, exchange of technical expertise, and the creation of geological infrastructure through public-private partnerships to promote sustainable mining and investment.",
           };
 
+          // Obtener el primer elemento que tenga 25 letras o menos y luego el resto en su orden original
+          const firstShortElement = agreement.areasCoop.find(
+            (area) => area.length <= 60
+          );
+          const remainingAreas = agreement.areasCoop.filter(
+            (area) => area !== firstShortElement
+          );
+          const reorderedAreas = firstShortElement
+            ? [firstShortElement, ...remainingAreas]
+            : remainingAreas;
+
           // Crear los tags para cada área de cooperación con colores específicos
-          agreement.areasCoop.forEach((area) => {
+          reorderedAreas.forEach((area, index) => {
             const tag = document.createElement("span");
             tag.classList.add("tag");
             tag.textContent = area;
+            tag.style.whiteSpace = "nowrap"; // Evitar que el texto del tag se parta en varias líneas
 
-            // Aplicar el color específico al fondo del tag según el área de cooperación
             tag.style.backgroundColor = colorMap[area] || "#000000"; // Color por defecto si el área no está en el mapa
             tag.style.color = "black"; // Texto en color negro
             tag.style.padding = "2px 10px";
             tag.style.borderRadius = "4px";
             tag.style.fontSize = "9pt";
 
-            // Crear el tooltip
-            const tooltip = document.createElement("span");
-            tooltip.classList.add("tooltip");
-            tooltip.textContent = tooltipMap[area];
-            tooltip.style.lineHeight = "1.5"; // Aumentar interlineado
+            // Añadir eventos para presionar y soltar el tag
+            tag.addEventListener("mouseover", function () {
+              tag.style.border = "1px solid black"; // Añadir borde negro al presionar
+            });
+            tag.addEventListener("mouseleave", function () {
+              tag.style.border = "none"; // Quitar borde si el ratón sale del tag mientras se presiona
+            });
+            tag.addEventListener("touchstart", function () {
+              tag.style.border = "1px solid black"; // Añadir borde negro al presionar
+            });
 
-            // Añadir el tooltip al tag
-            tag.appendChild(tooltip);
+            tag.addEventListener("mouseenter", function () {
+              // Crear el tooltip
+              const tooltip = document.createElement("span");
+              tooltip.classList.add("tooltip");
+              tooltip.textContent = tooltipMap[area];
+              tooltip.style.lineHeight = "1.5"; // Aumentar interlineado
 
-            // Añadir el tag al contenedor de tags
-            tagsContainer.appendChild(tag);
+              // Añadir el tooltip al tag
+              tag.appendChild(tooltip);
+
+              // Hacer el tooltip visible
+              tooltip.style.visibility = "visible";
+              tooltip.style.opacity = "1";
+
+              // Calcular la posición del tooltip para evitar que se corte con el contenedor
+              const tooltipRect = tooltip.getBoundingClientRect();
+              const container = document.querySelector(".custom-scroll"); // Selecciona el contenedor por clase
+              const containerRect = container.getBoundingClientRect();
+
+              // Ajustar la posición si el tooltip se sale del contenedor
+              if (tooltipRect.right > containerRect.right) {
+                const overflowX = tooltipRect.right - containerRect.right;
+                tooltip.style.transform = `translateX(calc(-15% - ${overflowX}px))`; // Ajustar la posición
+              }
+
+              if (tooltipRect.left < containerRect.left) {
+                const overflowLeft = containerRect.left - tooltipRect.left;
+                tooltip.style.transform = `translateX(calc(-15% + ${overflowLeft}px))`;
+              }
+            });
+
+            tag.addEventListener("mouseleave", function () {
+              // Remover el tooltip al salir del tag
+              const tooltip = tag.querySelector(".tooltip");
+              if (tooltip) {
+                tag.removeChild(tooltip);
+              }
+            });
+
+            // Añadir el tag al contenedor de título solo si es el primer elemento corto, el resto va al contenedor de tags
+            if (index === 0 && firstShortElement === area) {
+              areasTitleContainer.appendChild(tag);
+            } else {
+              tagsContainer.appendChild(tag);
+            }
           });
-          // Agregar el contenedor de tags a partnershipCard
-          partnershipCard.appendChild(tagsContainer);
-        }
-        // Agregar la línea separadora solo si no es el último elemento
-        if (index < partner.agreements.length - 1) {
-          const line = document.createElement("hr");
-          line.classList.add("line_black");
 
-          // Personalizar los estilos de la línea
-          line.style.border = "0.5px solid gray";
-          line.style.margin = "7px 0 3px 0";
-          line.style.padding = "0px";
+          // Agregar el contenedor de título y tags a partnershipCard
+          areasTitleContainer.appendChild(tagsContainer);
+          partnershipCard.appendChild(areasTitleContainer);
 
-          partnershipCard.appendChild(line);
+          // Agregar la línea separadora solo si no es el último elemento
+          if (index < partner.agreements.length - 1) {
+            const line = document.createElement("hr");
+            line.classList.add("line_black");
+            if (tagsContainer) tagsContainer.style.marginBottom = "0.75rem"; // Ajusta el valor según lo que necesites
+
+            // Personalizar los estilos de la línea
+            line.style.border = "0.5px solid gray";
+            line.style.margin = "2px 0 3px 0";
+            line.style.padding = "0px";
+
+            partnershipCard.appendChild(line);
+          }
         }
+       
       });
     } else if (partner.typeAgreement) {
       // Crear el elemento para partnerAgreement y agregarlo primero
@@ -490,18 +563,50 @@ export function populatePartnerships(biData, selectedCountry) {
           tag.addEventListener("mouseleave", function () {
             tag.style.border = "none"; // Quitar borde si el ratón sale del tag mientras se presiona
           });
-		  tag.addEventListener("touchstart", function () {
+          tag.addEventListener("touchstart", function () {
             tag.style.border = "1px solid black"; // Añadir borde negro al presionar
           });
-          // Crear el tooltip
-          const tooltip = document.createElement("span");
-          tooltip.classList.add("tooltip");
-          tooltip.textContent = tooltipMap[area];
-          tooltip.style.lineHeight = "1.5"; // Aumentar interlineado
 
-          // Añadir el tooltip al tag
-          tag.appendChild(tooltip);
+          tag.addEventListener("mouseenter", function () {
+            // Crear el tooltip
+            const tooltip = document.createElement("span");
+            tooltip.classList.add("tooltip");
+            tooltip.textContent = tooltipMap[area];
+            tooltip.style.lineHeight = "1.5"; // Aumentar interlineado
 
+            // Añadir el tooltip al tag
+            tag.appendChild(tooltip);
+
+            // Hacer el tooltip visible
+            tooltip.style.visibility = "visible";
+            tooltip.style.opacity = "1";
+
+            // Calcular la posición del tooltip para evitar que se corte con el contenedor
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const container = document.querySelector(".custom-scroll"); // Selecciona el contenedor por clase
+            const containerRect = container.getBoundingClientRect();
+            console.log(containerRect);
+            // Ajustar la posición si el tooltip se sale del contenedor
+            if (tooltipRect.right > containerRect.right) {
+              console.log("mas grande");
+
+              const overflowX = tooltipRect.right - containerRect.right;
+              tooltip.style.transform = `translateX(calc(-15% - ${overflowX}px))`; // Ajustar la posición
+            }
+
+            if (tooltipRect.left < containerRect.left) {
+              const overflowLeft = containerRect.left - tooltipRect.left;
+              tooltip.style.transform = `translateX(calc(-15% + ${overflowLeft}px))`;
+            }
+          });
+
+          tag.addEventListener("mouseleave", function () {
+            // Remover el tooltip al salir del tag
+            const tooltip = tag.querySelector(".tooltip");
+            if (tooltip) {
+              tag.removeChild(tooltip);
+            }
+          });
           // Añadir el tag al contenedor de título solo si es el primer elemento corto, el resto va al contenedor de tags
           if (index === 0 && firstShortElement === area) {
             areasTitleContainer.appendChild(tag);
@@ -533,6 +638,7 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
   // Crear y agregar el contenedor con scroll para todo el contenido relacionado
   const scrollContainer = document.createElement("div");
   scrollContainer.classList.add("custom-scroll"); // Se añade la clase para estilos personalizados
+
   scrollContainer.style.maxHeight = "100%"; // Altura máxima para el contenedor
   scrollContainer.style.overflowY = "auto"; // Habilitar scroll vertical
   scrollContainer.style.marginTop = "0px"; // Espacio entre el título y el contenido
@@ -671,7 +777,7 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
     // Texto dentro del tooltip
     const tooltipText = document.createElement("div");
     tooltipText.innerText = "Description";
-    tooltipText.style.marginRight = "20px";
+    tooltipText.style.marginRight = "15px";
 
     tooltipMulti.appendChild(closeBtn);
     tooltipMulti.appendChild(tooltipText);
@@ -679,9 +785,9 @@ export function populateMultilateral(multiData, selectedBloc, multiJsonData) {
     tooltipMultiContainer.appendChild(infoIcon);
     tooltipMultiContainer.appendChild(tooltipMulti);
 
-    // Agregar el nombre y el ícono en línea
+    // Agregar el nombre y el ícono en línea(KARLA)
     countryItem.appendChild(countryName);
-    countryItem.appendChild(tooltipMultiContainer);
+    //  countryItem.appendChild(tooltipMultiContainer);
 
     // Alternar columnas
     if (index % 2 === 0) {
